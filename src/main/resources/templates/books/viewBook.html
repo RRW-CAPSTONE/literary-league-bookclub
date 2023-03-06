@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<main class="container">
+    <h1 th:text="${book.title}"></h1>
+    <h2 th:text="${book.author}"></h2>
+    <p th:text="${book.genre}"></p>
+    <div th:each="genre : ${book.genres}">
+        <h6 th:text="${genre.genre}"></h6>
+    </div>
+</main>
+
+</body>
+</html>
