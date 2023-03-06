@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Home Page</title>
@@ -7,6 +7,17 @@
 <body>
 
     <h1>Welcome to Literary League</h1>
+
+    <form class="d-flex" role="search" id="searchButton">
+        <input class="form-control me-2" type="search" placeholder="Search movies..." aria-label="Search" id="bookSearch">
+        <button class="btn btn-outline-light" type="submit" >Search</button>
+    </form>
+
+    <script type="text/javascript" src="https://www.google.com/books/jsapi.js"></script>
+    <script type="text/javascript"></script>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script th:src="@{/JS/api_key.js}"></script>
+    <script th:src="@{/JS/googleAPI.js}"></script>
 
 </body>
 </html>
