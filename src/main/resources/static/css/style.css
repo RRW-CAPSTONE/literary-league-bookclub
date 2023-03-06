@@ -1,0 +1,40 @@
+body{
+    background-color: tan;
+    color: black;
+}
+.navbar{
+    background-color: darkolivegreen;
+}
+
+.navbar{
+    color: black;
+    font-family: 'Rampart One', cursive;
+}
+.logout-button{
+    color: black;
+    background-color: darkolivegreen;
+}
+
+footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 20px;
+    background-color: darkolivegreen;
+    font-family: 'Rampart One', cursive;
+}
+
+.btn{
+    background-color: darkolivegreen;
+}
+
+a{
+    color: black;
+}
+
+a:hover{
+    color: tan;
+}
+.dice a:hover{
+    color: darkolivegreen;
+}
