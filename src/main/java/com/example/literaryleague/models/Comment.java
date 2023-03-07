@@ -23,13 +23,17 @@ public class Comment {
     public Comment() {
     }
 
-    public Comment(long id, String body) {
+    public Comment(long id, String body, BookDiscussion bookDiscussion, User user) {
         this.id = id;
         this.body = body;
+        this.bookDiscussion = bookDiscussion;
+        this.user = user;
     }
 
-    public Comment(String body) {
+    public Comment(String body, BookDiscussion bookDiscussion, User user) {
         this.body = body;
+        this.bookDiscussion = bookDiscussion;
+        this.user = user;
     }
 
     public long getId() {
@@ -46,6 +50,22 @@ public class Comment {
 
     public void setBody(String body) {
         this.body = body;
+    }
+
+    public BookDiscussion getBookDiscussion() {
+        return bookDiscussion;
+    }
+
+    public void setBookDiscussion(BookDiscussion bookDiscussion) {
+        this.bookDiscussion = bookDiscussion;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }
 

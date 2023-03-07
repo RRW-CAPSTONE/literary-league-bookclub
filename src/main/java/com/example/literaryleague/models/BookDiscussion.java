@@ -30,23 +30,21 @@ public class BookDiscussion {
 
     public BookDiscussion(){}
 
-    public BookDiscussion(long id, String title, String body, List<Comment> comments) {
+    public BookDiscussion(long id, String title, String body, List<Comment> comments, BookClub bookClub, User user) {
         this.id = id;
         this.title = title;
         this.body = body;
         this.comments = comments;
+        this.bookClub = bookClub;
+        this.user = user;
     }
 
-    public BookDiscussion(long id, String title, String body) {
-        this.id = id;
-        this.title = title;
-        this.body = body;
-    }
-
-    public BookDiscussion(String title, String body, List<Comment> comments) {
+    public BookDiscussion(String title, String body, List<Comment> comments, BookClub bookClub, User user) {
         this.title = title;
         this.body = body;
         this.comments = comments;
+        this.bookClub = bookClub;
+        this.user = user;
     }
 
     public long getId() {
@@ -79,5 +77,21 @@ public class BookDiscussion {
 
     public void setComments(List<Comment> comments) {
         this.comments = comments;
+    }
+
+    public BookClub getBookClub() {
+        return bookClub;
+    }
+
+    public void setBookClub(BookClub bookClub) {
+        this.bookClub = bookClub;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

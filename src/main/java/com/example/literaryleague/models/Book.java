@@ -17,8 +17,8 @@ public class Book {
     @Column(nullable = false)
     private String author;
 
-    @Column(nullable = false)
-    private String genre;
+    @Column
+    private String description;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "book")
     private List<SuggestedBook> suggestedBooks;
@@ -35,19 +35,25 @@ public class Book {
 
     public Book(){}
 
-    public Book(long id, String title, String author, String genre, User user) {
+    public Book(long id, String title, String author, String description, List<SuggestedBook> suggestedBooks, User user, List<UserReviews> userReviews, List<BookClub> bookClubs) {
         this.id = id;
         this.title = title;
         this.author = author;
-        this.genre = genre;
+        this.description = description;
+        this.suggestedBooks = suggestedBooks;
         this.user = user;
+        this.userReviews = userReviews;
+        this.bookClubs = bookClubs;
     }
 
-    public Book(String title, String author, String genre, User user) {
+    public Book(String title, String author, String description, List<SuggestedBook> suggestedBooks, User user, List<UserReviews> userReviews, List<BookClub> bookClubs) {
         this.title = title;
         this.author = author;
-        this.genre = genre;
+        this.description = description;
+        this.suggestedBooks = suggestedBooks;
         this.user = user;
+        this.userReviews = userReviews;
+        this.bookClubs = bookClubs;
     }
 
     public long getId() {
@@ -74,12 +80,20 @@ public class Book {
         this.author = author;
     }
 
-    public String getGenre() {
-        return genre;
+    public String getDescription() {
+        return description;
     }
 
-    public void setGenre(String genre) {
-        this.genre = genre;
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public List<SuggestedBook> getSuggestedBooks() {
+        return suggestedBooks;
+    }
+
+    public void setSuggestedBooks(List<SuggestedBook> suggestedBooks) {
+        this.suggestedBooks = suggestedBooks;
     }
 
     public User getUser() {
@@ -90,4 +104,19 @@ public class Book {
         this.user = user;
     }
 
+    public List<UserReviews> getUserReviews() {
+        return userReviews;
+    }
+
+    public void setUserReviews(List<UserReviews> userReviews) {
+        this.userReviews = userReviews;
+    }
+
+    public List<BookClub> getBookClubs() {
+        return bookClubs;
+    }
+
+    public void setBookClubs(List<BookClub> bookClubs) {
+        this.bookClubs = bookClubs;
+    }
 }

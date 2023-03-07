@@ -22,13 +22,17 @@ public class UserReviews {
 
     public UserReviews(){}
 
-    public UserReviews(long id, String review) {
+    public UserReviews(long id, String review, User user, Book book) {
         this.id = id;
         this.review = review;
+        this.user = user;
+        this.book = book;
     }
 
-    public UserReviews(String review) {
+    public UserReviews(String review, User user, Book book) {
         this.review = review;
+        this.user = user;
+        this.book = book;
     }
 
     public long getId() {
@@ -45,6 +49,22 @@ public class UserReviews {
 
     public void setReview(String review) {
         this.review = review;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public Book getBook() {
+        return book;
+    }
+
+    public void setBook(Book book) {
+        this.book = book;
     }
 }
 
