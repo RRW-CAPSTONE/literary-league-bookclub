@@ -17,53 +17,43 @@ public class Book {
     @Column(nullable = false)
     private String author;
 
-    @Column(nullable = false)
-    private String genre;
+    @Column
+    private String description;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "book")
+    private List<SuggestedBook> suggestedBooks;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
     private  User user;
 
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinColumn(
-//            name = "books_genres",
-//            joinColumns = {@JoinColumn(name="book_id")},
-//            inverseJoinColumns = {@JoinColumn(name="genre_id")}
-    )
-    private List<Genre> genres;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "book")
+    private List<UserReviews> userReviews;
+
+    @ManyToMany(mappedBy = "books")
+    private List<BookClub> bookClubs;
 
     public Book(){}
 
-    public Book(long id, String title, String author, String genre, User user, List<Genre> genres) {
+    public Book(long id, String title, String author, String description, List<SuggestedBook> suggestedBooks, User user, List<UserReviews> userReviews, List<BookClub> bookClubs) {
         this.id = id;
         this.title = title;
         this.author = author;
-        this.genre = genre;
+        this.description = description;
+        this.suggestedBooks = suggestedBooks;
         this.user = user;
-        this.genres = genres;
+        this.userReviews = userReviews;
+        this.bookClubs = bookClubs;
     }
 
-    public Book(long id, String title, String author, String genre, User user) {
-        this.id = id;
+    public Book(String title, String author, String description, List<SuggestedBook> suggestedBooks, User user, List<UserReviews> userReviews, List<BookClub> bookClubs) {
         this.title = title;
         this.author = author;
-        this.genre = genre;
+        this.description = description;
+        this.suggestedBooks = suggestedBooks;
         this.user = user;
-    }
-
-    public Book(String title, String author, String genre, User user) {
-        this.title = title;
-        this.author = author;
-        this.genre = genre;
-        this.user = user;
-    }
-
-    public Book(String title, String author, String genre, User user, List<Genre> genres) {
-        this.title = title;
-        this.author = author;
-        this.genre = genre;
-        this.user = user;
-        this.genres = genres;
+        this.userReviews = userReviews;
+        this.bookClubs = bookClubs;
     }
 
     public long getId() {
@@ -90,12 +80,20 @@ public class Book {
         this.author = author;
     }
 
-    public String getGenre() {
-        return genre;
+    public String getDescription() {
+        return description;
     }
 
-    public void setGenre(String genre) {
-        this.genre = genre;
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public List<SuggestedBook> getSuggestedBooks() {
+        return suggestedBooks;
+    }
+
+    public void setSuggestedBooks(List<SuggestedBook> suggestedBooks) {
+        this.suggestedBooks = suggestedBooks;
     }
 
     public User getUser() {
@@ -106,11 +104,19 @@ public class Book {
         this.user = user;
     }
 
-    public List<Genre> getGenres() {
-        return genres;
+    public List<UserReviews> getUserReviews() {
+        return userReviews;
     }
 
-    public void setGenres(List<Genre> genres) {
-        this.genres = genres;
+    public void setUserReviews(List<UserReviews> userReviews) {
+        this.userReviews = userReviews;
+    }
+
+    public List<BookClub> getBookClubs() {
+        return bookClubs;
+    }
+
+    public void setBookClubs(List<BookClub> bookClubs) {
+        this.bookClubs = bookClubs;
     }
 }

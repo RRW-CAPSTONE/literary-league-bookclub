@@ -24,10 +24,22 @@ public class User {
     private List<Book> books;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+    private List<BookDiscussion> bookDiscussions;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
     private List<BookClub> clubs;
 
-//    @ManyToMany(mappedBy = "Users")
-//    private List<BookClub> bookClubs;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+    private List<UserReviews> userReviews;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+    private List<SuggestedBook> suggestedBooks;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+    private List<Comment> comments;
+
+    @ManyToMany(mappedBy = "users")
+    private List<BookClub> bookClubs;
 
     public User() {
     }
@@ -39,18 +51,31 @@ public class User {
         password = copy.password;
     }
 
-    public User(long id, String name) {
-        this.id = id;
-        this.username = name;
-    }
-
-    public User(long id, String username, String email, String password, List<Book> books, List<BookClub> clubs) {
+    public User(long id, String username, String email, String password, List<Book> books, List<BookDiscussion> bookDiscussions, List<BookClub> clubs, List<UserReviews> userReviews, List<SuggestedBook> suggestedBooks, List<Comment> comments, List<BookClub> bookClubs) {
         this.id = id;
         this.username = username;
         this.email = email;
         this.password = password;
         this.books = books;
+        this.bookDiscussions = bookDiscussions;
         this.clubs = clubs;
+        this.userReviews = userReviews;
+        this.suggestedBooks = suggestedBooks;
+        this.comments = comments;
+        this.bookClubs = bookClubs;
+    }
+
+    public User(String username, String email, String password, List<Book> books, List<BookDiscussion> bookDiscussions, List<BookClub> clubs, List<UserReviews> userReviews, List<SuggestedBook> suggestedBooks, List<Comment> comments, List<BookClub> bookClubs) {
+        this.username = username;
+        this.email = email;
+        this.password = password;
+        this.books = books;
+        this.bookDiscussions = bookDiscussions;
+        this.clubs = clubs;
+        this.userReviews = userReviews;
+        this.suggestedBooks = suggestedBooks;
+        this.comments = comments;
+        this.bookClubs = bookClubs;
     }
 
     public long getId() {
@@ -93,11 +118,51 @@ public class User {
         this.books = books;
     }
 
+    public List<BookDiscussion> getBookDiscussions() {
+        return bookDiscussions;
+    }
+
+    public void setBookDiscussions(List<BookDiscussion> bookDiscussions) {
+        this.bookDiscussions = bookDiscussions;
+    }
+
     public List<BookClub> getClubs() {
         return clubs;
     }
 
     public void setClubs(List<BookClub> clubs) {
         this.clubs = clubs;
+    }
+
+    public List<UserReviews> getUserReviews() {
+        return userReviews;
+    }
+
+    public void setUserReviews(List<UserReviews> userReviews) {
+        this.userReviews = userReviews;
+    }
+
+    public List<SuggestedBook> getSuggestedBooks() {
+        return suggestedBooks;
+    }
+
+    public void setSuggestedBooks(List<SuggestedBook> suggestedBooks) {
+        this.suggestedBooks = suggestedBooks;
+    }
+
+    public List<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
+    }
+
+    public List<BookClub> getBookClubs() {
+        return bookClubs;
+    }
+
+    public void setBookClubs(List<BookClub> bookClubs) {
+        this.bookClubs = bookClubs;
     }
 }
