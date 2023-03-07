@@ -14,28 +14,22 @@
 <body>
 <div th:replace="partials :: navbar"></div>
 
-<h1>Welcome to Literary League</h1>
+    <h1>Welcome to Literary League</h1>
 
-    <!--Book IMG/Info cardholder-->
     <div id="card">
         <div id="container">
-            <!--HTML coming from googleAPI.js-->
+            <!--    html coming from js-->
         </div>
     </div>
 
 
 <div th:replace="partials :: footer"></div>
 
-<form class="d-flex" role="search" id="searchButton">
-    <input class="form-control me-2" type="search" placeholder="Search movies..." aria-label="Search" id="bookSearch">
-    <button class="btn btn-outline-light" type="submit" >Search</button>
-</form>
-
-<script type="text/javascript" src="https://www.google.com/books/jsapi.js"></script>
-<script type="text/javascript"></script>
-<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
-<script th:src="@{/JS/api_key.js}"></script>
-<script th:src="@{/JS/googleAPI.js}"></script>
+    <script type="text/javascript" src="https://www.google.com/books/jsapi.js"></script>
+    <script type="text/javascript"></script>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script th:src="@{/JS/api_key.js}"></script>
+    <script th:src="@{/JS/googleAPI.js}"></script>
 
 
 </body>
