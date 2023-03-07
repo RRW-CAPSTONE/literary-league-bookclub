@@ -1,40 +1,81 @@
 body{
-    background-color: tan;
+    background-color:#F3F4F4;
     color: black;
 }
 .navbar{
-    background-color: darkolivegreen;
-}
-
-.navbar{
+    background-color: #71AACF;
+    text-decoration: none;
     color: black;
     font-family: 'Rampart One', cursive;
-}
-.logout-button{
-    color: black;
-    background-color: darkolivegreen;
+
 }
 
+.logout-button{
+    color: black;
+    background-color: #71AACF;
+    border: transparent;
+    cursor: pointer;
+
+}
+.logout-button:hover{
+    color: #F3F4F4;
+}
 footer{
     position: fixed;
     bottom: 0;
     width: 100%;
+    height: 50px;
     padding: 20px;
-    background-color: darkolivegreen;
+    background-color: #96adc9;
     font-family: 'Rampart One', cursive;
 }
 
 .btn{
-    background-color: darkolivegreen;
+    background-color:#71AACF;
+    border: black;
+    cursor: pointer;
 }
 
 a{
     color: black;
+    text-decoration: none;
 }
 
 a:hover{
-    color: tan;
+    color: #F3F4F4;
 }
-.dice a:hover{
-    color: darkolivegreen;
+.btn:hover{
+    color: #F3F4F4;
+}
+.profile-container{
+    display: flex;
+   justify-content: space-between;
+    margin: 20px;
+    height: calc(100vh - 250px)
+}
+.profile-recent-info{
+    padding: 5px;
+    width: calc(100% - 10rem - 40px);
+    height: calc(100vh - 170px);
+}
+.profile-info{
+    margin-right: 20px;
+    padding: 5px;
+    width: 10rem;
+    height: calc(100vh - 170px);
+}
+.img-circle{
+    border-radius: 50%;
+}
+.profile-club{
+    margin: 20px;
+    padding: 5px;
+    width: 75%;
+    height: 40%
+}
+.recent-activity{
+    margin: 20px;
+    padding: 5px;
+    width: 75%;
+    height: 40%
 }
