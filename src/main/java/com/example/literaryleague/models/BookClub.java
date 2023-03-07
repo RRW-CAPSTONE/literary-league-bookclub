@@ -1,6 +1,9 @@
 package com.example.literaryleague.models;
 
 import jakarta.persistence.*;
+
+import java.util.List;
+
 @Entity
 @Table(name = "bookclubs")
 public class BookClub {
@@ -14,14 +17,47 @@ public class BookClub {
     @Column(nullable = false)
     private String description;
 
+    @OneToOne
+    private Book current_book;
+
     @ManyToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "owner_id")
     private User user;
 
-//    @ManyToMany(cascade = {CascadeType.ALL})
-//    private List<User> users;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "bookClub")
+    private List<BookDiscussion> bookDiscussions;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "bookClub")
+    private List<SuggestedBook> suggestedBooks;
+
+
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(
+            name = "clubs_users",
+            joinColumns = {@JoinColumn(name = "bc_id")},
+            inverseJoinColumns = {@JoinColumn(name = "user_id")}
+    )
+    private List<User> users;
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(
+            name = "club_book",
+            joinColumns = {@JoinColumn(name = "bc_id")},
+            inverseJoinColumns = {@JoinColumn(name = "book_id")}
+    )
+    private List<Book> books;
 
     public BookClub() {
+    }
+
+    public BookClub(long id, String title, String description, User user, List<User> users, List<Book> books) {
+        this.id = id;
+        this.title = title;
+        this.description = description;
+        this.user = user;
+        this.users = users;
+        this.books = books;
     }
 
     public BookClub(String title, String description, User user) {

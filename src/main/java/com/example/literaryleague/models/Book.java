@@ -20,28 +20,20 @@ public class Book {
     @Column(nullable = false)
     private String genre;
 
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "book")
+    private List<SuggestedBook> suggestedBooks;
+
     @ManyToOne
     @JoinColumn(name = "user_id")
     private  User user;
 
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinColumn(
-//            name = "books_genres",
-//            joinColumns = {@JoinColumn(name="book_id")},
-//            inverseJoinColumns = {@JoinColumn(name="genre_id")}
-    )
-    private List<Genre> genres;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "book")
+    private List<UserReviews> userReviews;
+
+    @ManyToMany(mappedBy = "books")
+    private List<BookClub> bookClubs;
 
     public Book(){}
-
-    public Book(long id, String title, String author, String genre, User user, List<Genre> genres) {
-        this.id = id;
-        this.title = title;
-        this.author = author;
-        this.genre = genre;
-        this.user = user;
-        this.genres = genres;
-    }
 
     public Book(long id, String title, String author, String genre, User user) {
         this.id = id;
@@ -56,14 +48,6 @@ public class Book {
         this.author = author;
         this.genre = genre;
         this.user = user;
-    }
-
-    public Book(String title, String author, String genre, User user, List<Genre> genres) {
-        this.title = title;
-        this.author = author;
-        this.genre = genre;
-        this.user = user;
-        this.genres = genres;
     }
 
     public long getId() {
@@ -106,11 +90,4 @@ public class Book {
         this.user = user;
     }
 
-    public List<Genre> getGenres() {
-        return genres;
-    }
-
-    public void setGenres(List<Genre> genres) {
-        this.genres = genres;
-    }
 }

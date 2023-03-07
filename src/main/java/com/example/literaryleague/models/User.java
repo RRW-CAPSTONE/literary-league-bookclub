@@ -24,10 +24,22 @@ public class User {
     private List<Book> books;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+    private List<BookDiscussion> bookDiscussions;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
     private List<BookClub> clubs;
 
-//    @ManyToMany(mappedBy = "Users")
-//    private List<BookClub> bookClubs;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+    private List<UserReviews> userReviews;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+    private List<SuggestedBook> suggestedBooks;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+    private List<Comment> comments;
+
+    @ManyToMany(mappedBy = "users")
+    private List<BookClub> bookClubs;
 
     public User() {
     }
