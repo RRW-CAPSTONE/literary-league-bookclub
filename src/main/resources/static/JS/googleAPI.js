@@ -3,7 +3,7 @@
     // Google Books API
     $(document).ready(function (){
         // Creating variable to query html ID
-        let cardBody = $('#card-container');
+        let cardBody = $('#card');
 
         // Getting & submitting the users input value from the HTML form(title or authors) to return the users desired book
         $('#searchButton').submit(function (e){
@@ -29,17 +29,13 @@
                 if (description == null){
                     const imgSrc = `${imgLink}`;
 
-                    const img = document.querySelector("img");
-
-                    img.setAttribute('src', imgSrc);
-
                     html +=
                         '<div class="card" style="width: 14rem; margin-left: 2em;">' +
-                            '<img>' +
-                            '<div class="card-body">' +
-                                '<h5 class="card-title" >' + bookTitle + '</h5>' +
-                                '<p class="list-group-item">' + authors + '</p>' +
-                                '<p class="card-text">' + "Sorry book Description is not availible" + '</p>' +
+                            '<img src="'+ imgSrc + '" alt="" id="image">' +
+                            '<div class="container">' +
+                                '<h5>' + "Title: " + bookTitle + '</h5>' +
+                                '<p>' + "Author: " + authors + '</p>' +
+                                '<p>' + "Sorry book Description is not availible" + '</p>' +
                             '</div>' +
                         '</div>'
                     cardBody.html(html);
@@ -47,17 +43,13 @@
                 } else if (authors == null){
                     const imgSrc = `${imgLink}`;
 
-                    const img = document.querySelector("img");
-
-                    img.setAttribute('src', imgSrc);
-
                     html +=
                         '<div class="card" style="width: 14rem; margin-left: 2em;">' +
-                            '<img>' +
-                            '<div class="card-body">' +
-                                '<h5 class="card-title" >' + bookTitle + '</h5>' +
-                                '<p class="list-group-item">' + "Sorry book Author is not availible" + '</p>' +
-                                '<p class="card-text">' + description + '</p>' +
+                            '<img src="'+ imgSrc + '" alt="" id="image">' +
+                            '<div class="container">' +
+                                '<h5>' + "Title: " + bookTitle + '</h5>' +
+                                '<p>' + "Sorry book Author is not availible" + '</p>' +
+                                '<p>' + description + '</p>' +
                             '</div>' +
                         '</div>'
                     cardBody.html(html);
@@ -65,17 +57,13 @@
                 } else if (bookTitle == null){
                     const imgSrc = `${imgLink}`;
 
-                    const img = document.querySelector("img");
-
-                    img.setAttribute('src', imgSrc);
-
                     html +=
                         '<div class="card" style="width: 14rem; margin-left: 2em;">' +
-                            '<img>' +
-                                '<div class="card-body">' +
-                                '<h5 class="card-title" >' + "Sorry book Title is not availible" + '</h5>' +
-                                '<p class="list-group-item">' + authors + '</p>' +
-                                '<p class="card-text">' + description + '</p>' +
+                            '<img src="'+ imgSrc + '" alt="" id="image">' +
+                                '<div class="container">' +
+                                '<h5>' + "Sorry book Title is not availible" + '</h5>' +
+                                '<p>' + "Author: " + authors + '</p>' +
+                                '<p>' + description + '</p>' +
                             '</div>' +
                         '</div>'
                     cardBody.html(html);
@@ -83,17 +71,15 @@
                 }else {
                     const imgSrc = `${imgLink}`;
 
-                    const img = document.querySelector("img");
-
-                    img.setAttribute('src', imgSrc);
-
                     html +=
                         '<div class="card" style="width: 14rem; margin-left: 2em;">' +
-                            '<img>' +
-                            '<div class="card-body">' +
-                                '<h5 class="card-title" >' + bookTitle + '</h5>' +
-                                '<p class="list-group-item">' + authors + '</p>' +
-                                '<p class="card-text">' + description + '</p>' +
+                            '<img src="'+ imgSrc + '" alt="" id="image">' +
+                            '<div class="container">' +
+                                '<h5>' + "Title: " + bookTitle + '</h5>' +
+                                '<hr>' +
+                                '<p>' + "Author: " + authors + '</p>' +
+                                '<hr>' +
+                                '<p>' + description + '</p>' +
                             '</div>' +
                         '</div>'
                     cardBody.html(html);
