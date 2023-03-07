@@ -10,7 +10,7 @@
     <h1 th:text="${club.title}"></h1>
     <h3 th:text="|By: ${club.user.email}|"></h3>
     <p th:text="${club.description}"></p>
-    <div th:if="${club.user.id == #authentication.principal.id}">
+    <div>
         <a th:href="@{'/clubs/' + ${club.id} + '/edit'}" class="footer-bg btn">Edit Post</a>
     </div>
 </div>
