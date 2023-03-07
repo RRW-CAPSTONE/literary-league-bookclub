@@ -13,7 +13,7 @@
             // Using AJAX to call Google book API
             $.ajax({
                 method: 'GET',
-                url: `https://www.googleapis.com/books/v1/volumes?q=${book}&key=${Google_API_KEY}`,
+                url: `https://www.googleapis.com/books/v1/volumes?q=${book}&key=${GOOGLE_API_KEY}`,
             }).done(function (data){
                 // Consoling the data
                 console.log(data);
