@@ -25,6 +25,10 @@
                 let description = data.items[0].volumeInfo.description
                 let html = '';
 
+                document.getElementById('title').value = bookTitle;
+                document.getElementById('author').value = authors;
+                // document.getElementById('description').value = description;
+
                 // Conditionals, In case Description/Title/Authors are undefined we'll print out a error message
                 if (description == null){
                     const imgSrc = `${imgLink}`;
