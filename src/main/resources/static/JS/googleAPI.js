@@ -10,89 +10,103 @@
             e.preventDefault()
             let book = $('#bookSearch').val();
 
-            // Using AJAX to call Google book API
-            $.ajax({
-                method: 'GET',
-                url: `https://www.googleapis.com/books/v1/volumes?q=${book}&key=${Google_API_KEY}`,
-            }).done(function (data){
-                // Consoling the data
-                console.log(data);
-                // Creating variables to select & pull certain data from the first array of books
-                let bookInfo = data.items[0].volumeInfo;
-                let imgLink = bookInfo.imageLinks.thumbnail;
-                let bookTitle = bookInfo.title;
-                let authors = bookInfo.authors[0];
-                let description = data.items[0].volumeInfo.description
-                let html = '';
+            //handling empty search input field
+            if(book === "" || book === null) {
+                displayError();
+            }
+            else {
+                // Using AJAX to call Google book API
+                $.ajax({
+                    method: 'GET',
+                    url: `https://www.googleapis.com/books/v1/volumes?q=${book}&key=${Google_API_KEY}`,
+                }).done(function (data){
+                    // Consoling the data
+                    console.log(data);
+                    // Creating variables to select & pull certain data from the first array of books
+                    let bookInfo = data.items[0].volumeInfo;
+                    let imgLink = bookInfo.imageLinks.thumbnail;
+                    let bookTitle = bookInfo.title;
+                    let authors = bookInfo.authors[0];
+                    let description = data.items[0].volumeInfo.description
+                    let html = '';
 
-                // Conditionals, In case Description/Title/Authors are undefined we'll print out a error message
-                if (description == null){
-                    const imgSrc = `${imgLink}`;
+                    document.getElementById('title').value = bookTitle;
+                    document.getElementById('author').value = authors;
+                    document.getElementById('description').value = description;
 
-                    html +=
-                        '<div class="card" style="width: 14rem; margin-left: 2em;">' +
+                    // Conditionals, In case Description/Title/Authors are undefined we'll print out a error message
+                    if (description == null){
+                        const imgSrc = `${imgLink}`;
+
+                        html +=
+                            '<div class="card" style="width: 14rem; margin-left: 2em;">' +
                             '<img src="'+ imgSrc + '" alt="" id="image">' +
                             '<div class="container">' +
-                                '<h5>' + "Title: " + bookTitle + '</h5>' +
-                                '<p>' + "Author: " + authors + '</p>' +
-                                '<p>' + "Sorry book Description is not availible" + '</p>' +
+                            '<h5>' + "Title: " + bookTitle + '</h5>' +
+                            '<p>' + "Author: " + authors + '</p>' +
+                            '<p>' + "Sorry book Description is not availible" + '</p>' +
                             '</div>' +
-                        '</div>'
-                    cardBody.html(html);
+                            '</div>'
+                        cardBody.html(html);
 
-                } else if (authors == null){
-                    const imgSrc = `${imgLink}`;
+                    } else if (authors == null){
+                        const imgSrc = `${imgLink}`;
 
-                    html +=
-                        '<div class="card" style="width: 14rem; margin-left: 2em;">' +
+                        html +=
+                            '<div class="card" style="width: 14rem; margin-left: 2em;">' +
                             '<img src="'+ imgSrc + '" alt="" id="image">' +
                             '<div class="container">' +
-                                '<h5>' + "Title: " + bookTitle + '</h5>' +
-                                '<p>' + "Sorry book Author is not availible" + '</p>' +
-                                '<div class="overflow-auto" style="height: 7em;" >' +
-                                    '<p>' + description + '</p>' +
-                                '</div>' +
+                            '<h5>' + "Title: " + bookTitle + '</h5>' +
+                            '<p>' + "Sorry book Author is not availible" + '</p>' +
+                            '<div class="overflow-auto" style="height: 7em;" >' +
+                            '<p>' + description + '</p>' +
                             '</div>' +
-                        '</div>'
-                    cardBody.html(html);
-
-                } else if (bookTitle == null){
-                    const imgSrc = `${imgLink}`;
-
-                    html +=
-                        '<div class="card" style="width: 14rem; margin-left: 2em;">' +
-                            '<img src="'+ imgSrc + '" alt="" id="image">' +
-                                '<div class="container">' +
-                                '<h5>' + "Sorry book Title is not availible" + '</h5>' +
-                                '<p>' + "Author: " + authors + '</p>' +
-                                '<div class="overflow-auto" style="height: 7em;" >' +
-                                    '<p>' + description + '</p>' +
-                                '</div>' +
                             '</div>' +
-                        '</div>'
-                    cardBody.html(html);
+                            '</div>'
+                        cardBody.html(html);
 
-                }else {
-                    const imgSrc = `${imgLink}`;
+                    } else if (bookTitle == null){
+                        const imgSrc = `${imgLink}`;
 
-                    html +=
-                        '<div class="card" style="width: 10rem; margin-left: 2em;">' +
+                        html +=
+                            '<div class="card" style="width: 14rem; margin-left: 2em;">' +
                             '<img src="'+ imgSrc + '" alt="" id="image">' +
                             '<div class="container">' +
-                                '<h5>' + "Title: " + bookTitle + '</h5>' +
-                                '<hr>' +
-                                '<p>' + "Author: " + authors + '</p>' +
-                                '<hr>' +
-                                '<div class="overflow-auto" style="height: 7em;" >' +
-                                    '<p>' + description + '</p>' +
-                                '</div>' +
+                            '<h5>' + "Sorry book Title is not availible" + '</h5>' +
+                            '<p>' + "Author: " + authors + '</p>' +
+                            '<div class="overflow-auto" style="height: 7em;" >' +
+                            '<p>' + description + '</p>' +
                             '</div>' +
-                        '</div>'
-                    cardBody.html(html);
+                            '</div>' +
+                            '</div>'
+                        cardBody.html(html);
 
-                }
+                    }else {
+                        const imgSrc = `${imgLink}`;
 
-            })
+                        html +=
+                            '<div class="card" style="width: 10rem; margin-left: 2em;">' +
+                            '<img src="'+ imgSrc + '" alt="" id="image">' +
+                            '<div class="container">' +
+                            '<h5>' + "Title: " + bookTitle + '</h5>' +
+                            '<hr>' +
+                            '<p>' + "Author: " + authors + '</p>' +
+                            '<hr>' +
+                            '<div class="overflow-auto" style="height: 7em;" >' +
+                            '<p>' + description + '</p>' +
+                            '</div>' +
+                            '</div>' +
+                            '</div>'
+                        cardBody.html(html);
+                    }
+                })
+            }
         })
     })
+
+    //handling error for empty search box
+    function displayError() {
+        alert("search box can not be empty!")
+    }
+
 })();
