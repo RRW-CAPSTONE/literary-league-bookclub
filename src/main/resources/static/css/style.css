@@ -79,3 +79,14 @@ a:hover{
     width: 75%;
     height: 40%
 }
+.card-link:hover{
+    color:blue
+}
+.individual-club-card{
+    border-style: solid;
+    margin:5px
+}
+.club-link:hover{
+    color: blue;
+}
+
