@@ -19,11 +19,11 @@ public class BookController {
         this.bookDao = bookDao;
     }
 
-    @GetMapping("/books")
-    public String showAllBooks(Model model){
-        model.addAttribute("books", bookDao.findAll());
-        return "books/allBooks";
-    }
+//    @GetMapping("/books")
+//    public String showAllBooks(Model model){
+//        model.addAttribute("books", bookDao.findAll());
+//        return "books/allBooks";
+//    }
 
     @GetMapping("/books/{id}")
     public String viewBook(@PathVariable long id, Model model){
@@ -32,10 +32,10 @@ public class BookController {
         return "books/viewBook";
     }
 
-    @GetMapping("/books/create")
+    @GetMapping("/books")
     public String createBookForm(Model model){
         model.addAttribute("book", new Book());
-        return "books/createBook";
+        return "books/allBooks";
     }
 
     @PostMapping("/books/save")
