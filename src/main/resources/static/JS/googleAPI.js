@@ -49,7 +49,9 @@
                             '<div class="container">' +
                                 '<h5>' + "Title: " + bookTitle + '</h5>' +
                                 '<p>' + "Sorry book Author is not availible" + '</p>' +
-                                '<p>' + description + '</p>' +
+                                '<div class="overflow-auto" style="height: 7em;" >' +
+                                    '<p>' + description + '</p>' +
+                                '</div>' +
                             '</div>' +
                         '</div>'
                     cardBody.html(html);
@@ -63,7 +65,9 @@
                                 '<div class="container">' +
                                 '<h5>' + "Sorry book Title is not availible" + '</h5>' +
                                 '<p>' + "Author: " + authors + '</p>' +
-                                '<p>' + description + '</p>' +
+                                '<div class="overflow-auto" style="height: 7em;" >' +
+                                    '<p>' + description + '</p>' +
+                                '</div>' +
                             '</div>' +
                         '</div>'
                     cardBody.html(html);
@@ -72,14 +76,16 @@
                     const imgSrc = `${imgLink}`;
 
                     html +=
-                        '<div class="card" style="width: 14rem; margin-left: 2em;">' +
+                        '<div class="card" style="width: 10rem; margin-left: 2em;">' +
                             '<img src="'+ imgSrc + '" alt="" id="image">' +
                             '<div class="container">' +
                                 '<h5>' + "Title: " + bookTitle + '</h5>' +
                                 '<hr>' +
                                 '<p>' + "Author: " + authors + '</p>' +
                                 '<hr>' +
-                                '<p>' + description + '</p>' +
+                                '<div class="overflow-auto" style="height: 7em;" >' +
+                                    '<p>' + description + '</p>' +
+                                '</div>' +
                             '</div>' +
                         '</div>'
                     cardBody.html(html);
