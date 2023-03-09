@@ -54,6 +54,7 @@
             }).done(function (data) {
                 // Displaying the data in the console
                 console.log(data);
+
                 // If statement, that will alert the user if book doesn't exist. Else call the displayResults function to create the book cards
                 if (data.totalItems === 0) {
                     alert("no result!.. try again")
@@ -66,6 +67,36 @@
                 }
             });
         }
+
+                // Creating variables to select & pull certain data from the first array of books
+                let bookInfo = data.items[0].volumeInfo;
+                let imgLink = bookInfo.imageLinks.thumbnail;
+                let bookTitle = bookInfo.title;
+                let authors = bookInfo.authors[0];
+                let description = data.items[0].volumeInfo.description
+                let html = '';
+
+                document.getElementById('title').value = bookTitle;
+                document.getElementById('author').value = authors;
+                // document.getElementById('description').value = description;
+
+                // Conditionals, In case Description/Title/Authors are undefined we'll print out a error message
+                if (description == null){
+                    const imgSrc = `${imgLink}`;
+
+                    html +=
+                        '<div class="card" style="width: 14rem; margin-left: 2em;">' +
+                            '<img src="'+ imgSrc + '" alt="" id="image">' +
+                            '<div class="container">' +
+                                '<h5>' + "Title: " + bookTitle + '</h5>' +
+                                '<p>' + "Author: " + authors + '</p>' +
+                                '<p>' + "Sorry book Description is not availible" + '</p>' +
+                            '</div>' +
+                        '</div>'
+                    cardBody.html(html);
+
+                } else if (authors == null){
+                    const imgSrc = `${imgLink}`;
 
         // function createPagination(data, book){
         //     totalResults = data.totalItems;

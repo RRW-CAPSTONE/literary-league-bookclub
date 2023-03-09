@@ -14,12 +14,32 @@
 <body>
 <div th:replace="partials :: navbar"></div>
 
-<h1>All Books</h1>
-<div th:each="book : ${books}">
-    <a th:href="@{/books/{id} (id = ${book.id})}"><h1 th:text="${book.title}"></h1></a>
-    <p th:text="${book.author}"></p>
-    <p th:text="${book.genre}"></p>
-</div>
+<div class="container">
+    <div id="card">
+        <div id="container">
+            <!--    html coming from js-->
+        </div>
+    </div>
+    <div>
+        <form th:action="@{/books/save}" th:method="post" th:object="${book}">
+            <div class="mb-3">
+                <label for="title" class="form-label">Book Title:</label>
+                <input type="text" name="title" id="title" th:field="*{title}" class="form-control">
+                <label for="author" class="form-label">Book Author(s):</label>
+                <input type="text" name="title" id="author" th:field="*{author}" class="form-control">
+                <!--                <label for="genre" class="form-label">Book Description:</label>-->
+                <!--                <input type="text" name="title" id="genre" th:field="*{description}" class="form-control">-->
+                <input type="hidden" th:field="*{id}">
+            </div>
+            <button class="btn footer-bg w-100" type="submit">Submit Book</button>
+        </form>
+
+<!--<h1>All Books</h1>-->
+<!--<div th:each="book : ${books}">-->
+<!--    <a th:href="@{/books/{id} (id = ${book.id})}"><h1 th:text="${book.title}"></h1></a>-->
+<!--    <p th:text="${book.author}"></p>-->
+<!--    <p th:text="${book.genre}"></p>-->
+<!--</div>-->
 <div th:replace="partials :: footer"></div>
 </body>
 </html>

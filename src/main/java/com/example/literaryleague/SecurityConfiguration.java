@@ -37,7 +37,7 @@ public class SecurityConfiguration {
                 /* Login configuration */
                 .formLogin()
                 .loginPage("/login")
-                .defaultSuccessUrl("/profile") // user's home page, it can be any URL
+                .defaultSuccessUrl("/profile", true) // user's home page, it can be any URL
                 .permitAll() // Anyone can go to the login page
                 /* Logout configuration */
                 .and()
@@ -46,12 +46,12 @@ public class SecurityConfiguration {
                 /* Pages that can be viewed without having to log in */
                 .and()
                 .authorizeHttpRequests()
-                .requestMatchers("/", "/books", "/clubs", "/register", "/css/**", "/JS/**", "/clubs/{id}") // anyone can see the home and the ads pages
+                .requestMatchers("/", "/books", "/clubs/**", "/register", "/css/**", "/JS/**", "/clubs/{id}") // anyone can see the home and the ads pages
                 .permitAll()
                 /* Pages that require authentication */
                 .and()
                 .authorizeHttpRequests()
-                .requestMatchers("/books/**", "/clubs/**", "/profile")
+                .requestMatchers("/books/**", "/profile")
                 .authenticated();
         return http.build();
     }

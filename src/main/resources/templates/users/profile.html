@@ -20,6 +20,7 @@
             <h5 class="card-title" th:text="|Howdy, ${#authentication.principal.username}!|"></h5>
             <p th:text="|Email: ${#authentication.principal.email}|"></p>
             <p th:text="|User ID: ${#authentication.principal.id}|"></p>
+            <a href="/clubs/create" class="card-link">Create Club</a>
         </div>
     </div>
     <div class="profile-recent-info card">
@@ -28,14 +29,14 @@
             <p class="card-text">Book Club 1</p>
             <p class="card-text">Book Club 2</p>
             <p class="card-text">Book Club 3</p>
-            <a href="#" class="card-link">Bookclub</a>
+            <a href="/clubs" class="card-link">Bookclub</a>
         </div>
         <div class="card-body">
             <h5 class="card-title">Recent Activity:</h5>
             <p class="card-text">Recent ...1</p>
             <p class="card-text">Recent ...2</p>
             <p class="card-text">Recent ...3</p>
-            <a href="#" class="card-link">Bookclub</a>
+            <a href="/clubs" class="card-link">Recent Activity</a>
         </div>
     </div>
 </div>

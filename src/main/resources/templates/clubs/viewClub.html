@@ -13,15 +13,31 @@
 </head>
 <body>
 <div th:replace="partials :: navbar"></div>
+<div class="main-allclub-container">
+    <div class="card" style="width: 18rem;">
+        <div class="individual-club-card card-body">
+            <h1 th:text="${club.title}"></h1>
+            <h3 th:text="|By: ${club.user.email}|"></h3>
+            <p th:text="${club.description}"></p>
+            <a sec:authorize="isAuthenticated()"
+               th:href="@{'/clubs/' + ${club.id} + '/edit'}" th:if="${#authentication.principal.id == club.user.id}"
+               class="footer-bg btn">Edit Club</a>
+            <a sec:authorize="isAuthenticated()" th:href="@{'/clubs/' + ${club.id} + '/join'}" class="footer-bg btn">Join Club</a>
 
-<div>
-    <h1 th:text="${club.title}"></h1>
-    <h3 th:text="|By: ${club.user.email}|"></h3>
-    <p th:text="${club.description}"></p>
-    <div>
-        <a th:href="@{'/clubs/' + ${club.id} + '/edit'}" class="footer-bg btn">Edit Post</a>
+        </div>
     </div>
 </div>
+<!--th:if="${#authentication.principal.id == club.user.id}-->
+<!--== ${club.user.id}-->
+<!--(club.user.email == #authentication.principal.-->
+<!--<div>-->
+<!--    <h1 th:text="${club.title}"></h1>-->
+<!--    <h3 th:text="|By: ${club.user.email}|"></h3>-->
+<!--    <p th:text="${club.description}"></p>-->
+<!--    <div>-->
+<!--        <a th:href="@{'/clubs/' + ${club.id} + '/edit'}" class="footer-bg btn">Edit Post</a>-->
+<!--    </div>-->
+<!--</div>-->
 <div th:replace="partials :: footer"></div>
 
 </body>

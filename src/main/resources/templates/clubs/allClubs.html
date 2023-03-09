@@ -13,11 +13,28 @@
 </head>
 <body>
 <div th:replace="partials :: navbar"></div>
-
-<div th:each="club : ${clubs}">
-    <a th:href="@{/clubs/{id} (id = ${club.id})}"><h1 th:text="${club.title}"></h1></a>
-    <p th:text="${club.description}"></p>
+<div class="main-allclub-container">
+    <div class="card" style="width: 18rem;">
+        <div class="individual-club-card card-body" th:each="club : ${clubs}">
+            <h5 class="card-title" th:text="${club.title}">Special title treatment</h5>
+            <p class="card-text" th:text="${club.description}"></p>
+            <a class="club-link" th:href="@{/clubs/{id} (id = ${club.id})}">View Club</a>
+        </div>
+    </div>
 </div>
+<!--        <div th:each="club : ${clubs}">-->
+<!--            <div class="individual-club-card">-->
+<!--            <a th:href="@{/clubs/{id} (id = ${club.id})}"><h1 th:text="${club.title}"></h1></a>-->
+<!--            <p th:text="${club.description}"></p>-->
+<!--        </div>-->
+<!--    </div>-->
+
+<!--</div>-->
+
+<!--<div th:each="club : ${clubs}">-->
+<!--    <a th:href="@{/clubs/{id} (id = ${club.id})}"><h1 th:text="${club.title}"></h1></a>-->
+<!--    <p th:text="${club.description}"></p>-->
+<!--</div>-->
 <div th:replace="partials :: footer"></div>
 
 </body>
