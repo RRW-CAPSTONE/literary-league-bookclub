@@ -41,7 +41,7 @@
                 //         createPagination(data);
                 //     }
                 // });
-             }
+            }
             event.preventDefault();
             // $("#searchButton").val(""); //clear search box
         });
@@ -54,7 +54,6 @@
             }).done(function (data) {
                 // Displaying the data in the console
                 console.log(data);
-
                 // If statement, that will alert the user if book doesn't exist. Else call the displayResults function to create the book cards
                 if (data.totalItems === 0) {
                     alert("no result!.. try again")
@@ -67,36 +66,6 @@
                 }
             });
         }
-
-                // Creating variables to select & pull certain data from the first array of books
-                let bookInfo = data.items[0].volumeInfo;
-                let imgLink = bookInfo.imageLinks.thumbnail;
-                let bookTitle = bookInfo.title;
-                let authors = bookInfo.authors[0];
-                let description = data.items[0].volumeInfo.description
-                let html = '';
-
-                document.getElementById('title').value = bookTitle;
-                document.getElementById('author').value = authors;
-                // document.getElementById('description').value = description;
-
-                // Conditionals, In case Description/Title/Authors are undefined we'll print out a error message
-                if (description == null){
-                    const imgSrc = `${imgLink}`;
-
-                    html +=
-                        '<div class="card" style="width: 14rem; margin-left: 2em;">' +
-                            '<img src="'+ imgSrc + '" alt="" id="image">' +
-                            '<div class="container">' +
-                                '<h5>' + "Title: " + bookTitle + '</h5>' +
-                                '<p>' + "Author: " + authors + '</p>' +
-                                '<p>' + "Sorry book Description is not availible" + '</p>' +
-                            '</div>' +
-                        '</div>'
-                    cardBody.html(html);
-
-                } else if (authors == null){
-                    const imgSrc = `${imgLink}`;
 
         // function createPagination(data, book){
         //     totalResults = data.totalItems;
@@ -154,7 +123,7 @@
                 let author1 = bookInfo.volumeInfo.authors;
                 let description1 = bookInfo.volumeInfo.description;
                 let bookLink1 = bookInfo.volumeInfo.previewLink;
-                let bookIsbn = bookInfo.volumeInfo.industryIdentifiers[1].identifier
+                // let bookIsbn = bookInfo.volumeInfo.industryIdentifiers[1].identifier
                 let bookImg1 = (bookInfo.volumeInfo.imageLinks) ? bookInfo.volumeInfo.imageLinks.thumbnail : placeHolder ;
 
                 let bookInfo2 = data.items[i+1];
@@ -162,21 +131,21 @@
                 let author2 = bookInfo2.volumeInfo.authors;
                 let description2 = bookInfo2.volumeInfo.description;
                 let bookLink2 = bookInfo2.volumeInfo.previewLink;
-                let bookIsbn2 = bookInfo2.volumeInfo.industryIdentifiers[1].identifier
+                // let bookIsbn2 = bookInfo2.volumeInfo.industryIdentifiers[1].identifier
                 let bookImg2 = (bookInfo2.volumeInfo.imageLinks) ? bookInfo2.volumeInfo.imageLinks.thumbnail : placeHolder ;
 
                 // in production code, item.text should have the HTML entities escaped.
                 outputList.innerHTML += '<div class="row mt-4">' +
-                                            formatOutput(bookImg1, title1, author1, description1, bookLink1, bookIsbn) +
-                                            formatOutput(bookImg2, title2, author2, description2, bookLink2, bookIsbn2) +
-                                        '</div>';
+                    formatOutput(bookImg1, title1, author1, description1, bookLink1) +
+                    formatOutput(bookImg2, title2, author2, description2, bookLink2) +
+                    '</div>';
                 console.log(outputList);
             }
         }
 
         // This function will create the Book card format
-        function formatOutput(bookImg, title, author, description, bookLink, bookIsbn) {
-            let viewUrl = 'readBook.html?isbn='+bookIsbn; // link for Book Viewer
+        function formatOutput(bookImg, title, author, description, bookLink) {
+            // let viewUrl = 'readBook.html?isbn='+bookIsbn; // link for Book Viewer
             let htmlCard = `<div class="col-lg-6">
            <div class="card" style="">
              <div class="row no-gutters">
@@ -188,7 +157,7 @@
                    <h5 class="card-title">${title}</h5>
                    <p class="card-text">Author: ${author}</p>
                    <p class="card-text overflow-auto" style="height: 11em;">Description: ${description}</p>
-                   <a target="_blank" href="${viewUrl}" class="btn btn-secondary">Read Book</a>
+
                  </div>
                </div>
              </div>

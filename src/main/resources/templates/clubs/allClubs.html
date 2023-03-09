@@ -18,7 +18,7 @@
         <div class="individual-club-card card-body" th:each="club : ${clubs}">
             <h5 class="card-title" th:text="${club.title}">Special title treatment</h5>
             <p class="card-text" th:text="${club.description}"></p>
-            <a class="club-link" th:href="@{/clubs/{id} (id = ${club.id})}">View Club</a>
+            <a class="footer-bg btn" th:href="@{/clubs/{id} (id = ${club.id})}">View Club</a>
         </div>
     </div>
 </div>

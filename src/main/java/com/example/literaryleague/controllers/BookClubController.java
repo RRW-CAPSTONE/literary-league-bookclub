@@ -61,5 +61,16 @@ public class BookClubController {
         return "clubs/createClub";
     }
 
+    @PostMapping("/clubs/{id}/save")
+    public String joinClub(@ModelAttribute BookClub club){
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        BookClub origClub = bcDao.findBookClubById(club.getId());
+        if(origClub == null || user.getId() == origClub.getUser().getId()){
+            club.setUser(user);
+            bcDao.save(club);
+        }
+        return "redirect:/clubs";
+    }
+
 }
 
