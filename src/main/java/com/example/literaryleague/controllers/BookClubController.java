@@ -5,6 +5,7 @@ import com.example.literaryleague.models.BookClub;
 import com.example.literaryleague.models.User;
 import com.example.literaryleague.repositories.BookClubRepository;
 import com.example.literaryleague.repositories.UserRepository;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.parameters.P;
@@ -60,6 +61,17 @@ public class BookClubController {
         model.addAttribute("club", bcDao.findBookClubById(id));
         return "clubs/createClub";
     }
+
+    @PostMapping("/clubs/join")
+    public String joinClub(@RequestParam(name = "clubId") long clubId){
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        BookClub origClub = bcDao.findBookClubById(clubId);
+        origClub.addUser(user);
+        bcDao.save(origClub);
+
+        return "redirect:/clubs";
+    }
+
 
 }
 

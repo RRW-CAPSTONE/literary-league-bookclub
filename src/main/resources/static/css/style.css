@@ -34,6 +34,7 @@ footer{
     background-color:#71AACF;
     border: black;
     cursor: pointer;
+    font-family: 'Rampart One', cursive;
 }
 
 a{
@@ -89,4 +90,9 @@ a:hover{
 .club-link:hover{
     color: blue;
 }
-
+.book-club{
+    width: 18rem;
+}
+.club-members{
+    width: 18rem;
+}

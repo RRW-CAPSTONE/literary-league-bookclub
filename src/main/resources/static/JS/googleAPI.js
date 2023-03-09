@@ -33,6 +33,7 @@
             // $("#searchButton").val(""); //clear search box
         });
 
+
         // Using AJAX to call Google book API
         function requestBooks(book,startIndex,maxResults){
             // Using AJAX to call Google book API
@@ -64,6 +65,53 @@
         //     let trimStart = (currPage-1)*booksPerPage
         //     let trimEnd = trimStart + booksPerPage
         //     console.log(numberOfBooks.slice(trimStart, trimEnd))
+
+        // function createPagination(data, book){
+        //     totalResults = data.totalItems;
+        //     if (startIndex === 0 && totalResults > maxResults){
+        //         previousIndex = startIndex;
+        //         startIndex = startIndex + maxResults;
+        //         $("#pagination").prepend("<a href='#' id='next'>Next</a>");
+        //         //create the function to handle a click to the newly added "NEXT" link
+        //         $("#next").click(function() {
+        //             requestBooks(book,startIndex,maxResults);
+        //             $('html, body').animate({ scrollTop: 0 }, 'slow'); //go to the top of the page, smoothly
+        //             event.preventDefault();
+        //         });
+        //     }else{
+        //         // checks if _startIndex is lower than total results and if the itens to display are the same as the maximum results per page
+        //         if (startIndex !== 0 && startIndex < totalResults && data.items.length === maxResults) {
+        //             $("#pagination").prepend("<a href='#' id='previous'>Previous</a><a href='#' id='next'>Next</a>");
+        //             //create the function to handle a click to the newly added "NEXT" link
+        //             $("#next").click(function () {
+        //                 startIndex = startIndex + maxResults;
+        //                 requestBooks(book,startIndex,maxResults);
+        //                 $('html, body').animate({scrollTop: 0}, 'slow'); //go to the top of the page, smoothly
+        //                 event.preventDefault();
+        //             });
+        //             //create the function to handle a click to the newly added "PREVIOUS" link
+        //             $("#previous").click(function () {
+        //                 startIndex = startIndex - maxResults;
+        //                 requestBooks(book,startIndex,maxResults);
+        //                 $('html, body').animate({scrollTop: 0}, 'slow');
+        //                 event.preventDefault();
+        //             });
+        //             //when all the other checks fail it means there are no further Books to get. Only the "Previous" link is shown and _startIndex is set back by _maxResults amount to get the previous Books
+        //         } else {
+        //             if (startIndex !== 0) {
+        //                 //cleanPagination();
+        //                 //create the function to handle a click to the newly added PREVIOUS link
+        //                 $("#pagination").prepend("<a href='#' id='previous'>Previous</a>");
+        //                 $("#previous").click(function () {
+        //                     startIndex = startIndex - maxResults;
+        //                     requestBooks(book,startIndex,maxResults);
+        //                     $('html, body').animate({scrollTop: 0}, 'slow'); ////go to the top of the page, smoothly
+        //                     event.preventDefault();
+        //                 });
+        //             }
+        //         }
+        //     }
+
         // }
 
 
@@ -77,14 +125,19 @@
                 let description1 = bookInfo.volumeInfo.description;
                 //let bookLink1 = bookInfo.volumeInfo.previewLink;
                 let bookIsbn = bookInfo.volumeInfo.industryIdentifiers[1].identifier
+                let bookLink1 = bookInfo.volumeInfo.previewLink;
+                // let bookIsbn = bookInfo.volumeInfo.industryIdentifiers[1].identifier
                 let bookImg1 = (bookInfo.volumeInfo.imageLinks) ? bookInfo.volumeInfo.imageLinks.thumbnail : placeHolder ;
 
                 let bookInfo2 = data.items[i+1];
                 let title2 = bookInfo2.volumeInfo.title;
                 let author2 = bookInfo2.volumeInfo.authors;
                 let description2 = bookInfo2.volumeInfo.description;
+
                 //let bookLink2 = bookInfo2.volumeInfo.previewLink;
                 let bookIsbn2 = bookInfo2.volumeInfo.industryIdentifiers[1].identifier
+                let bookLink2 = bookInfo2.volumeInfo.previewLink;
+                // let bookIsbn2 = bookInfo2.volumeInfo.industryIdentifiers[1].identifier
                 let bookImg2 = (bookInfo2.volumeInfo.imageLinks) ? bookInfo2.volumeInfo.imageLinks.thumbnail : placeHolder ;
 
                 // in production code, item.text should have the HTML entities escaped.
@@ -97,12 +150,15 @@
         }
 
         // This function will create the Book card format
+
         function formatOutput(bookImg, title, author, description, bookId) {
             // let viewUrl = 'readBook.html?isbn='+bookIsbn; // link for Book Viewer
             // console.log(bookImg);
             // console.log(title);
             // console.log(author);
             // console.log(description);
+        function formatOutput(bookImg, title, author, description, bookLink) {
+            // let viewUrl = 'readBook.html?isbn='+bookIsbn; // link for Book Viewer
             let htmlCard = `<div class="col-lg-6">
            <div class="card" style="">
              <div class="row no-gutters">

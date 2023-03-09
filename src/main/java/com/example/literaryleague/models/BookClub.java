@@ -137,6 +137,9 @@ public class BookClub {
     public void setUsers(List<User> users) {
         this.users = users;
     }
+    public void addUser(User user){
+        users.add(user);
+    }
 
     public List<Book> getBooks() {
         return books;
