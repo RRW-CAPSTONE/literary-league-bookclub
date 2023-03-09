@@ -13,8 +13,56 @@
 </head>
 <body>
 <div th:replace="partials :: navbar"></div>
+<div class="container"> <!--    main container-->
+    <div style="margin-top: 10px">
+    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel" style="width: 600px; height: 500px; display: flex; margin-left: auto; margin-right: auto; margin-top: 25px">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="https://books.google.com/books/content?id=HvJaAAAAMAAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2ETPUM3G6l9Pe3VTHbMbx_yfLk5KqZ_kU9w&usqp=CAU" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="https://books.google.com/books/content?id=HvJaAAAAMAAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api" class="d-block w-100" alt="...">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 mb-4 mt-3">
+                <div class="card" style="width: 18rem; margin: auto">
+<!--                    <img src="..." class="card-img-top" alt="...">-->
+                    <div class="card-body">
+                        <h5 class="card-title">Literary League <br> Book Clubs</h5>
+                        <p class="card-text"><h1>Join a Book Club Today!</h1></p>
+<!--                        <a href="#" class="btn btn-primary">Go somewhere</a>-->
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-8 mb-4 mt-3">
+                <div class="card" style="width: 50rem; margin-right: auto">
+                    <div class="card-body">
+                        <h5 class="card-title">WELCOME TO LITERARY LEAGUE</h5>
+<!--                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>-->
+                        <p class="card-text">Thanks for visiting the Literary League book club finder! Here you will be able to find and connect with different book clubs based on your book preferences. Visit our book club page to see all active book clubs! Stumped on what book you want to read? Visit our book search to search for different books and read a short description about the book!</p>
+                    </div>
+                </div>
+            </div>
 
-    <h1>Welcome to Literary League</h1>
+        </div>
+    </div>
+</div>
+<!--    <h1>Welcome to Literary League</h1>-->
 
 <!--    <div id="card">-->
 <!--        <div id="container">-->
@@ -22,15 +70,15 @@
 <!--        </div>-->
 <!--    </div>-->
 
-<div class="book-list" >
-    <!--<h2 class="text-center">Search Result</h2>-->
-    <div id="list-output" class="">
-        <div class="row">
-            <!-- Card being created in googleAPI.js  -->
-        </div>
-    </div>
-</div>
-<div id="pagination" style="margin-bottom: 5em;"></div>
+<!--<div class="book-list" >-->
+<!--    &lt;!&ndash;<h2 class="text-center">Search Result</h2>&ndash;&gt;-->
+<!--    <div id="list-output" class="">-->
+<!--        <div class="row">-->
+<!--            &lt;!&ndash; Card being created in googleAPI.js  &ndash;&gt;-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+<!--<div id="pagination" style="margin-bottom: 5em;"></div>-->
 
 
 
