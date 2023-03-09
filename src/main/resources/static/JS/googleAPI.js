@@ -33,7 +33,6 @@
             // $("#searchButton").val(""); //clear search box
         });
 
-
         // Using AJAX to call Google book API
         function requestBooks(book,startIndex,maxResults){
             // Using AJAX to call Google book API
@@ -55,8 +54,6 @@
                 }
             });
         }
-
-
 
         // function createPagination(currPage, data) {
         //     let numberOfBooks = data.totalItems.length;
@@ -125,38 +122,23 @@
                 let title1 = bookInfo.volumeInfo.title;
                 let author1 = bookInfo.volumeInfo.authors;
                 let description1 = bookInfo.volumeInfo.description;
-
                 //let bookLink1 = bookInfo.volumeInfo.previewLink;
                 let bookIsbn = bookInfo.volumeInfo.industryIdentifiers[1].identifier
-
-                let bookLink1 = bookInfo.volumeInfo.previewLink;
-                // let bookIsbn = bookInfo.volumeInfo.industryIdentifiers[1].identifier
                 let bookImg1 = (bookInfo.volumeInfo.imageLinks) ? bookInfo.volumeInfo.imageLinks.thumbnail : placeHolder ;
 
                 let bookInfo2 = data.items[i+1];
                 let title2 = bookInfo2.volumeInfo.title;
                 let author2 = bookInfo2.volumeInfo.authors;
                 let description2 = bookInfo2.volumeInfo.description;
-
-
                 //let bookLink2 = bookInfo2.volumeInfo.previewLink;
                 let bookIsbn2 = bookInfo2.volumeInfo.industryIdentifiers[1].identifier
-
-                let bookLink2 = bookInfo2.volumeInfo.previewLink;
-                // let bookIsbn2 = bookInfo2.volumeInfo.industryIdentifiers[1].identifier
                 let bookImg2 = (bookInfo2.volumeInfo.imageLinks) ? bookInfo2.volumeInfo.imageLinks.thumbnail : placeHolder ;
 
                 // in production code, item.text should have the HTML entities escaped.
                 outputList.innerHTML += '<div class="row mt-4">' +
-
-                    formatOutput(bookImg1, title1, author1, description1, bookLink1) +
-                    formatOutput(bookImg2, title2, author2, description2, bookLink2) +
-                    '</div>';
-
                                             formatOutput(bookImg1, title1, author1, description1, bookIsbn) +
                                             formatOutput(bookImg2, title2, author2, description2, bookIsbn2) +
-                                         '</div>';
-
+                                        '</div>';
                 console.log(outputList);
             }
         }
@@ -170,8 +152,6 @@
             // console.log(title);
             // console.log(author);
             // console.log(description);
-
-        function formatOutput(bookImg, title, author, description, bookLink) {
             // let viewUrl = 'readBook.html?isbn='+bookIsbn; // link for Book Viewer
             let htmlCard = `<div class="col-lg-6">
            <div class="card" style="">
@@ -236,16 +216,16 @@
         }
 
         // This function adds new object(Movie) to server
-        function addABook(data) {
-            const url = '/books/save';
-            const options = {
-                method: 'POST',
-                body: JSON.stringify(data),
-            };
-            return fetch(url, options)
-                .then(response => console.log(response))
-                .catch(error => console.error(error));
-        }
+        // function addABook(data) {
+        //     const url = '/books/save';
+        //     const options = {
+        //         method: 'POST',
+        //         body: JSON.stringify(data),
+        //     };
+        //     return fetch(url, options)
+        //         .then(response => console.log(response))
+        //         .catch(error => console.error(error));
+        // }
         //handling error for empty search box
         // function displayError() {
         //     alert("search box can not be empty!")
