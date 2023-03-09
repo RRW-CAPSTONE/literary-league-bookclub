@@ -23,10 +23,10 @@ body{
 footer{
     position: fixed;
     bottom: 0;
-    width: 100%;
-    height: 50px;
-    padding: 20px;
-    background-color: #96adc9;
+    /*width: 100%;*/
+    /*height: 50px;*/
+    /*padding: 20px;*/
+    /*background-color: #96adc9;*/
     font-family: 'Rampart One', cursive;
 }
 

@@ -16,10 +16,7 @@
     <nav  class=" navbar navbar-light change">
         <div class="container-fluid change">
             <a class="nav-brand" href="/">Literary League</a>
-            <form class="d-flex" role="search" id="searchButton">
-                <input class="form-control me-2" type="search" placeholder="Search books..." aria-label="Search" id="bookSearch">
-                <button class="btn btn-outline" title="click here" type="submit" ><a href=""></a>Search</button>
-            </form>
+
             <a class="nav-brand" href="/books">Books</a>
             <a class="nav-brand" href="/clubs">Clubs</a>
             <a sec:authorize="!isAuthenticated()" class="nav-brand" href="/register">Register</a>
