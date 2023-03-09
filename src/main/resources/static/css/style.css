@@ -90,4 +90,9 @@ a:hover{
 .club-link:hover{
     color: blue;
 }
-
+.book-club{
+    width: 18rem;
+}
+.club-members{
+    width: 18rem;
+}
