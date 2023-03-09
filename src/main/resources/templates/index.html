@@ -16,12 +16,25 @@
 
     <h1>Welcome to Literary League</h1>
 
-    <div id="card">
-        <div id="container">
-            <!--    html coming from js-->
+<!--    <div id="card">-->
+<!--        <div id="container">-->
+<!--            &lt;!&ndash;    html coming from js&ndash;&gt;-->
+<!--        </div>-->
+<!--    </div>-->
+
+<div class="book-list" >
+    <!--<h2 class="text-center">Search Result</h2>-->
+    <div id="list-output" class="">
+        <div class="row">
+            <!-- Card being created in googleAPI.js  -->
         </div>
     </div>
+</div>
+<div id="pagination" style="margin-bottom: 5em;"></div>
 
+
+
+</div>
 
 <div th:replace="partials :: footer"></div>
 
@@ -31,6 +44,8 @@
 <!--    <script th:src="@{/JS/api_key.js}"></script>-->
 <!--    <script th:src="@{/JS/googleAPI.js}"></script>-->
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<div th:replace="partials :: footer"></div>
 
 </body>
 </html>
