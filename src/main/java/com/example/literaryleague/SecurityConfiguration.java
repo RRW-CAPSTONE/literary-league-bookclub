@@ -51,7 +51,7 @@ public class SecurityConfiguration {
                 /* Pages that require authentication */
                 .and()
                 .authorizeHttpRequests()
-                .requestMatchers("/profile")
+                .requestMatchers("/profile", "/books/save")
                 .authenticated();
         return http.build();
     }
