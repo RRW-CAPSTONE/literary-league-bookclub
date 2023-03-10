@@ -55,65 +55,6 @@
             });
         }
 
-        // function createPagination(currPage, data) {
-        //     let numberOfBooks = data.totalItems.length;
-        //     let booksPerPage = 10
-        //     let currentPage = 1
-        //     let numberOfPages = Math.ceil(numberOfBooks/booksPerPage)
-        //     let trimStart = (currPage-1)*booksPerPage
-        //     let trimEnd = trimStart + booksPerPage
-        //     console.log(numberOfBooks.slice(trimStart, trimEnd))
-
-
-        // function createPagination(data, book){
-        //     totalResults = data.totalItems;
-        //     if (startIndex === 0 && totalResults > maxResults){
-        //         previousIndex = startIndex;
-        //         startIndex = startIndex + maxResults;
-        //         $("#pagination").prepend("<a href='#' id='next'>Next</a>");
-        //         //create the function to handle a click to the newly added "NEXT" link
-        //         $("#next").click(function() {
-        //             requestBooks(book,startIndex,maxResults);
-        //             $('html, body').animate({ scrollTop: 0 }, 'slow'); //go to the top of the page, smoothly
-        //             event.preventDefault();
-        //         });
-        //     }else{
-        //         // checks if _startIndex is lower than total results and if the itens to display are the same as the maximum results per page
-        //         if (startIndex !== 0 && startIndex < totalResults && data.items.length === maxResults) {
-        //             $("#pagination").prepend("<a href='#' id='previous'>Previous</a><a href='#' id='next'>Next</a>");
-        //             //create the function to handle a click to the newly added "NEXT" link
-        //             $("#next").click(function () {
-        //                 startIndex = startIndex + maxResults;
-        //                 requestBooks(book,startIndex,maxResults);
-        //                 $('html, body').animate({scrollTop: 0}, 'slow'); //go to the top of the page, smoothly
-        //                 event.preventDefault();
-        //             });
-        //             //create the function to handle a click to the newly added "PREVIOUS" link
-        //             $("#previous").click(function () {
-        //                 startIndex = startIndex - maxResults;
-        //                 requestBooks(book,startIndex,maxResults);
-        //                 $('html, body').animate({scrollTop: 0}, 'slow');
-        //                 event.preventDefault();
-        //             });
-        //             //when all the other checks fail it means there are no further Books to get. Only the "Previous" link is shown and _startIndex is set back by _maxResults amount to get the previous Books
-        //         } else {
-        //             if (startIndex !== 0) {
-        //                 //cleanPagination();
-        //                 //create the function to handle a click to the newly added PREVIOUS link
-        //                 $("#pagination").prepend("<a href='#' id='previous'>Previous</a>");
-        //                 $("#previous").click(function () {
-        //                     startIndex = startIndex - maxResults;
-        //                     requestBooks(book,startIndex,maxResults);
-        //                     $('html, body').animate({scrollTop: 0}, 'slow'); ////go to the top of the page, smoothly
-        //                     event.preventDefault();
-        //                 });
-        //             }
-        //         }
-        //     }
-
-        // }
-
-
         // This Function
         function displayResults(data) {
 
@@ -136,9 +77,9 @@
 
                 // in production code, item.text should have the HTML entities escaped.
                 outputList.innerHTML += '<div class="row mt-4">' +
-                    formatOutput(bookImg1, title1, author1, description1, bookIsbn) +
-                    formatOutput(bookImg2, title2, author2, description2, bookIsbn2) +
-                    '</div>';
+                                            formatOutput(bookImg1, title1, author1, description1, bookIsbn) +
+                                            formatOutput(bookImg2, title2, author2, description2, bookIsbn2) +
+                                        '</div>';
                 console.log(outputList);
             }
         }
@@ -152,6 +93,7 @@
             // console.log(title);
             // console.log(author);
             // console.log(description);
+
             // let viewUrl = 'readBook.html?isbn='+bookIsbn; // link for Book Viewer
             let htmlCard = `<div class="col-lg-6">
            <div class="card" style="">
@@ -198,7 +140,14 @@
                           <!--Modal Footer-->
                           <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Add Book</button>
+                            <form action="/books/save" method="post">
+                              <input type="hidden" name="title" id="title" value="${title}">
+                              <input type="hidden" name="author" id="author" value="${author}">
+                              <input type="hidden" name="bookId" value="${bookId}">
+    <!--                      <input type="hidden" name="description" id="Description" value="{description}">-->
+    <!--                      <input type="hidden" name="imgUrl" id="imgURL" value"{bookImg}">-->
+                              <button type="submit" class="btn btn-primary" id="addABookButton">Add Book</button>
+                            </form> 
                           </div>
                         </div>
                       </div>
@@ -213,17 +162,10 @@
 
         }
 
-        // This function adds new object(Movie) to server
-        // function addABook(data) {
-        //     const url = '/books/save';
-        //     const options = {
-        //         method: 'POST',
-        //         body: JSON.stringify(data),
-        //     };
-        //     return fetch(url, options)
-        //         .then(response => console.log(response))
-        //         .catch(error => console.error(error));
-        // }
+        // document.getElementById('title').value = bookTitle;
+        // document.getElementById('author').value = authors;
+        // document.getElementById('description').value = description;
+
         //handling error for empty search box
         // function displayError() {
         //     alert("search box can not be empty!")

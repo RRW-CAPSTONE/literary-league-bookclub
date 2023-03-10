@@ -20,6 +20,8 @@ public class Book {
     @Column
     private String description;
 
+    @Column
+    private String isbn;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "book")
     private List<SuggestedBook> suggestedBooks;
 
@@ -34,6 +36,14 @@ public class Book {
     private List<BookClub> bookClubs;
 
     public Book(){}
+
+    public String getIsbn() {
+        return isbn;
+    }
+
+    public void setIsbn(String isbn) {
+        this.isbn = isbn;
+    }
 
     public Book(long id, String title, String author, String description, List<SuggestedBook> suggestedBooks, User user, List<UserReviews> userReviews, List<BookClub> bookClubs) {
         this.id = id;
