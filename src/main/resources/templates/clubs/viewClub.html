@@ -14,33 +14,71 @@
 <!--style tag - add to css-->
 <body class="" style="background-color: darkcyan">
 <div th:replace="partials :: navbar"></div>
-<div class="main-allclub-container">
-    <div class="card" style="width: 18rem;">
-        <div class="individual-club-card card-body">
-            <h1 th:text="${club.title}"></h1>
-            <h3 th:text="|By: ${club.user.email}|"></h3>
-            <p th:text="${club.description}"></p>
-            <a sec:authorize="isAuthenticated()"
-               th:href="@{'/clubs/' + ${club.id} + '/edit'}" th:if="${#authentication.principal.id == club.user.id}"
-               class="footer-bg btn">Edit Club</a>
-            <form sec:authorize="isAuthenticated()"  th:action="@{/clubs/join}" method="post">
-                <input type="hidden" th:value="*{club.id}" name="clubId">
-                <button class="btn footer-bg w-50" type="submit">Join club</button>
-            </form>
+<div class="main-club-container" >
+    <div class="individual-club-container">
+<!--        <div class="individual-club-card" >-->
+            <div class="individual-club-card card-body">
+                <h1 th:text="${club.title}"></h1>
+                <h3 th:text="|Club creator: ${club.user.email}|"></h3>
+                <p th:text="${club.description}"></p>
+                <a sec:authorize="isAuthenticated()"
+                   th:href="@{'/clubs/' + ${club.id} + '/edit'}" th:if="${#authentication.principal.id == club.user.id}"
+                   class="footer-bg btn">Edit Club</a>
+                <form sec:authorize="isAuthenticated()"  th:action="@{/clubs/join}" method="post">
+                    <input type="hidden" th:value="*{club.id}" name="clubId">
+                    <button class="btn footer-bg w-50" type="submit">Join club</button>
+                </form>
+            </div>
+<!--        </div>-->
+    </div>
+    <div class="current-members-container">
+        <div class="current-members card" >
+            <div class="individual-club-card card-body">
+                <h1>Current Members:</h1>
+                <p class="card-text" th:each="user:${club.users}"><span th:text="${user.username}"></span></p>
+                <a sec:authorize="isAuthenticated()"
+                   th:href="@{'/clubs/' + ${club.id} + '/edit'}" th:if="${#authentication.principal.id == club.user.id}"
+                   class="footer-bg btn">Edit Club</a>
+<!--                <form sec:authorize="isAuthenticated()"  th:action="@{/clubs/join}" method="post">-->
+<!--                    <input type="hidden" th:value="*{club.id}" name="clubId">-->
+<!--                    <button class="btn footer-bg w-50" type="submit">Join club</button>-->
+<!--                </form>-->
+            </div>
+        </div>
+    </div>
+    <div class="current-members-container">
+        <div class="current-members card" >
+            <div class="individual-club-card card-body">
+                <h1>Current book:</h1>
+                <p>THE CLUBS BOOK</p>
+            </div>
+        </div>
+    </div>
+    <div class="current-members-container">
+        <div class="current-members card" >
+            <div class="individual-club-card card-body">
+                <h1>Suggested Reads:</h1>
+                <p>Book 1</p>
+                <p>Book 2</p>
+                <p>Book 3</p>
+            </div>
         </div>
     </div>
 </div>
 
 <!--TODO to show current members below-->
-<!--<div class="main-allclub-container">-->
-<!--<div class="club-members card" style="width: 18rem;">-->
-<!--    <div class="individual-club-card card-body" th:each="club : ${clubs}">-->
-<!--        <h5 class="card-title">Club Members:</h5>-->
-<!--        &lt;!&ndash;                <p class="card-text" th:text="${club.description}"></p>&ndash;&gt;-->
-<!--        <p class="card-text" th:each="user:${club.users}"><span th:text="${user.username}"></span></p>-->
-<!--        &lt;!&ndash;                <a class="footer-bg btn" th:href="@{/clubs/{id} (id = ${club.id})}">View Club</a>&ndash;&gt;-->
+<!--<div class="" style="background-color: red">-->
+<!--    <div class="main-allclub-container">-->
+<!--        <div class="club-members card">-->
+<!--            <div class="individual-club-card card-body" th:each="club : ${clubs}">-->
+<!--                <h5 class="card-title">Club Members:</h5>-->
+<!--                &lt;!&ndash;                <p class="card-text" th:text="${club.description}"></p>&ndash;&gt;-->
+<!--                <p class="card-text" th:each="user:${club.users}"><span th:text="${user.username}"></span></p>-->
+<!--                &lt;!&ndash;                <a class="footer-bg btn" th:href="@{/clubs/{id} (id = ${club.id})}">View Club</a>&ndash;&gt;-->
+<!--            </div>-->
+<!--        </div>-->
 <!--    </div>-->
-<!--</div>  -->
+<!--</div>-->
 
 
 
@@ -56,6 +94,8 @@
 <!--    </div>-->
 <!--</div>-->
 <div th:replace="partials :: footer"></div>
+<div th:replace="partials :: scripts"></div>
+
 
 </body>
 </html>
