@@ -11,11 +11,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Rampart+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/style.css">
 </head>
-
 <body>
 <div th:replace="partials :: navbar"></div>
-<div class="profile-container">
-    <div class="profile-info card">
+<div class="profile-container "style="background-color: yellow">
+    <div class="profile-info card" style="background-color: green">
         <img class="img-circle profile-image" src="https://randomuser.me/api/portraits/men/12.jpg" alt="user">
         <div class="card-body">
             <h5 class="card-title" th:text="|Howdy, ${#authentication.principal.username}!|"></h5>
@@ -24,15 +23,15 @@
             <a href="/clubs/create" class="footer-bg btn">Create Club</a>
         </div>
     </div>
-    <div class="profile-recent-info card">
-        <div class="card-body">
+    <div class="profile-recent-info card" style="background-color: orange">
+        <div class="card-body" style="background-color: purple">
             <h5 class="card-title">Your Bookclubs:</h5>
             <p class="card-text">Book Club 1</p>
             <p class="card-text">Book Club 2</p>
             <p class="card-text">Book Club 3</p>
             <a href="/clubs" class="card-link">Bookclub</a>
         </div>
-        <div class="card-body">
+        <div class="card-body " style="background-color: red">
             <h5 class="card-title">Recent Activity:</h5>
             <p class="card-text">Recent ...1</p>
             <p class="card-text">Recent ...2</p>
