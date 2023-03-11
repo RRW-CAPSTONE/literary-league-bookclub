@@ -10,4 +10,6 @@ public interface BookDiscussionRepository extends JpaRepository<BookDiscussion, 
     BookDiscussion findBookDiscussionById(long id);
 
     List<BookDiscussion> findByBookClub(BookClub club);
+
+    List<BookDiscussion> findBookDiscussionsByBookClub_Id(long clubId);
 }

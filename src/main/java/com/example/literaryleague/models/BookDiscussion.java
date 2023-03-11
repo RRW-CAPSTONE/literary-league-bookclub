@@ -94,4 +94,7 @@ public class BookDiscussion {
     public void setUser(User user) {
         this.user = user;
     }
+
+    public void addComment(String commentText, User user) {
+    }
 }

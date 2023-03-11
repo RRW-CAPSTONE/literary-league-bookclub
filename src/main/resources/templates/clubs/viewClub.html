@@ -29,7 +29,6 @@
                     <button class="btn footer-bg w-50" type="submit">Join club</button>
                 </form>
             </div>
-<!--        </div>-->
     </div>
     <div class="current-members-container">
         <div class="current-members card" >
@@ -39,10 +38,6 @@
                 <a sec:authorize="isAuthenticated()"
                    th:href="@{'/clubs/' + ${club.id} + '/edit'}" th:if="${#authentication.principal.id == club.user.id}"
                    class="footer-bg btn">Edit Club</a>
-<!--                <form sec:authorize="isAuthenticated()"  th:action="@{/clubs/join}" method="post">-->
-<!--                    <input type="hidden" th:value="*{club.id}" name="clubId">-->
-<!--                    <button class="btn footer-bg w-50" type="submit">Join club</button>-->
-<!--                </form>-->
             </div>
         </div>
     </div>
@@ -77,6 +72,7 @@
             </div>
         </div>
     </div>
+
 </div>
 
 <!--TODO to show current members below-->
