@@ -29,7 +29,6 @@
                     <button class="btn footer-bg w-50" type="submit">Join club</button>
                 </form>
             </div>
-<!--        </div>-->
     </div>
     <div class="current-members-container">
         <div class="current-members card" >
@@ -39,10 +38,6 @@
                 <a sec:authorize="isAuthenticated()"
                    th:href="@{'/clubs/' + ${club.id} + '/edit'}" th:if="${#authentication.principal.id == club.user.id}"
                    class="footer-bg btn">Edit Club</a>
-<!--                <form sec:authorize="isAuthenticated()"  th:action="@{/clubs/join}" method="post">-->
-<!--                    <input type="hidden" th:value="*{club.id}" name="clubId">-->
-<!--                    <button class="btn footer-bg w-50" type="submit">Join club</button>-->
-<!--                </form>-->
             </div>
         </div>
     </div>
@@ -68,11 +63,9 @@
         <div class="current-members card" >
             <div class="individual-club-card card-body">
                 <h1>Book discussion:</h1>
-                <form method="POST" action="/book-discussion">
-                    <label for="message">Discussion:</label>
-                    <textarea id="message" name="message" rows="6"></textarea>
-                    <br>
-                    <button class="btn footer-bg w-50" type="submit">Submit post</button>
+                <form sec:authorize="isAuthenticated()" th:action="@{/clubDiscussion}" method="post">
+                    <a sec:authorize="isAuthenticated()" class="nav-brand footer-bg btn" href="/clubs/discussion/create">Create discussion</a>
+<!--                    <p class="card-text" th:each=":${}"><span th:text="${}"></span></p>-->
                 </form>
             </div>
         </div>

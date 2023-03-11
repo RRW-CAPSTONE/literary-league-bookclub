@@ -2,8 +2,10 @@ package com.example.literaryleague.controllers;
 
 
 import com.example.literaryleague.models.BookClub;
+import com.example.literaryleague.models.BookDiscussion;
 import com.example.literaryleague.models.User;
 import com.example.literaryleague.repositories.BookClubRepository;
+import com.example.literaryleague.repositories.BookDiscussionRepository;
 import com.example.literaryleague.repositories.UserRepository;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
@@ -19,10 +21,12 @@ import java.util.List;
 public class BookClubController {
     private final BookClubRepository bcDao;
     private final UserRepository userDao;
+    private final BookDiscussionRepository bdDao;
 
-    public BookClubController(BookClubRepository bcDao, UserRepository userDao){
+    public BookClubController(BookClubRepository bcDao, UserRepository userDao, BookDiscussionRepository bdDao){
         this.bcDao = bcDao;
         this.userDao = userDao;
+        this.bdDao = bdDao;
     }
 
     @GetMapping("/clubs")
@@ -66,6 +70,38 @@ public class BookClubController {
     public String joinClub(@RequestParam(name = "clubId") long clubId){
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         BookClub origClub = bcDao.findBookClubById(clubId);
+        origClub.addUser(user);
+        bcDao.save(origClub);
+
+        return "redirect:/clubs";
+    }
+    @GetMapping("/clubs/discussion/create")
+    public String createDiscussionForm(Model model) {
+        model.addAttribute("discussion", new BookDiscussion());
+        return "clubs/clubDiscussion";
+    }
+//    @PostMapping("/clubs/discussion/save")
+//    public String saveDiscussionClub(@ModelAttribute BookDiscussion discussion){
+//        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+//        discussion.setUser(user);
+//        bdDao.save(discussion);
+//        return "redirect:/clubs";
+//    }
+
+        @PostMapping("/clubs/discussion/save")
+    public String saveDiscussionClub(@ModelAttribute BookDiscussion discussion){
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        BookDiscussion origDiscussion = bdDao.findBookDiscussionById(discussion.getId());
+        if(origDiscussion == null || user.getId() == origDiscussion.getUser().getId()){
+            discussion.setUser(user);
+            bdDao.save(discussion);
+        }
+        return "redirect:/clubs";
+    }
+    @PostMapping("/clubs/comment")
+    public String commentClub(@RequestParam(name = "clubComment") long clubComment){
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        BookClub origClub = bcDao.findBookClubById(clubComment);
         origClub.addUser(user);
         bcDao.save(origClub);
 

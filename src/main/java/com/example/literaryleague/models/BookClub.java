@@ -121,6 +121,8 @@ public class BookClub {
     public void setBookDiscussions(List<BookDiscussion> bookDiscussions) {
         this.bookDiscussions = bookDiscussions;
     }
+    public void addDiscussion(BookDiscussion discussion){bookDiscussions.add(discussion);
+    }
 
     public List<SuggestedBook> getSuggestedBooks() {
         return suggestedBooks;
