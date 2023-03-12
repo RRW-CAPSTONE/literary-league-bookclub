@@ -97,12 +97,15 @@ public String viewClub(@PathVariable Long id, Model model) {
 //        return "redirect:/clubs";
 //    }
 
-        @PostMapping("/clubs/discussion/save")
-    public String saveDiscussionClub(@ModelAttribute BookDiscussion discussion){
+//    BookClub controller
+    @PostMapping("/clubs/discussion/save")
+    public String saveDiscussionClub(@ModelAttribute BookDiscussion discussion, BookClub club,@RequestParam("bc_id") Long id){
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        BookClub origClub = bcDao.findBookClubById(club.getId());
         BookDiscussion origDiscussion = bdDao.findBookDiscussionById(discussion.getId());
         if(origDiscussion == null || user.getId() == origDiscussion.getUser().getId()){
-            discussion.setUser(user);
+            discussion.setBookClub(origClub);
+//            discussion.setBookClub(origClub);
             bdDao.save(discussion);
         }
         return "redirect:/clubs";
