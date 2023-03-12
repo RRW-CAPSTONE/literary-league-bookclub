@@ -27,7 +27,7 @@
 
     footer {
         position: relative;
-        bottom: 0;
+        /*bottom: 0;*/
         /*width: 100%;*/
         /*height: 50px;*/
         /*padding: 20px;*/
@@ -41,6 +41,10 @@
         border: black;
         cursor: pointer;
         font-family: 'Rampart One', cursive;
+    }
+    .edit-modal{
+        padding: 5px;
+        margin: 5px;
     }
 
     a {
@@ -60,13 +64,27 @@
         display: flex;
         justify-content: space-between;
         margin: 20px;
-        height: calc(100vh - 250px)
+        height: calc(100vh - 200px)
     }
 
     .profile-recent-info {
         padding: 5px;
+        display: flex;
+        flex-direction: column;
         width: calc(100% - 10rem - 40px);
         height: calc(100vh - 170px);
+    }
+    .card-body-bookclub{
+        /*background-color: red;*/
+        margin: 5px;
+        padding: 5px;
+        border-style: solid;
+    }
+    .card-body-recent{
+        /*background-color: red;*/
+        margin: 5px;
+        padding: 5px;
+        border-style: solid;
     }
 
     .profile-info {
@@ -92,6 +110,12 @@
         padding: 5px;
         width: 75%;
         height: 40%
+    }
+    .bookclub-card-link{
+        color: blue;
+    }
+    .bookclub-card-link:hover{
+        color: black;
     }
 
     .card-link:hover {

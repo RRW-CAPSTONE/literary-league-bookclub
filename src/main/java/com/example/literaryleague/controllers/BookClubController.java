@@ -36,12 +36,21 @@ public class BookClubController {
         return "clubs/allClubs";
     }
 
-    @GetMapping("/clubs/{id}")
-    public String viewClub(@PathVariable long id, Model model){
-        BookClub club = bcDao.findBookClubById(id);
-        model.addAttribute("club", club);
-        return "clubs/viewClub";
-    }
+//    @GetMapping("/clubs/{id}")
+//    public String viewClub(@PathVariable long id, Model model){
+//        BookClub club = bcDao.findBookClubById(id);
+//        model.addAttribute("club", club);
+//        return "clubs/viewClub";
+//    }
+//    NOT WORKING//
+@GetMapping("/clubs/{id}")
+public String viewClub(@PathVariable Long id, Model model) {
+    BookClub club = bcDao.findBookClubById(id);
+    List<BookDiscussion> bookDiscussions = club.getBookDiscussions();
+    model.addAttribute("club", club);
+    model.addAttribute("bookDiscussions", bookDiscussions);
+    return "clubs/viewClub";
+}
 
     @GetMapping("/clubs/create")
     public String createClubForm(Model model) {

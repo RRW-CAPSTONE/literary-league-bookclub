@@ -17,6 +17,8 @@
 <div class="main-club-container" >
     <div class="individual-club-container">
 <!--        <div class="individual-club-card" >-->
+        <div class="individual-club-container">
+            <!--        <div class="individual-club-card" >-->
             <div class="individual-club-card card-body">
                 <h1 th:text="${club.title}"></h1>
                 <h3 th:text="|Club creator: ${club.user.email}|"></h3>
@@ -29,7 +31,7 @@
                     <button class="btn footer-bg w-50" type="submit">Join club</button>
                 </form>
             </div>
-    </div>
+        </div>
     <div class="current-members-container">
         <div class="current-members card" >
             <div class="individual-club-card card-body">
@@ -63,6 +65,7 @@
         <div class="current-members card" >
             <div class="individual-club-card card-body">
                 <h1>Book discussion:</h1>
+                <p class="card-text" th:each="discussion:${id}"><span th:object="${club.bookDiscussions}" th:text="${club.bookDiscussions}"></span></p>
                 <form sec:authorize="isAuthenticated()" th:action="@{/clubDiscussion}" method="post">
                     <a sec:authorize="isAuthenticated()" class="nav-brand footer-bg btn" href="/clubs/discussion/create">Create discussion</a>
 <!--                    <p class="card-text" th:each=":${}"><span th:text="${}"></span></p>-->
