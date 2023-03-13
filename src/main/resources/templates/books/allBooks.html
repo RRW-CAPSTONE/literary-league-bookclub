@@ -41,7 +41,7 @@
                     </div>
                     <div class="col-6">
                         <!-- Book details will be displayed here -->
-<!--                        <p id="book-details"></p>-->
+                        <!--<p id="book-details"></p>-->
                         <h6 class="modal-author" id="book-author"> </h6>
                         <hr>
                         <p id="modal-description" class="card-text overflow-auto" style="height: 15em;"></p>
@@ -61,52 +61,6 @@
         </div>
     </div>
 </div>
-
-<!--<div style="margin: 10px">-->
-<!--    <form class="d-flex" role="search" id="searchButton">-->
-<!--        <input class="form-control me-2" type="search" placeholder="Search books..." aria-label="Search" id="bookSearch">-->
-<!--        <button class="btn btn-outline" title="click here" type="submit" ><a href=""></a>Search</button>-->
-<!--    </form>-->
-<!--</div>-->
-
-<!--<div style="margin: 10px">-->
-<!--    <form th:action="@{/books/save}" th:method="post" th:object="${book}">-->
-<!--        <div class="mb-3">-->
-<!--            <label for="title" class="form-label">Book Title:</label>-->
-<!--            <input type="text" name="title" id="title" th:field="*{title}" class="form-control">-->
-<!--            <label for="author" class="form-label">Book Author(s):</label>-->
-<!--            <input type="text" name="title" id="author" th:field="*{author}" class="form-control">-->
-<!--            &lt;!&ndash;                <label for="genre" class="form-label">Book Description:</label>&ndash;&gt;-->
-<!--            &lt;!&ndash;                <input type="text" name="title" id="genre" th:field="*{description}" class="form-control">&ndash;&gt;-->
-<!--            <input type="hidden" th:field="*{id}">-->
-<!--        </div>-->
-<!--        <button class="btn footer-bg w-100" type="submit">Submit Book</button>-->
-<!--    </form>-->
-<!--</div>-->
-
-<!--    <div id="card">-->
-<!--        <div id="container">-->
-<!--            &lt;!&ndash;    html coming from js&ndash;&gt;-->
-<!--        </div>-->
-<!--    </div>-->
-
-<!--<div class="book-list" >-->
-<!--    &lt;!&ndash;<h2 class="text-center">Search Result</h2>&ndash;&gt;-->
-<!--    <div id="list-output" class="">-->
-<!--        <div class="row">-->
-<!--            &lt;!&ndash; Card being created in googleAPI.js  &ndash;&gt;-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</div>-->
-<!--<div id="pagination" style="margin-bottom: 5em;"></div>-->
-
-
-<!--<h1>All Books</h1>-->
-<!--<div th:each="book : ${books}">-->
-<!--    <a th:href="@{/books/{id} (id = ${book.id})}"><h1 th:text="${book.title}"></h1></a>-->
-<!--    <p th:text="${book.author}"></p>-->
-<!--    <p th:text="${book.genre}"></p>-->
-<!--</div>-->
 
 <div th:replace="~{partials :: footer}"></div>
 <div th:replace="~{partials :: scripts}"></div>
