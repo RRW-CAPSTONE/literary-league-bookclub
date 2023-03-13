@@ -33,21 +33,21 @@ public class BookClubController {
         return "clubs/allClubs";
     }
 
-//    @GetMapping("/clubs/{id}")
-//    public String viewClub(@PathVariable long id, Model model){
-//        BookClub club = bcDao.findBookClubById(id);
-//        model.addAttribute("club", club);
-//        return "clubs/viewClub";
-//    }
+    @GetMapping("/clubs/{id}")
+    public String viewClub(@PathVariable long id, Model model){
+        BookClub club = bcDao.findBookClubById(id);
+        model.addAttribute("club", club);
+        return "clubs/viewClub";
+    }
 //    NOT WORKING//
-@GetMapping("/clubs/{id}")
-public String viewClub(@PathVariable Long id, Model model) {
-    BookClub club = bcDao.findBookClubById(id);
-    List<BookDiscussion> bookDiscussions = club.getBookDiscussions();
-    model.addAttribute("club", club);
-    model.addAttribute("bookDiscussions", bookDiscussions);
-    return "clubs/viewClub";
-}
+//@GetMapping("/clubs/{id}")
+//public String viewClub(@PathVariable Long id, Model model) {
+//    BookClub club = bcDao.findBookClubById(id);
+//    List<BookDiscussion> bookDiscussions = club.getBookDiscussions();
+//    model.addAttribute("club", club);
+//    model.addAttribute("bookDiscussions", bookDiscussions);
+//    return "clubs/viewClub";
+//}
 
     @GetMapping("/clubs/create")
     public String createClubForm(Model model) {
@@ -103,22 +103,14 @@ public String viewClub(@PathVariable Long id, Model model) {
 
     @PostMapping("/clubs/discussion/save")
     public String saveDiscussionClub(@ModelAttribute BookDiscussion discussion, long id){
-
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        BookClub origClub = bcDao.findBookClubById(club.getId());
+//        BookClub origClub = bcDao.findBookClubById(club.getId());
         BookDiscussion origDiscussion = bdDao.findBookDiscussionById(discussion.getId());
-
         BookClub club = bcDao.findBookClubById(id);
         discussion.setBookClub(club);
         System.out.println(id);
         if(origDiscussion == null || user.getId() == origDiscussion.getUser().getId()){
-
-//            discussion.setBookClub(origClub);
-//            discussion.setBookClub(origClub);
-
-
             discussion.setUser(user);
-
             bdDao.save(discussion);
         }
         return "redirect:/clubs";
