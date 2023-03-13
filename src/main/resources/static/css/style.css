@@ -4,6 +4,8 @@
         background-color: darkgrey;
         color: black;
         margin-bottom: 50px;
+        font-family: 'Rampart One', cursive;
+
     }
 
     .navbar {
@@ -28,7 +30,7 @@
 
     footer {
         position: relative;
-        bottom: 0;
+        /*bottom: 0;*/
         /*width: 100%;*/
         /*height: 50px;*/
         /*padding: 20px;*/
@@ -42,6 +44,10 @@
         border: black;
         cursor: pointer;
         font-family: 'Rampart One', cursive;
+    }
+    .edit-modal{
+        padding: 5px;
+        margin: 5px;
     }
 
     a {
@@ -61,24 +67,23 @@
         display: flex;
         justify-content: space-between;
         margin: 20px;
-        height: calc(100vh - 250px)
+        height: calc(100vh - 200px);
+        background-color: transparent;
     }
-
-    .profile-recent-info {
-        padding: 5px;
-        width: calc(100% - 10rem - 40px);
-        height: calc(100vh - 170px);
-    }
-
     .profile-info {
         margin-right: 20px;
         padding: 5px;
         width: 10rem;
         height: calc(100vh - 170px);
+        border-style: solid;
+        border-color: black;
     }
+
 
     .img-circle {
         border-radius: 50%;
+        border-style: solid;
+        border-color: snow;
     }
 
     .profile-club {
@@ -88,11 +93,51 @@
         height: 40%
     }
 
+    .profile-recent-info {
+        padding: 5px;
+        display: flex;
+        flex-direction: column;
+        width: calc(100% - 10rem - 40px);
+        height: calc(100vh - 170px);
+       visibility: hidden;
+
+    }
+    .card-body-profile{
+        border-top: black;
+        font-family: 'Rampart One', cursive;
+
+
+    }
+    .card-body-bookclub{
+        /*background-color: red;*/
+        margin: 5px;
+        padding: 5px;
+        border-style: solid;
+        font-family: 'Rampart One', cursive;
+        visibility: visible;
+
+    }
+    .card-body-recent{
+        /*background-color: red;*/
+        margin: 5px;
+        padding: 5px;
+        border-style: solid;
+        font-family: 'Rampart One', cursive;
+        visibility: visible;
+
+    }
+
     .recent-activity {
         margin: 20px;
         padding: 5px;
         width: 75%;
         height: 40%
+    }
+    .bookclub-card-link{
+        color: blue;
+    }
+    .bookclub-card-link:hover{
+        color: black;
     }
 
     .card-link:hover {
