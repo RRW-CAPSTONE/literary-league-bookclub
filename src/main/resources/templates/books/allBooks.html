@@ -15,7 +15,6 @@
 <body>
 <div th:replace="~{partials :: navbar}"></div>
 
-<!--User Book Search Box-->
 <div class="container mt-5">
     <form id="search-form">
         <div class="form-group">
@@ -24,9 +23,7 @@
         </div>
         <button type="submit" class="btn btn-primary">Search</button>
     </form>
-    <div class="row mt-5" id="search-results">
-        <!--Book Cards built with JavaScript-->
-    </div>
+    <div class="row mt-5" id="search-results"></div>
 </div>
 
 <!-- Book modal -->
@@ -37,25 +34,18 @@
                 <h5 class="modal-title" id="book-modal-label"></h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-
-            <!--Modal Body-->
             <div class="modal-body">
-                <!--          <div class="row">-->
-                <!--             <div class="col-md-4">-->
                 <div class="row">
-                    <div class="col-md-6">
-                        <img class="card-img" id="book-modal-thumbnail" src="" alt="">
+                    <div class="col-lg-6">
+                        <img id="book-modal-thumbnail" src="" class="card-img" alt="">
+
                     </div>
-                    <div class="col-6">
-                        <h6 class="modal-author" id="book-author"> </h6>
-                        <hr>
-                        <p class="card-text overflow-auto" style="height: 11em;" id="book-description"></p>
+                    <div class="col-lg-6">
+                        <!-- Book details will be displayed here -->
+                        <p id="book-details"></p>
                     </div>
                 </div>
-                <!--             </div>-->
-                <!--          </div>-->
             </div>
-
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 <form th:action="@{/books/save}" id="book-form" th:method="POST" th:object="${book}">
@@ -69,13 +59,6 @@
         </div>
     </div>
 </div>
-
-
-
-
-
-
-
 
 <!--<div style="margin: 10px">-->
 <!--    <form class="d-flex" role="search" id="searchButton">-->
@@ -122,12 +105,6 @@
 <!--    <p th:text="${book.author}"></p>-->
 <!--    <p th:text="${book.genre}"></p>-->
 <!--</div>-->
-
-
-
-
-
-
 
 <div th:replace="~{partials :: footer}"></div>
 <div th:replace="~{partials :: scripts}"></div>
