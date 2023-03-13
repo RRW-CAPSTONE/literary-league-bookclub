@@ -145,10 +145,10 @@
     }
 
     .individual-club-card {
-        border-style: solid;
-        margin: 5px;
+        /*border-style: solid;*/
+        /*margin: 5px;*/
         font-family: 'Rampart One', cursive;
-        width: 18rem;
+        /*width: 18rem;*/
     }
 
     .club-link:hover {

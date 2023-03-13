@@ -143,7 +143,6 @@ public class BookClub {
         users.add(user);
     }
 
-
     public List<Book> getBooks() {
         return books;
     }
@@ -151,5 +150,7 @@ public class BookClub {
     public void setBooks(List<Book> books) {
         this.books = books;
     }
+
+    public void setBook(Book book){}
 }
 
