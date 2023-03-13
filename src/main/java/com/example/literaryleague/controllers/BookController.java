@@ -9,6 +9,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Controller
 public class BookController {
     private final UserRepository userDao;
@@ -21,7 +23,9 @@ public class BookController {
 
     @GetMapping("/books")
     public String createBookForm(Model model){
+        List<Book> books = bookDao.findAllByOrderByTitleAsc();
         model.addAttribute("book", new Book());
+        model.addAttribute("books", books);
         return "books/allBooks";
     }
 

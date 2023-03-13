@@ -14,7 +14,8 @@ public interface BookRepository extends JpaRepository<Book, Long> {
     //Book findByDescription(String description);
     //Book findByIMG(String imgUrl);
     Book findBookById(long id);
-    Book findBookByIsbn(String isbn);
     @Query("from Book b where b.title like %:term%")
     List<Book> searchByTitleLike(@Param("term") String term);
+
+    List<Book> findAllByOrderByTitleAsc();
 }

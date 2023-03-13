@@ -13,7 +13,7 @@
 </head>
 
 <body>
-<div th:replace="partials :: navbar"></div>
+<div th:replace="~{partials :: navbar}"></div>
 
 <div class="container mt-5">
     <form id="search-form">
@@ -39,8 +39,9 @@
                     <div class="col-md-4">
                         <img id="book-modal-thumbnail" src="" class="img-fluid rounded mb-3" alt="">
                         <form th:action="@{/books/save}" id="book-form" th:method="POST" th:object="${book}">
-                            <input type="text" id="book-modal-title" name="title" th:field="*{title}">
-                            <input type="text" id="book-modal-author" name="author" th:field="*{author}">
+                            <input type="hidden" id="book-modal-title" name="title" th:field="*{title}">
+                            <input type="hidden" id="book-modal-author" name="author" th:field="*{author}">
+                            <input type="hidden" id="book-modal-thumbnail1" name="author" th:field="*{imgUrl}">
                             <input type="hidden" th:field="*{id}">
 
                             <button class="btn footer-bg w-100" type="submit">Submit Book</button>
@@ -118,8 +119,8 @@
 
 
 
-<div th:replace="partials :: footer"></div>
-<div th:replace="partials :: scripts"></div>
+<div th:replace="~{partials :: footer}"></div>
+<div th:replace="~{partials :: scripts}"></div>
 
 </body>
 </html>

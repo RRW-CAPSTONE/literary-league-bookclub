@@ -232,7 +232,7 @@
 
             $(this).find('.modal-title').text(title);
             $(this).find('#book-modal-thumbnail').attr('src', thumbnailUrl);
-            // $(this).find('#book-modal-thumbnail').val(thumbnailUrl)
+            $(this).find('#book-modal-thumbnail1').val(thumbnailUrl)
             $(this).find('#book-modal-title').val(title);
             $(this).find('#book-modal-author').val(author);
         });

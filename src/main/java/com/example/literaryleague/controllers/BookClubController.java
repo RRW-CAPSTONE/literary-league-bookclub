@@ -7,10 +7,7 @@ import com.example.literaryleague.models.User;
 import com.example.literaryleague.repositories.BookClubRepository;
 import com.example.literaryleague.repositories.BookDiscussionRepository;
 import com.example.literaryleague.repositories.UserRepository;
-import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.parameters.P;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -75,9 +72,11 @@ public class BookClubController {
 
         return "redirect:/clubs";
     }
-    @GetMapping("/clubs/discussion/create")
-    public String createDiscussionForm(Model model) {
+    @GetMapping("/clubs/discussion/create/{id}")
+    public String createDiscussionForm(Model model, @PathVariable long id) {
+        System.out.println(id);
         model.addAttribute("discussion", new BookDiscussion());
+        model.addAttribute("id", id);
         return "clubs/clubDiscussion";
     }
 //    @PostMapping("/clubs/discussion/save")
@@ -88,11 +87,16 @@ public class BookClubController {
 //        return "redirect:/clubs";
 //    }
 
-        @PostMapping("/clubs/discussion/save")
-    public String saveDiscussionClub(@ModelAttribute BookDiscussion discussion){
+    @PostMapping("/clubs/discussion/save")
+    public String saveDiscussionClub(@ModelAttribute BookDiscussion discussion, long id){
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         BookDiscussion origDiscussion = bdDao.findBookDiscussionById(discussion.getId());
+
+        BookClub club = bcDao.findBookClubById(id);
+        discussion.setBookClub(club);
+        System.out.println(id);
         if(origDiscussion == null || user.getId() == origDiscussion.getUser().getId()){
+
             discussion.setUser(user);
             bdDao.save(discussion);
         }
