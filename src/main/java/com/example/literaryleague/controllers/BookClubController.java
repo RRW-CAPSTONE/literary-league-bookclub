@@ -7,10 +7,7 @@ import com.example.literaryleague.models.User;
 import com.example.literaryleague.repositories.BookClubRepository;
 import com.example.literaryleague.repositories.BookDiscussionRepository;
 import com.example.literaryleague.repositories.UserRepository;
-import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.parameters.P;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -84,9 +81,11 @@ public String viewClub(@PathVariable Long id, Model model) {
 
         return "redirect:/clubs";
     }
-    @GetMapping("/clubs/discussion/create")
-    public String createDiscussionForm(Model model) {
+    @GetMapping("/clubs/discussion/create/{id}")
+    public String createDiscussionForm(Model model, @PathVariable long id) {
+        System.out.println(id);
         model.addAttribute("discussion", new BookDiscussion());
+        model.addAttribute("id", id);
         return "clubs/clubDiscussion";
     }
 //    @PostMapping("/clubs/discussion/save")
@@ -97,15 +96,29 @@ public String viewClub(@PathVariable Long id, Model model) {
 //        return "redirect:/clubs";
 //    }
 
+
 //    BookClub controller
+//    @PostMapping("/clubs/discussion/save")
+//    public String saveDiscussionClub(@ModelAttribute BookDiscussion discussion, BookClub club,@RequestParam("bc_id") Long id){
+
     @PostMapping("/clubs/discussion/save")
-    public String saveDiscussionClub(@ModelAttribute BookDiscussion discussion, BookClub club,@RequestParam("bc_id") Long id){
+    public String saveDiscussionClub(@ModelAttribute BookDiscussion discussion, long id){
+
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         BookClub origClub = bcDao.findBookClubById(club.getId());
         BookDiscussion origDiscussion = bdDao.findBookDiscussionById(discussion.getId());
+
+        BookClub club = bcDao.findBookClubById(id);
+        discussion.setBookClub(club);
+        System.out.println(id);
         if(origDiscussion == null || user.getId() == origDiscussion.getUser().getId()){
-            discussion.setBookClub(origClub);
+
 //            discussion.setBookClub(origClub);
+//            discussion.setBookClub(origClub);
+
+
+            discussion.setUser(user);
+
             bdDao.save(discussion);
         }
         return "redirect:/clubs";

@@ -97,4 +97,5 @@ public class BookDiscussion {
 
     public void addComment(String commentText, User user) {
     }
+
 }

@@ -18,10 +18,8 @@ public class Book {
     private String author;
 
     @Column
-    private String description;
+    private String imgUrl;
 
-    @Column
-    private String isbn;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "book")
     private List<SuggestedBook> suggestedBooks;
 
@@ -37,29 +35,21 @@ public class Book {
 
     public Book(){}
 
-    public String getIsbn() {
-        return isbn;
-    }
-
-    public void setIsbn(String isbn) {
-        this.isbn = isbn;
-    }
-
-    public Book(long id, String title, String author, String description, List<SuggestedBook> suggestedBooks, User user, List<UserReviews> userReviews, List<BookClub> bookClubs) {
+    public Book(long id, String title, String author, String imgUrl, List<SuggestedBook> suggestedBooks, User user, List<UserReviews> userReviews, List<BookClub> bookClubs) {
         this.id = id;
         this.title = title;
         this.author = author;
-        this.description = description;
+        this.imgUrl = imgUrl;
         this.suggestedBooks = suggestedBooks;
         this.user = user;
         this.userReviews = userReviews;
         this.bookClubs = bookClubs;
     }
 
-    public Book(String title, String author, String description, List<SuggestedBook> suggestedBooks, User user, List<UserReviews> userReviews, List<BookClub> bookClubs) {
+    public Book(String title, String author, String imgUrl, List<SuggestedBook> suggestedBooks, User user, List<UserReviews> userReviews, List<BookClub> bookClubs) {
         this.title = title;
         this.author = author;
-        this.description = description;
+        this.imgUrl = imgUrl;
         this.suggestedBooks = suggestedBooks;
         this.user = user;
         this.userReviews = userReviews;
@@ -90,12 +80,12 @@ public class Book {
         this.author = author;
     }
 
-    public String getDescription() {
-        return description;
+    public String getImgUrl() {
+        return imgUrl;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
     }
 
     public List<SuggestedBook> getSuggestedBooks() {

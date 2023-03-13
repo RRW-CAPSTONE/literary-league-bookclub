@@ -65,10 +65,17 @@
         <div class="current-members card" >
             <div class="individual-club-card card-body">
                 <h1>Book discussion:</h1>
-                <p class="card-text" th:each="discussion:${id}"><span th:object="${club.bookDiscussions}" th:text="${club.bookDiscussions}"></span></p>
-                <form sec:authorize="isAuthenticated()" th:action="@{/clubDiscussion}" method="post">
-                    <a sec:authorize="isAuthenticated()" class="nav-brand footer-bg btn" href="/clubs/discussion/create">Create discussion</a>
+
+<!--                 <p class="card-text" th:each="discussion:${id}"><span th:object="${club.bookDiscussions}" th:text="${club.bookDiscussions}"></span></p>-->
+<!--                 <form sec:authorize="isAuthenticated()" th:action="@{/clubDiscussion}" method="post">-->
+<!--                     <a sec:authorize="isAuthenticated()" class="nav-brand footer-bg btn" href="/clubs/discussion/create">Create discussion</a>-->
 <!--                    <p class="card-text" th:each=":${}"><span th:text="${}"></span></p>-->
+
+                <form sec:authorize="isAuthenticated()" th:action="@{/clubDiscussion}" th:method="post">
+                    <a sec:authorize="isAuthenticated()" class="nav-brand footer-bg btn" th:href="@{'/clubs/discussion/create' + '/' + ${club.id}}">Create discussion</a>
+                    <input type="hidden" name="id" th:field="*{club.id}">
+                    <!--                    <p class="card-text" th:each=" :${}"><span th:text="${}"></span></p>-->
+
                 </form>
             </div>
         </div>
