@@ -1,11 +1,13 @@
 package com.example.literaryleague.controllers;
 
 
+import com.example.literaryleague.models.Book;
 import com.example.literaryleague.models.BookClub;
 import com.example.literaryleague.models.BookDiscussion;
 import com.example.literaryleague.models.User;
 import com.example.literaryleague.repositories.BookClubRepository;
 import com.example.literaryleague.repositories.BookDiscussionRepository;
+import com.example.literaryleague.repositories.BookRepository;
 import com.example.literaryleague.repositories.UserRepository;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -20,10 +22,13 @@ public class BookClubController {
     private final UserRepository userDao;
     private final BookDiscussionRepository bdDao;
 
-    public BookClubController(BookClubRepository bcDao, UserRepository userDao, BookDiscussionRepository bdDao){
+    private final BookRepository bookDao;
+
+    public BookClubController(BookClubRepository bcDao, UserRepository userDao, BookDiscussionRepository bdDao, BookRepository bookDao){
         this.bcDao = bcDao;
         this.userDao = userDao;
         this.bdDao = bdDao;
+        this.bookDao = bookDao;
     }
 
     @GetMapping("/clubs")
@@ -55,12 +60,37 @@ public class BookClubController {
         return "clubs/createClub";
     }
 
+    // old post and get mappings in case we need them again
+//    @PostMapping("/clubs/save")
+//    public String saveClub(@ModelAttribute BookClub club){
+//        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+//        BookClub origClub = bcDao.findBookClubById(club.getId());
+//        if(origClub == null || user.getId() == origClub.getUser().getId()){
+//            club.setUser(user);
+//            bcDao.save(club);
+//        }
+//        return "redirect:/clubs";
+//    }
+//
+//    @GetMapping("/clubs/{id}/edit")
+//    public String editClubForm(Model model, @PathVariable long id){
+//        model.addAttribute("club", bcDao.findBookClubById(id));
+//        return "clubs/createClub";
+//    }
+
+
     @PostMapping("/clubs/save")
-    public String saveClub(@ModelAttribute BookClub club){
+    public String saveClub(@ModelAttribute BookClub club, @RequestParam(value = "books") Book book){
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Book currentBook = bookDao.findBookById(book.getId());
+        System.out.println(book);
+        System.out.println(book.getId());
+        System.out.println(currentBook.getId());
+
         BookClub origClub = bcDao.findBookClubById(club.getId());
         if(origClub == null || user.getId() == origClub.getUser().getId()){
             club.setUser(user);
+            club.setCurrent_book(currentBook);
             bcDao.save(club);
         }
         return "redirect:/clubs";
@@ -68,9 +98,13 @@ public class BookClubController {
 
     @GetMapping("/clubs/{id}/edit")
     public String editClubForm(Model model, @PathVariable long id){
+        List<Book> books = bookDao.findAll();
         model.addAttribute("club", bcDao.findBookClubById(id));
-        return "clubs/createClub";
+        model.addAttribute("books", books);
+        return "clubs/editClub";
     }
+
+
 
     @PostMapping("/clubs/join")
     public String joinClub(@RequestParam(name = "clubId") long clubId){
