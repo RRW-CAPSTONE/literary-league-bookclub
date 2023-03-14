@@ -19,8 +19,8 @@
 <th:block th:fragment="navbar">
     <nav  class=" navbar navbar-light change">
         <div class="container-fluid change">
-            <a class="nav-brand" href="/">Literary League</a>
-
+            <a class="nav-brand logo" href="/">Literary League</a>
+            <a class="nav-brand" href="/aboutus">About Us</a>
             <a class="nav-brand" href="/books">Books</a>
             <a class="nav-brand" href="/clubs">Clubs</a>
             <a sec:authorize="!isAuthenticated()" class="nav-brand" href="/register">Register</a>
@@ -39,10 +39,10 @@
     <footer class="  middle">
             <p class="nav justify-content-center">
                 <a href="/" class="px-2">Home</a>
-                <a href="/aboutus" class="px-2">About us</a>
+                <a href="/aboutus" class="px-2">About Us</a>
                 <a href="https://developers.google.com/books" class="px-2">API</a>
             </p>
-        <p class="nav justify-content-center ">©Literary League All rights reserved.</p>
+        <p class="nav justify-content-center ">Literary League All rights reserved.</p>
     </footer>
 </th:block>
 <th:block th:fragment="scripts">
