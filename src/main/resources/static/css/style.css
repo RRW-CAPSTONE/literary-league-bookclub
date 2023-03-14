@@ -1,4 +1,11 @@
 @media (min-width: 576px) {
+    html {
+        box-sizing: border-box;
+    }
+    *, *:before, *:after {
+        box-sizing: inherit;
+    }
+
     body {
         background-color: darkgrey;
         color: black;
@@ -14,20 +21,16 @@
         background-color: #71AACF;
         text-decoration: none;
         color: black;
-        /*font-family: 'Rampart One', cursive;*/
         font-size: 22px;
     }
-    /*.logo{*/
-    /*    font-family: 'Rampart One', cursive;*/
 
-    /*}*/
 
     .logout-button {
         color: black;
         background-color: #71AACF;
         border: transparent;
         cursor: pointer;
-        /*font-family: 'Rampart One', cursive;*/
+
 
 
     }
@@ -37,16 +40,13 @@
     }
 
     footer {
-        position: relative;
-        /*bottom: 0;*/
-        /*width: 100%;*/
-        /*height: 50px;*/
-        /*padding: 20px;*/
-        /*background-color: #96adc9;*/
         font-family: 'Rampart One', cursive;
         text-decoration: none;
         font-size: 15px;
     }
+
+
+
     .book-description-modal{
         height: 15em;
     }
@@ -55,8 +55,6 @@
         background-color: #71AACF;
         border: black;
         cursor: pointer;
-        /*font-family: 'Rampart One', cursive;*/
-
     }
     .edit-modal{
         padding: 5px;
@@ -122,8 +120,6 @@
         width: calc(100% - 10rem - 40px);
         height: calc(100vh - 170px);
        visibility: hidden;
-
-
     }
     .card-body-profile{
         border-top: black;
@@ -140,7 +136,7 @@
         margin: 5px;
         padding: 5px;
         border-style: solid;
-        /*font-family: 'Rampart One', cursive;*/
+
         visibility: visible;
 
     }
@@ -181,6 +177,9 @@
     .card-link:hover {
         color: blue
     }
+    .individual-club-container{
+        margin: auto;
+    }
 
     .individual-club-card {
         /*border-style: solid;*/
@@ -191,6 +190,16 @@
         width: 18rem;
         /*font-family: 'Goudy Bookletter 1911', serif;*/
         font-size: 18px;
+
+    }
+    .view-club-card {
+        border-style: solid;
+        margin: 5px;
+        background-color: #e5e8ea;
+        width: 18rem;
+        font-size: 18px;
+        text-align: center;
+        visibility: visible;
 
     }
 
@@ -205,22 +214,76 @@
     .book-club {
         width: 18rem;
     }
-
-    .main-club-container {
-        background-color: green;
+    .test{
+        display: flex;
+        justify-content: center;
     }
-
-    .current-members-container {
-        background-color: blue;
-        /*font-family: 'Goudy Bookletter 1911', serif;*/
-
-
+    .current-members-container{
+        padding: 5px;
+        justify-content: center;
+        justify-items: center;
+        /*margin-left: auto;*/
+        height: 100%;
     }
-
     .current-members {
+        border-style: solid;
+        margin: 5px;
+        background-color: #e5e8ea;
         width: 18rem;
-        /*font-family: 'Goudy Bookletter 1911', serif;*/
+        font-size: 18px;
+        visibility: visible;
+    }
+    .view-club-container{
+        visibility: hidden;
+    }
+    .aboutUs-column {
+        float: left;
+        width: 33.3%;
+        margin-bottom: 2em;
+        padding: 0 8px;
+    }
 
+    .aboutUs-card {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        margin: 8px;
+        height: 100%;
+        background: white;
+    }
 
+    .aboutUs-container {
+        padding: 0 16px;
+    }
+
+    .aboutUs-container::after, .row::after {
+        content: "";
+        clear: both;
+        display: table;
+    }
+
+    .aboutUs-title {
+        color: grey;
+    }
+
+    .aboutUs-button {
+        border: none;
+        outline: 0;
+        display: inline-block;
+        padding: 8px;
+        color: black;
+        background-color: #71AACF;
+        text-align: center;
+        cursor: pointer;
+        width: 100%;
+    }
+    .aboutUs-link:hover {
+        color: #71AACF;
+    }
+
+    .aboutUs-button:hover {
+        color: white;
+    }
+    .aboutUs-header{
+        text-align:center;
+        margin: 1em;
     }
 }
