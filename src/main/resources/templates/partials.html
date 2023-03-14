@@ -4,9 +4,13 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<!--    <link rel="preconnect" href="https://fonts.googleapis.com">-->
+<!--    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>-->
+<!--    <link href="https://fonts.googleapis.com/css2?family=Rampart+One&display=swap" rel="stylesheet">-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Rampart+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Goudy+Bookletter+1911&family=Rampart+One&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="https://kit.fontawesome.com/cc15ef4101.css" crossorigin="anonymous">
     <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
@@ -33,12 +37,11 @@
 <!--FOOTER-->
 <th:block th:fragment="footer">
     <footer class="  middle">
-<!--        <ul class="nav justify-content-center  pb-3 mb-3">-->
-            <p class="nav justify-content-center"><a href="/" class="nav-link px-2 text-muted">Home</a>
-            <a href="" class="nav-link px-2 text-muted">Contact Us</a>
-             <a href="" class="nav-link px-2 text-muted">About</a>
+            <p class="nav justify-content-center">
+                <a href="/" class="px-2">Home</a>
+                <a href="/aboutUs" class="px-2">About us</a>
+                <a href="https://developers.google.com/books" class="px-2">API</a>
             </p>
-<!--        </ul>-->
         <p class="nav justify-content-center ">©Literary League All rights reserved.</p>
     </footer>
 </th:block>

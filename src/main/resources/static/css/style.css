@@ -1,10 +1,12 @@
 @media (min-width: 576px) {
     body {
-        /*background-color: #F3F4F4;*/
         background-color: darkgrey;
         color: black;
         margin-bottom: 50px;
-        font-family: 'Rampart One', cursive;
+        font-family: 'Goudy Bookletter 1911', serif;
+        font-size: 18px;
+
+
 
     }
 
@@ -13,7 +15,7 @@
         text-decoration: none;
         color: black;
         font-family: 'Rampart One', cursive;
-
+        font-size: 22px;
     }
 
     .logout-button {
@@ -21,6 +23,8 @@
         background-color: #71AACF;
         border: transparent;
         cursor: pointer;
+        font-family: 'Rampart One', cursive;
+
 
     }
 
@@ -37,6 +41,10 @@
         /*background-color: #96adc9;*/
         font-family: 'Rampart One', cursive;
         text-decoration: none;
+        font-size: 15px;
+    }
+    .book-description-modal{
+        height: 15em;
     }
 
     .btn {
@@ -44,6 +52,7 @@
         border: black;
         cursor: pointer;
         font-family: 'Rampart One', cursive;
+
     }
     .edit-modal{
         padding: 5px;
@@ -67,7 +76,7 @@
         display: flex;
         justify-content: space-between;
         margin: 20px;
-        height: calc(100vh - 200px);
+        height: auto;
         background-color: transparent;
     }
     .profile-info {
@@ -77,6 +86,13 @@
         height: calc(100vh - 170px);
         border-style: solid;
         border-color: black;
+        visibility: hidden;
+
+    }
+    .top-profile-body{
+        background-color: #71AACF;
+        border-style: solid;
+        visibility: visible;
     }
 
 
@@ -84,13 +100,15 @@
         border-radius: 50%;
         border-style: solid;
         border-color: snow;
+        visibility: visible;
     }
 
     .profile-club {
         margin: 20px;
         padding: 5px;
         width: 75%;
-        height: 40%
+        height: 40%;
+
     }
 
     .profile-recent-info {
@@ -101,38 +119,47 @@
         height: calc(100vh - 170px);
        visibility: hidden;
 
+
     }
     .card-body-profile{
         border-top: black;
-        font-family: 'Rampart One', cursive;
-
-
+        height: 628px;
+        background-color: #e5e8ea;
+        visibility: visible;
+        border-style: solid;
     }
     .card-body-bookclub{
-        /*background-color: red;*/
+        background-color: #e5e8ea;
+        height: auto;
         margin: 5px;
         padding: 5px;
         border-style: solid;
-        font-family: 'Rampart One', cursive;
+        /*font-family: 'Rampart One', cursive;*/
         visibility: visible;
 
     }
     .card-body-recent{
-        /*background-color: red;*/
+        background-color: #e5e8ea;
         margin: 5px;
         padding: 5px;
         border-style: solid;
-        font-family: 'Rampart One', cursive;
+        /*font-family: 'Rampart One', cursive;*/
         visibility: visible;
 
     }
-
-    .recent-activity {
-        margin: 20px;
-        padding: 5px;
-        width: 75%;
-        height: 40%
+    .all-clubs-banner{
+        display: block;
+        text-align: center;
+        background-size: cover;
+        background-position: center;
     }
+    .bookClubImg{
+        background-image: url("https://i.ibb.co/QYjDn9d/openbook.png");
+        width: 100%;
+        height: 100%;
+    }
+
+
     .bookclub-card-link{
         color: blue;
     }
@@ -145,13 +172,22 @@
     }
 
     .individual-club-card {
-        border-style: solid;
+        /*border-style: solid;*/
         margin: 5px;
-        font-family: 'Rampart One', cursive;
+        opacity:0.5;
+        background-color: transparent;
+        /*font-family: 'Rampart One', cursive;*/
         width: 18rem;
+        /*font-family: 'Goudy Bookletter 1911', serif;*/
+        font-size: 18px;
+
     }
 
     .club-link:hover {
+        color: blue;
+    }
+
+    .signup{
         color: blue;
     }
 
@@ -165,9 +201,15 @@
 
     .current-members-container {
         background-color: blue;
+        font-family: 'Goudy Bookletter 1911', serif;
+
+
     }
 
     .current-members {
         width: 18rem;
+        font-family: 'Goudy Bookletter 1911', serif;
+
+
     }
 }
