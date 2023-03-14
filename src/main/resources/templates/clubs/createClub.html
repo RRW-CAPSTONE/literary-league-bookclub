@@ -20,6 +20,13 @@
         <label for="body" class="form-label">Post Body:</label>
         <textarea name="body" id="body" class="form-control" cols="30" rows="10" th:field="*{description}"></textarea>
         <input type="hidden" th:field="*{id}">
+        <select name="books" id="books">
+            <option>--Select a Book--</option>
+            <option th:each="book : ${books}"
+                    th:value="${book.id}"
+                    th:text="${book.title}">
+            </option>
+        </select>
     </div>
     <button class="btn footer-bg w-100" type="submit">Create BookClub!</button>
 </form>
