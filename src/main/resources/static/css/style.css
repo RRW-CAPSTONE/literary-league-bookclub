@@ -159,6 +159,10 @@
         height: 100%;
     }
 
+    .aboutUs-img{
+        background-image: url("/static/img/isaac_img.jpg");
+    }
+
 
     .bookclub-card-link{
         color: blue;
