@@ -23,4 +23,9 @@ public class HomeController {
         model.addAttribute("books", books);
 
         return "index"; }
+
+    @GetMapping("/aboutus")
+    public String aboutUsPage(){
+        return "aboutUs";
+    }
 }

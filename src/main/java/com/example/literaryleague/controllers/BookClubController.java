@@ -61,36 +61,12 @@ public class BookClubController {
     }
 
     // old post and get mappings in case we need them again
-//    @PostMapping("/clubs/save")
-//    public String saveClub(@ModelAttribute BookClub club){
-//        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-//        BookClub origClub = bcDao.findBookClubById(club.getId());
-//        if(origClub == null || user.getId() == origClub.getUser().getId()){
-//            club.setUser(user);
-//            bcDao.save(club);
-//        }
-//        return "redirect:/clubs";
-//    }
-//
-//    @GetMapping("/clubs/{id}/edit")
-//    public String editClubForm(Model model, @PathVariable long id){
-//        model.addAttribute("club", bcDao.findBookClubById(id));
-//        return "clubs/createClub";
-//    }
-
-
     @PostMapping("/clubs/save")
-    public String saveClub(@ModelAttribute BookClub club, @RequestParam(value = "books") Book book){
+    public String saveClub(@ModelAttribute BookClub club){
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        Book currentBook = bookDao.findBookById(book.getId());
-        System.out.println(book);
-        System.out.println(book.getId());
-        System.out.println(currentBook.getId());
-
         BookClub origClub = bcDao.findBookClubById(club.getId());
         if(origClub == null || user.getId() == origClub.getUser().getId()){
             club.setUser(user);
-            club.setCurrent_book(currentBook);
             bcDao.save(club);
         }
         return "redirect:/clubs";
@@ -98,11 +74,35 @@ public class BookClubController {
 
     @GetMapping("/clubs/{id}/edit")
     public String editClubForm(Model model, @PathVariable long id){
-        List<Book> books = bookDao.findAll();
         model.addAttribute("club", bcDao.findBookClubById(id));
-        model.addAttribute("books", books);
-        return "clubs/editClub";
+        return "clubs/createClub";
     }
+
+
+//    @PostMapping("/clubs/save")
+//    public String editClub(@ModelAttribute BookClub club, @RequestParam(value = "books") Book book){
+//        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+//        Book currentBook = bookDao.findBookById(book.getId());
+//        System.out.println(book);
+//        System.out.println(book.getId());
+//        System.out.println(currentBook.getId());
+//
+//        BookClub origClub = bcDao.findBookClubById(club.getId());
+//        if(origClub == null || user.getId() == origClub.getUser().getId()){
+//            club.setUser(user);
+//            club.setCurrent_book(currentBook);
+//            bcDao.save(club);
+//        }
+//        return "redirect:/clubs";
+//    }
+//
+//    @GetMapping("/clubs/{id}/edit")
+//    public String editClubForm(Model model, @PathVariable long id){
+//        List<Book> books = bookDao.findAll();
+//        model.addAttribute("club", bcDao.findBookClubById(id));
+//        model.addAttribute("books", books);
+//        return "clubs/editClub";
+//    }
 
 
 
@@ -136,11 +136,11 @@ public class BookClubController {
 //    public String saveDiscussionClub(@ModelAttribute BookDiscussion discussion, BookClub club,@RequestParam("bc_id") Long id){
 
     @PostMapping("/clubs/discussion/save")
-    public String saveDiscussionClub(@ModelAttribute BookDiscussion discussion, long id){
+    public String saveDiscussionClub(@ModelAttribute BookDiscussion discussion, @RequestParam(name = "bc_id") long id){
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 //        BookClub origClub = bcDao.findBookClubById(club.getId());
         BookDiscussion origDiscussion = bdDao.findBookDiscussionById(discussion.getId());
-        BookClub club = bcDao.findBookClubById(id);
+        BookClub club = bcDao.findBookClubById(discussion.getId());
         discussion.setBookClub(club);
         System.out.println(id);
         if(origDiscussion == null || user.getId() == origDiscussion.getUser().getId()){
