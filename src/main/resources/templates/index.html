@@ -2,28 +2,31 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 
- <head div th:replace="partials :: header(Literary_League)">
+<head div th:replace="partials :: head('Literary_League')">
 
-<!--    <meta charset="UTF-8">-->
-<!--    <title>Home Page</title>-->
-<!--    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">-->
-<!--    <link rel="preconnect" href="https://fonts.googleapis.com">-->
-<!--    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>-->
-<!--    <link href="https://fonts.googleapis.com/css2?family=Rampart+One&display=swap" rel="stylesheet">-->
-<!--    <link rel="stylesheet" href="/css/style.css">-->
+    <!--    <meta charset="UTF-8">-->
+    <!--    <title>Home Page</title>-->
+    <!--    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">-->
+    <!--    <link rel="preconnect" href="https://fonts.googleapis.com">-->
+    <!--    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>-->
+    <!--    <link href="https://fonts.googleapis.com/css2?family=Rampart+One&display=swap" rel="stylesheet">-->
+    <!--    <link rel="stylesheet" href="/css/style.css">-->
 </head>
 <body>
 <div th:replace="partials :: navbar"></div>
 <div class="container"> <!--    main container-->
-    <a href="/clubs/create" style="display: block; text-align: center; background-color: blue; background-size: cover; background-position: center;">
+    <a href="/clubs/create"
+       style="display: block; text-align: center; background-color: blue; background-size: cover; background-position: center;">
         <h1>Join a Book Club Today!!!</h1>
     </a>
     <div style="margin-top: 10px">
-        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel" style="width: 550px; height: 700px; display: flex; margin-left: auto; margin-right: auto; margin-top: 25px; justify-content: center">
-            <div class="carousel-inner" >
-                <div class="carousel-item active" th:each="book, active: ${books}" th:classappend="${active.index == 0} ? 'carousel-book active' : 'carousel-book'">
+        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel"
+             style="width: 550px; height: 700px; display: flex; margin-left: auto; margin-right: auto; margin-top: 25px; justify-content: center">
+            <div class="carousel-inner">
+                <div class="carousel-item active" th:each="book, active: ${books}"
+                     th:classappend="${active.index == 0} ? 'carousel-book active' : 'carousel-book'">
 
-                    <div class="card" style="width: 18rem; margin: auto" >
+                    <div class="card" style="width: 18rem; margin: auto">
                         <img th:src="${book.imgUrl}" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 th:text="${book.title}"></h5>
@@ -39,11 +42,13 @@
                 <!--                <img src="https://books.google.com/books/content?id=HvJaAAAAMAAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api" class="d-block w-100" alt="...">-->
                 <!--            </div>-->
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+                    data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Previous</span>
             </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+                    data-bs-slide="next">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Next</span>
             </button>
@@ -55,49 +60,19 @@
                 <div class="card" style="width: 50rem; margin-right: auto">
                     <div class="card-body">
                         <h5 class="card-title">WELCOME TO LITERARY LEAGUE</h5>
-<!--                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>-->
-                        <p class="card-text">Thanks for visiting the Literary League book club finder! Here you will be able to find and connect with different book clubs based on your book preferences. Visit our book club page to see all active book clubs! Stumped on what book you want to read? Visit our book search to search for different books and read a short description about the book!</p>
+                        <!--                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>-->
+                        <p class="card-text">Thanks for visiting the Literary League book club finder! Here you will be
+                            able to find and connect with different book clubs based on your book preferences. Visit our
+                            book club page to see all active book clubs! Stumped on what book you want to read? Visit
+                            our book search to search for different books and read a short description about the
+                            book!</p>
                     </div>
                 </div>
             </div>
-
-
         </div>
     </div>
 </div>
-<!--    <h1>Welcome to Literary League</h1>-->
 
-<!--    <div id="card">-->
-<!--        <div id="container">-->
-<!--            &lt;!&ndash;    html coming from js&ndash;&gt;-->
-<!--        </div>-->
-<!--    </div>-->
-
-<!--<div class="book-list" >-->
-<!--    &lt;!&ndash;<h2 class="text-center">Search Result</h2>&ndash;&gt;-->
-<!--    <div id="list-output" class="">-->
-<!--        <div class="row">-->
-<!--            &lt;!&ndash; Card being created in googleAPI.js  &ndash;&gt;-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</div>-->
-<!--<div id="pagination" style="margin-bottom: 5em;"></div>-->
-
-
-
-</div>
-
-<!--<div th:replace="partials :: footer"></div>-->
-
-<!--    <script type="text/javascript" src="https://www.google.com/books/jsapi.js"></script>-->
-<!--    <script type="text/javascript"></script>-->
-<!--    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>-->
-<!--    <script th:src="@{/JS/api_key.js}"></script>-->
-<!--    <script th:src="@{/JS/googleAPI.js}"></script>-->
-
-<!--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>-->
-
-</div>
 
 <div th:replace="partials :: footer"></div>
 
