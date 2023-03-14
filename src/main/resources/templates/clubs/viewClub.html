@@ -38,9 +38,9 @@
             <div class="individual-club-card card-body">
                 <h3>Current Members:</h3>
                 <p class="card-text" th:each="user:${club.users}"><span th:text="${user.username}"></span></p>
-                <a sec:authorize="isAuthenticated()"
-                   th:href="@{'/clubs/' + ${club.id} + '/edit'}" th:if="${#authentication.principal.id == club.user.id}"
-                   class="footer-bg btn">Edit Club</a>
+<!--                <a sec:authorize="isAuthenticated()"-->
+<!--                   th:href="@{'/clubs/' + ${club.id} + '/edit'}" th:if="${#authentication.principal.id == club.user.id}"-->
+<!--                   class="footer-bg btn">Edit Club</a>-->
             </div>
         </div>
     </div>
