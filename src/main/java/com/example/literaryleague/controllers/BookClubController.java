@@ -56,16 +56,20 @@ public class BookClubController {
 
     @GetMapping("/clubs/create")
     public String createClubForm(Model model) {
+        List<Book> books = bookDao.findAll();
+        model.addAttribute("books", books);
         model.addAttribute("club", new BookClub());
         return "clubs/createClub";
     }
 
-    // old post and get mappings in case we need them again
+    // working!!! allows creating of a club and allows editing of club with proper text in buttons
     @PostMapping("/clubs/save")
-    public String saveClub(@ModelAttribute BookClub club){
+    public String saveClub(@ModelAttribute BookClub club, @RequestParam(value = "books") Book book){
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Book currentBook = bookDao.findBookById(book.getId());
         BookClub origClub = bcDao.findBookClubById(club.getId());
         if(origClub == null || user.getId() == origClub.getUser().getId()){
+            club.setCurrent_book(currentBook);
             club.setUser(user);
             bcDao.save(club);
         }
@@ -74,9 +78,20 @@ public class BookClubController {
 
     @GetMapping("/clubs/{id}/edit")
     public String editClubForm(Model model, @PathVariable long id){
+        List<Book> books = bookDao.findAll();
         model.addAttribute("club", bcDao.findBookClubById(id));
-        return "clubs/createClub";
+        model.addAttribute("books", books);
+        return "clubs/editClub";
     }
+
+
+//    @GetMapping("/clubs/{id}/edit")
+//    public String editClubForm(Model model, @PathVariable long id){
+//        List<Book> books = bookDao.findAll();
+//        model.addAttribute("books", books);
+//        model.addAttribute("club", bcDao.findBookClubById(id));
+//        return "clubs/createClub";
+//    }
 
 
 //    @PostMapping("/clubs/save")
@@ -96,13 +111,6 @@ public class BookClubController {
 //        return "redirect:/clubs";
 //    }
 //
-//    @GetMapping("/clubs/{id}/edit")
-//    public String editClubForm(Model model, @PathVariable long id){
-//        List<Book> books = bookDao.findAll();
-//        model.addAttribute("club", bcDao.findBookClubById(id));
-//        model.addAttribute("books", books);
-//        return "clubs/editClub";
-//    }
 
 
 
@@ -113,7 +121,7 @@ public class BookClubController {
         origClub.addUser(user);
         bcDao.save(origClub);
 
-        return "redirect:/clubs";
+        return "redirect:/clubs/" + clubId;
     }
     @GetMapping("/clubs/discussion/create/{id}")
     public String createDiscussionForm(Model model, @PathVariable long id) {
@@ -138,11 +146,13 @@ public class BookClubController {
     @PostMapping("/clubs/discussion/save")
     public String saveDiscussionClub(@ModelAttribute BookDiscussion discussion, @RequestParam(name = "bc_id") long id){
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-//        BookClub origClub = bcDao.findBookClubById(club.getId());
+        System.out.println(id);
+//        BookClub origClub = bcDao.findBookClubById(bookClub.getId());
         BookDiscussion origDiscussion = bdDao.findBookDiscussionById(discussion.getId());
         BookClub club = bcDao.findBookClubById(discussion.getId());
+        System.out.println(club);
         discussion.setBookClub(club);
-        System.out.println(id);
+
         if(origDiscussion == null || user.getId() == origDiscussion.getUser().getId()){
             discussion.setUser(user);
             bdDao.save(discussion);
