@@ -46,7 +46,7 @@ function searchBooks(searchTerm) {
                                 <p class="card-text overflow-auto" style="height: 9.5em;"><strong>Description: </strong> ${description}</p>
                               <div class="position-absolute bottom-0 end-0">
                                  <!--<a href="" class="btn btn-primary mt-auto">Learn More</a>-->
-                                 <a href="#" class="btn btn-primary mt-auto" data-bs-toggle="modal" data-bs-target="#book-modal" data-title="${title}" data-author="${authors}" data-description="${description}" data-thumbnail-url="${thumbnail}">Learn More</a>
+                                 <a href="#" class="btn mt-auto" data-bs-toggle="modal" data-bs-target="#book-modal" data-title="${title}" data-author="${authors}" data-description="${description}" data-thumbnail-url="${thumbnail}">Learn More</a>
                               </div>
                            </div>
                         </div>

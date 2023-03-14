@@ -21,7 +21,7 @@
             <label for="search-input">Search for Books:</label>
             <input type="text" class="form-control" id="search-input" name="search" placeholder="Enter keywords...">
         </div>
-        <button type="submit" class="btn btn-primary">Search</button>
+        <button type="submit" class="btn">Search</button>
     </form>
     <div class="row mt-5" id="search-results"></div>
 </div>
@@ -44,12 +44,12 @@
                         <!--<p id="book-details"></p>-->
                         <h6 class="modal-author" id="book-author"> </h6>
                         <hr>
-                        <p id="modal-description" class="card-text overflow-auto" style="height: 15em;"></p>
+                        <p id="modal-description" class="card-text overflow-auto book-description-modal"></p>
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn" data-bs-dismiss="modal">Close</button>
                 <form th:action="@{/books/save}" id="book-form" th:method="POST" th:object="${book}">
                     <input type="hidden" id="book-modal-title" name="title" th:field="*{title}">
                     <input type="hidden" id="book-modal-author" name="author" th:field="*{author}">
