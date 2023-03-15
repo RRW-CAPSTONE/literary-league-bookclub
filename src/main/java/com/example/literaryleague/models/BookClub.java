@@ -1,11 +1,16 @@
 package com.example.literaryleague.models;
 
 import jakarta.persistence.*;
+import org.springframework.data.annotation.CreatedBy;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
 @Table(name = "bookclubs")
+@EntityListeners(AuditingEntityListener.class)
 public class BookClub {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,6 +21,10 @@ public class BookClub {
 
     @Column(nullable = false)
     private String description;
+
+    @CreatedDate
+    @Column(nullable = false, updatable = false)
+    private LocalDateTime createdAt;
 
     @OneToOne
     private Book current_book;
@@ -51,10 +60,11 @@ public class BookClub {
     public BookClub() {
     }
 
-    public BookClub(long id, String title, String description, Book current_book, User user, List<BookDiscussion> bookDiscussions, List<SuggestedBook> suggestedBooks, List<User> users, List<Book> books) {
+    public BookClub(long id, String title, String description, LocalDateTime createdAt, Book current_book, User user, List<BookDiscussion> bookDiscussions, List<SuggestedBook> suggestedBooks, List<User> users, List<Book> books) {
         this.id = id;
         this.title = title;
         this.description = description;
+        this.createdAt = createdAt;
         this.current_book = current_book;
         this.user = user;
         this.bookDiscussions = bookDiscussions;
@@ -63,9 +73,10 @@ public class BookClub {
         this.books = books;
     }
 
-    public BookClub(String title, String description, Book current_book, User user, List<BookDiscussion> bookDiscussions, List<SuggestedBook> suggestedBooks, List<User> users, List<Book> books) {
+    public BookClub(String title, String description, LocalDateTime createdAt, Book current_book, User user, List<BookDiscussion> bookDiscussions, List<SuggestedBook> suggestedBooks, List<User> users, List<Book> books) {
         this.title = title;
         this.description = description;
+        this.createdAt = createdAt;
         this.current_book = current_book;
         this.user = user;
         this.bookDiscussions = bookDiscussions;
@@ -149,6 +160,14 @@ public class BookClub {
 
     public void setBooks(List<Book> books) {
         this.books = books;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
     }
 
     public void setBook(Book book){}

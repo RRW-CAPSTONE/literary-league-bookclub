@@ -13,9 +13,10 @@
         <img class="img-circle profile-image" src="https://randomuser.me/api/portraits/men/12.jpg" alt="user">
         </div>
         <div class="card-body-profile">
-            <h5 class="card-title" th:text="|Howdy, ${user.username}!|"></h5>
+<!--            capitalized 1st letter of the username can go back to normal if we want...  th:text="|Howdy, ${user.username}!|" <<<<< add to h5 tag-->
+            <h5 class="card-title">Howdy, [[${#strings.capitalize(user.username)}]]</h5>
             <p th:text="|Email: ${user.email}|"></p>
-            <p th:text="|User ID: ${user.id}|"></p>
+<!--            <p th:text="|User ID: ${user.id}|"></p>-->
 <!--            <a href="/clubs/create"><button type="button" class="footer-bg btn edit-modal" >Create Club</button></a>-->
             <button type="button" class="footer-bg btn edit-modal" data-bs-toggle="modal" data-bs-target="#editInfo">
                 Edit Profile
@@ -23,29 +24,39 @@
         </div>
     </div>
         <div class="profile-recent-info card"  >
-        <div class="card-body-bookclub" >
-            <h5 class="card-title">Your Bookclubs:</h5>
-            <p th:each="club:${user.clubs}"  th:text="${club.title}"></p>
-            <a href="/clubs"><button type="button" class="footer-bg btn">Bookclubs</button></a>
-            <a href="/clubs/create"><button type="button" class="footer-bg btn edit-modal" >Create Club</button></a>
+<!--            row and col-6 are both new divs-->
+            <div class="row">
+                <div class="col-6">
+                    <div class="card-body-bookclub" >
+                        <h5 class="card-title">Your Created Bookclubs:</h5>
+                        <p th:each="club:${user.clubs}"  th:text="${club.title}"></p>
+                        <a href="/clubs"><button type="button" class="footer-bg btn">Bookclubs</button></a>
+                        <a href="/clubs/create"><button type="button" class="footer-bg btn edit-modal" >Create Club</button></a>
+                    </div>
+                </div>
+<!--                new code start-->
+                <div class="col-6">
+                    <div class="card-body-bookclub" >
+                        <h5 class="card-title">Book Club Memberships:</h5>
+                            <ul>
+                                <li th:each="bookClub : ${bookClubs}" th:text="${bookClub.title}"></li>
+                            </ul>
+                            <a href="/clubs"><button type="button" class="footer-bg btn">Bookclubs</button></a>
+                            <!--                        <a href="/clubs/create"><button type="button" class="footer-bg btn edit-modal" >Create Club</button></a>-->
+                    </div>
+                </div>
+<!--                new code stop-->
+            </div>
 
-
-
-        </div>
         <div class="card-body-recent " >
             <h5 class="card-title">Bookshelf</h5>
                 <div class="row">
-                    <div class="col-sm-3" th:each="book : ${user.books}">
+                    <div class="col-sm-3 bookshelfinfo" th:each="book : ${user.books}">
                         <img th:src="${book.imgUrl}" alt="">
                         <p class="card-text" th:text="${book.title}">/p>
                         <p class="card-text" th:text="${book.author}">/p>
                     </div>
                 </div>
-
-
-<!--            <p class="card-text">Recent ...2</p>-->
-<!--            <p class="card-text">Recent ...3</p>-->
-<!--            <a href="/clubs" class="card-link">Recent Activity</a>-->
         </div>
     </div>
 
