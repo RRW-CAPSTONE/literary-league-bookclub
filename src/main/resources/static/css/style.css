@@ -298,4 +298,10 @@
         text-align:center;
         margin: 1em;
     }
+
+    .bookshelfinfo{
+        /*display: flex;*/
+        justify-content: center;
+        text-align: center;
+    }
 }

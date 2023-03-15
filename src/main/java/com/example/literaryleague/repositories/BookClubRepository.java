@@ -8,4 +8,5 @@ import java.util.List;
 public interface BookClubRepository extends JpaRepository<BookClub, Long> {
     BookClub findBookClubById(long id);
 
+    List<BookClub> findTop4ByOrderByCreatedAtDesc();
 }
