@@ -37,11 +37,20 @@
         <div class="row">
             <h2 class="recently-created-clubs">Recently Created Clubs:</h2>
             <div class="col-3" th:each="club : ${last4}">
-                <div class="card">
+                <div class="card card h-100">
                     <div class="card-body">
-                        <h3 class="card-title" th:text="${club.title}"></h3>
-                        <h5>Currently Reading:</h5>
-                        <img th:src="${club.current_book.imgUrl}" alt="">
+                    <div class="row">
+<!--                        <h3>Currently Reading:</h3>-->
+                        <center><h4 class="card-title" th:text="${club.title}"></h4></center>
+                        <div class="col 6">
+                            <img th:src="${club.current_book.imgUrl}" alt="">
+                        </div>
+                            <div class="col 6">
+<!--                                <h5>Book Title: </h5>-->
+<!--                                <p th:text="${club.books}"></p>-->
+<!--                                <h5 class="card-title" th:text="${club.title}"></h5>-->
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
