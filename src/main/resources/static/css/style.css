@@ -1,11 +1,4 @@
 @media (min-width: 576px) {
-    /*html {*/
-    /*    box-sizing: border-box;*/
-    /*}*/
-    /**, *:before, *:after {*/
-    /*    box-sizing: inherit;*/
-    /*}*/
-
     body {
         background-color: darkgrey;
         color: black;
@@ -18,10 +11,41 @@
     }
 
     .navbar {
-        background-color: #71AACF;
+        display: flex;
+        justify-content: center;
         text-decoration: none;
         color: black;
         font-size: 22px;
+        text-align: center;
+    }
+    .img-pad{
+        margin:5px;
+    }
+    .top-logo{
+        display: flex;
+        justify-items: center;
+        padding: 10px;
+        text-align: center;
+        color: white;
+        font-size: 40px;
+
+    }
+    .nav-brand{
+        padding: 6px;
+    }
+    .top-nav-bg{
+        background: url("../img/woodphone.jpeg") ;
+        background-size: cover;
+    }
+    .img-circle {
+        display: flex;
+        justify-content: start;
+        border-radius: 50%;
+        border-style: solid;
+        border-color: snow;
+        visibility: visible;
+        height: auto;
+        width: 65px;
     }
 
 
@@ -38,10 +62,11 @@
     }
 
     footer {
-        font-family: 'Rampart One', cursive;
+
         font-weight: bold;
         color: #F3F4F4;
         text-decoration: black;
+        text-shadow: 1px 1px 2px black;
         font-size: 15px;
     }
 
@@ -69,7 +94,6 @@
 
     a {
         color: white;
-        /*text-decoration: ;*/
     }
 
     a:hover {
@@ -104,12 +128,6 @@
     }
 
 
-    .img-circle {
-        border-radius: 50%;
-        border-style: solid;
-        border-color: snow;
-        visibility: visible;
-    }
 
     .profile-club {
         margin: 20px;
@@ -142,7 +160,6 @@
         margin: 5px;
         padding: 5px;
         border-style: solid;
-
         visibility: visible;
 
     }
@@ -151,9 +168,7 @@
         margin: 5px;
         padding: 5px;
         border-style: solid;
-        /*font-family: 'Rampart One', cursive;*/
         visibility: visible;
-
     }
     .index-all-clubs-banner{
         color: white;
@@ -172,18 +187,15 @@
     .bookClubImg-container{
         background: url("https://i.ibb.co/QYjDn9d/openbook.png") no-repeat center center fixed;
         background-size: cover;
-        /*width: 100%;*/
-        /*height: 100%;*/
     }
     .index-img{
-        background: url("https://www.thenoginn.co.uk/wp-content/uploads/2017/11/bookclub.jpg") no-repeat center center fixed;
+        background: url("../img/bookclub-index2.png") no-repeat center center fixed;
         background-size: cover;
     }
 
     .aboutUs-img{
         background-image: url("/static/img/isaac_img.jpg");
     }
-
 
     .bookclub-card-link{
         color: blue;
@@ -205,11 +217,9 @@
         background-color: transparent;
         width: 18rem;
         font-size: 18px;
-
     }
 
     .view-club-card {
-
         flex-direction: row;
         border-style: solid;
         margin: 5px;
@@ -218,7 +228,6 @@
         font-size: 18px;
         text-align: center;
         visibility: visible;
-
     }
 
     .club-link:hover {
@@ -240,7 +249,6 @@
         padding: 5px;
         justify-content: center;
         justify-items: center;
-        /*margin-left: auto;*/
         height: 100%;
     }
     .current-members {
@@ -324,12 +332,7 @@
     }
     .index-welcome-container{
         margin: auto;
-        /*flex-direction: row;*/
         opacity:0.9;
-        /*background-color: transparent;*/
-        /*width: 18rem;*/
-        /*font-size: 18px;*/
-
     }
     .individual-club-edit-join-btn{
         margin: auto;
