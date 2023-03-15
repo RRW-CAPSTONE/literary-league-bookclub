@@ -15,7 +15,13 @@ public class BookDiscussion {
     private String title;
 
     @Column(nullable = false)
-    private String body;
+    private String location;
+
+    @Column(nullable = false)
+    private String date;
+
+    @Column(nullable = false)
+    private String time;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "bookDiscussion")
     private List<Comment> comments;
@@ -30,18 +36,22 @@ public class BookDiscussion {
 
     public BookDiscussion(){}
 
-    public BookDiscussion(long id, String title, String body, List<Comment> comments, BookClub bookClub, User user) {
+    public BookDiscussion(long id, String title, String location, String date, String time, List<Comment> comments, BookClub bookClub, User user) {
         this.id = id;
         this.title = title;
-        this.body = body;
+        this.location = location;
+        this.date = date;
+        this.time = time;
         this.comments = comments;
         this.bookClub = bookClub;
         this.user = user;
     }
 
-    public BookDiscussion(String title, String body, List<Comment> comments, BookClub bookClub, User user) {
+    public BookDiscussion(String title, String location, String date, String time, List<Comment> comments, BookClub bookClub, User user) {
         this.title = title;
-        this.body = body;
+        this.location = location;
+        this.date = date;
+        this.time = time;
         this.comments = comments;
         this.bookClub = bookClub;
         this.user = user;
@@ -63,12 +73,28 @@ public class BookDiscussion {
         this.title = title;
     }
 
-    public String getBody() {
-        return body;
+    public String getLocation() {
+        return location;
     }
 
-    public void setBody(String body) {
-        this.body = body;
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
     }
 
     public List<Comment> getComments() {

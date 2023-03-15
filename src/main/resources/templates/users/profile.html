@@ -26,18 +26,26 @@
         <div class="card-body-bookclub" >
             <h5 class="card-title">Your Bookclubs:</h5>
             <p th:each="club:${user.clubs}"  th:text="${club.title}"></p>
-            <a href="/clubs"><button type="button" class="footer-bg btn">Bookclub</button></a>
+            <a href="/clubs"><button type="button" class="footer-bg btn">Bookclubs</button></a>
             <a href="/clubs/create"><button type="button" class="footer-bg btn edit-modal" >Create Club</button></a>
 
 
 
         </div>
         <div class="card-body-recent " >
-            <h5 class="card-title">Recent Activity:</h5>
-            <p class="card-text">Recent ...1</p>
-            <p class="card-text">Recent ...2</p>
-            <p class="card-text">Recent ...3</p>
-            <a href="/clubs" class="card-link">Recent Activity</a>
+            <h5 class="card-title">Bookshelf</h5>
+                <div class="row">
+                    <div class="col-sm-3" th:each="book : ${user.books}">
+                        <img th:src="${book.imgUrl}" alt="">
+                        <p class="card-text" th:text="${book.title}">/p>
+                        <p class="card-text" th:text="${book.author}">/p>
+                    </div>
+                </div>
+
+
+<!--            <p class="card-text">Recent ...2</p>-->
+<!--            <p class="card-text">Recent ...3</p>-->
+<!--            <a href="/clubs" class="card-link">Recent Activity</a>-->
         </div>
     </div>
 
