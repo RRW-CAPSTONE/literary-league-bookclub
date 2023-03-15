@@ -7,6 +7,24 @@
 </head>
 <body class="index-img">
 <div th:replace="partials :: navbar"></div>
+
+<div class="container">
+    <div class="profile-container">
+            <div class="profile-info card">
+                <div class="top-profile-body">
+                <img class="img-circle profile-image" src="../static/img/logo.png" th:src="@{img/logo.png}"/>
+                </div>
+                <div class="card-body-profile">
+        <!--            capitalized 1st letter of the username can go back to normal if we want...  th:text="|Howdy, ${user.username}!|" <<<<< add to h5 tag-->
+                    <h5 class="card-title">Howdy, [[${#strings.capitalize(user.username)}]]</h5>
+                    <p th:text="|Email: ${user.email}|"></p>
+        <!--            <p th:text="|User ID: ${user.id}|"></p>-->
+        <!--            <a href="/clubs/create"><button type="button" class="footer-bg btn edit-modal" >Create Club</button></a>-->
+                    <button type="button" class="footer-bg btn edit-modal" data-bs-toggle="modal" data-bs-target="#editInfo">
+                        Edit Profile
+                    </button>
+                </div>
+
 <div class="profile-container ">
     <div class="profile-info card">
         <div class="top-profile-body">
@@ -23,33 +41,53 @@
             </button>
         </div>
     </div>
-        <div class="profile-recent-info card"  >
-<!--            row and col-6 are both new divs-->
+    <div class="profile-recent-info card"  >
+        <div class="row mt-5">
+<!--            <div class="">-->
+<!--                <div class="">-->
+<!--                    <img class="img-circle profile-image" src="../static/img/logo.png" th:src="@{img/logo.png}"/>-->
+<!--                </div>-->
+<!--                <div class="test">-->
+<!--                    <div class="card-body-bookclub view-club-opacity w-75" >-->
+<!--                        <div class="card-body-profile">-->
+<!--                            &lt;!&ndash;            capitalized 1st letter of the username can go back to normal if we want...  th:text="|Howdy, ${user.username}!|" <<<<< add to h5 tag&ndash;&gt;-->
+<!--                            <h5 class="card-title">Howdy, [[${#strings.capitalize(user.username)}]]</h5>-->
+<!--                            <p th:text="|Email: ${user.email}|"></p>-->
+<!--                            &lt;!&ndash;            <p th:text="|User ID: ${user.id}|"></p>&ndash;&gt;-->
+<!--                            &lt;!&ndash;            <a href="/clubs/create"><button type="button" class="footer-bg btn edit-modal" >Create Club</button></a>&ndash;&gt;-->
+<!--                            <button type="button" class="footer-bg btn edit-modal" data-bs-toggle="modal" data-bs-target="#editInfo">-->
+<!--                                Edit Profile-->
+<!--                            </button>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+            <!--            row and col-6 are both new divs-->
             <div class="row">
-                <div class="col-6">
-                    <div class="card-body-bookclub" >
+                <div class="col-6 d-flex align-items-stretch" >
+                    <div class="card-body-bookclub" style="width: 45vw;">
                         <h5 class="card-title">Your Created Bookclubs:</h5>
                         <p th:each="club:${user.clubs}"  th:text="${club.title}"></p>
                         <a href="/clubs"><button type="button" class="footer-bg btn">Bookclubs</button></a>
                         <a href="/clubs/create"><button type="button" class="footer-bg btn edit-modal" >Create Club</button></a>
                     </div>
                 </div>
-<!--                new code start-->
-                <div class="col-6">
+                <!--                new code start-->
+                <div class="col-6 d-flex align-items-stretch">
                     <div class="card-body-bookclub" >
                         <h5 class="card-title">Book Club Memberships:</h5>
-                            <ul>
-                                <li th:each="bookClub : ${bookClubs}" th:text="${bookClub.title}"></li>
-                            </ul>
-                            <a href="/clubs"><button type="button" class="footer-bg btn">Bookclubs</button></a>
-                            <!--                        <a href="/clubs/create"><button type="button" class="footer-bg btn edit-modal" >Create Club</button></a>-->
+                        <ul>
+                            <li th:each="bookClub : ${bookClubs}" th:text="${bookClub.title}"></li>
+                        </ul>
+                        <a href="/clubs"><button type="button" class="footer-bg btn">Bookclubs</button></a>
+                        <!--                        <a href="/clubs/create"><button type="button" class="footer-bg btn edit-modal" >Create Club</button></a>-->
                     </div>
                 </div>
-<!--                new code stop-->
+                <!--                new code stop-->
             </div>
 
-        <div class="card-body-recent " >
-            <h5 class="card-title">Bookshelf</h5>
+            <div class="card-body-recent " >
+                <h5 class="card-title">Bookshelf</h5>
                 <div class="row">
                     <div class="col-sm-3 bookshelfinfo" th:each="book : ${user.books}">
                         <img th:src="${book.imgUrl}" alt="">
@@ -57,48 +95,50 @@
                         <p class="card-text" th:text="${book.author}">/p>
                     </div>
                 </div>
+            </div>
         </div>
-    </div>
 
-    <div class="modal" tabindex="-1" id="editInfo">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Edit Info</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form th:action="@{/profile}" th:method="post" th:object="${user}">
-                        <label for="username" class="form-label">Username</label>
-                        <input id="username" th:field="*{username}" class="form-control"/>
+        <div class="modal" tabindex="-1" id="editInfo">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Edit Info</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form th:action="@{/profile}" th:method="post" th:object="${user}">
+                            <label for="username" class="form-label">Username</label>
+                            <input id="username" th:field="*{username}" class="form-control"/>
 
-                        <label for="email" class="form-label">Email</label>
-                        <input id="email" th:field="*{email}" class="form-control"/>
+                            <label for="email" class="form-label">Email</label>
+                            <input id="email" th:field="*{email}" class="form-control"/>
 
-                        <label for="password" class="form-label">Password</label>
-                        <input id="password" type="password" th:field="*{password}" class="form-control"/>
+                            <label for="password" class="form-label">Password</label>
+                            <input id="password" type="password" th:field="*{password}" class="form-control"/>
 
-                        <label for="confirm_password" class="form-label">Confirm Password</label>
-                        <input id="confirm_password" required type="password" class="form-control"/>
-                        <input type="hidden" th:field="*{id}">
-                        <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editInfo">
-                            Save Changes
-                        </button>
-                        <!--                        <button type="submit">Save</button>-->
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <!--                    <button type="button" class="btn btn-primary">Save changes</button>-->
-                    <!--                    <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editInfo">-->
-                    <!--                        Save Changes-->
-                    <!--                    </button>-->
+                            <label for="confirm_password" class="form-label">Confirm Password</label>
+                            <input id="confirm_password" required type="password" class="form-control"/>
+                            <input type="hidden" th:field="*{id}">
+                            <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editInfo">
+                                Save Changes
+                            </button>
+                            <!--                        <button type="submit">Save</button>-->
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <!--                    <button type="button" class="btn btn-primary">Save changes</button>-->
+                        <!--                    <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editInfo">-->
+                        <!--                        Save Changes-->
+                        <!--                    </button>-->
 
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
 
 <div th:replace="partials :: footer"></div>
 <div th:replace="partials :: scripts"></div>

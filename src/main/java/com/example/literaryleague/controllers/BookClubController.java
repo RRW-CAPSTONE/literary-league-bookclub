@@ -68,8 +68,9 @@ public class BookClubController {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         Book currentBook = bookDao.findBookById(book.getId());
         BookClub origClub = bcDao.findBookClubById(club.getId());
+        club.setCurrent_book(currentBook);
         if(origClub == null || user.getId() == origClub.getUser().getId()){
-            club.setCurrent_book(currentBook);
+
             club.setUser(user);
             bcDao.save(club);
         }
