@@ -21,16 +21,15 @@ function searchBooks(searchTerm) {
     $.get(endpoint, params, function(response) {
         // Clear previous search results
         $('#search-results').empty();
+        console.log(response);
 
         // Loop through the search results and create Bootstrap cards
         $.each(response.items, function(index, item) {
-            const title = item.volumeInfo.title;
-            const authors = item.volumeInfo.authors ? item.volumeInfo.authors.join(', ') : 'Unknown';
-            const thumbnail = item.volumeInfo.imageLinks ? item.volumeInfo.imageLinks.thumbnail : 'https://via.placeholder.com/128x196?text=No+Image';
-            const description = item.volumeInfo.description ? item.volumeInfo.description : 'No description available.';
-            // if (description.length > 140) {
-            //     description = description.substring(0, 140) + '...';
-            // }
+            let title = item.volumeInfo.title;
+            let authors = item.volumeInfo.authors ? item.volumeInfo.authors.join(', ') : 'Unknown';
+            let thumbnail = item.volumeInfo.imageLinks ? item.volumeInfo.imageLinks.thumbnail : 'https://via.placeholder.com/128x196?text=No+Image';
+            let description = item.volumeInfo.description ? item.volumeInfo.description : 'No description available.';
+
             const card =
                 `<div class="col-lg-6 col-md-3 col-sm-4 mb-4">
                     <div class="card h-100">
@@ -60,11 +59,11 @@ function searchBooks(searchTerm) {
         });
 
     $('#book-modal').on('show.bs.modal', function(event) {
-        const button = $(event.relatedTarget);
-        const title = button.data('title');
-        const author = button.data('author');
-        const thumbnailUrl = button.data('thumbnail-url');
-        const description = button.data('description');
+        let button = $(event.relatedTarget);
+        let title = button.data('title');
+        let author = button.data('author');
+        let thumbnailUrl = button.data('thumbnail-url');
+        let description = button.data('description');
 
         $(this).find('.modal-title').text(title);
         $(this).find('.modal-author').text(author);
@@ -73,7 +72,6 @@ function searchBooks(searchTerm) {
         $(this).find('#book-modal-thumbnail1').val(thumbnailUrl);
         $(this).find('#book-modal-title').val(title);
         $(this).find('#book-modal-author').val(author);
-
       });
     }
 })();

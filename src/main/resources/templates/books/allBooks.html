@@ -10,11 +10,13 @@
 
 <div class="container mt-5">
     <form id="search-form">
-        <div class="form-group">
-            <label for="search-input">Search for Books:</label>
-            <input type="text" class="form-control" id="search-input" name="search" placeholder="Enter keywords...">
+        <label for="search-input">Search for Books:</label>
+        <div class="input-group mb-3 form-group">
+            <input type="text" class="form-control" placeholder="Enter keywords..." id="search-input" name="search">
+            <div class="input-group-append">
+                <button class="btn" type="submit">Search <i class="fa fa-search"></i></button>
+            </div>
         </div>
-        <button type="submit" class="btn">Search</button>
     </form>
     <div class="row mt-5" id="search-results"></div>
 </div>
@@ -27,15 +29,14 @@
                 <h5 class="modal-title" id="book-modal-label"></h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
+            <!-- Book details will be displayed here -->
             <div class="modal-body">
                 <div class="row">
                     <div class="col-6">
                         <img id="book-modal-thumbnail" src="" class="card-img" alt="">
                     </div>
                     <div class="col-6">
-                        <!-- Book details will be displayed here -->
-                        <!--<p id="book-details"></p>-->
-                        <h6 class="modal-author" id="book-author"> </h6>
+                        <h6 class="modal-author" id="book-author"></h6>
                         <hr>
                         <p id="modal-description" class="card-text overflow-auto book-description-modal"></p>
                     </div>
@@ -46,7 +47,7 @@
                 <form th:action="@{/books/save}" id="book-form" th:method="POST" th:object="${book}">
                     <input type="hidden" id="book-modal-title" name="title" th:field="*{title}">
                     <input type="hidden" id="book-modal-author" name="author" th:field="*{author}">
-                    <input type="hidden" id="book-modal-thumbnail1" name="author" th:field="*{imgUrl}">
+                    <input type="hidden" id="book-modal-thumbnail1" name="img" th:field="*{imgUrl}">
                     <input type="hidden" th:field="*{id}">
                     <button class="btn footer-bg w-100" type="submit">Submit Book</button>
                 </form>
