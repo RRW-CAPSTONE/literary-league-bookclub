@@ -26,13 +26,11 @@
 
 
     .logout-button {
-        color: black;
+        color: white;
         background-color: #71AACF;
         border: transparent;
         cursor: pointer;
-
-
-
+        text-decoration: underline;
     }
 
     .logout-button:hover {
@@ -268,6 +266,7 @@
         margin: 8px;
         height: 100%;
         background: white;
+        opacity: 0.9;
     }
 
     .aboutUs-container {
@@ -314,5 +313,17 @@
         /*display: flex;*/
         justify-content: center;
         text-align: center;
+    }
+    .recently-created-clubs{
+        color: white;
+    }
+    .index-welcome-container{
+        margin: auto;
+        /*flex-direction: row;*/
+        opacity:0.9;
+        /*background-color: transparent;*/
+        /*width: 18rem;*/
+        /*font-size: 18px;*/
+
     }
 }
