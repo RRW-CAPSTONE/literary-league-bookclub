@@ -13,25 +13,33 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
-<body class="index-img">
+<body class="index-img ">
+<div class="top-logo"style="">
+    <img class="img-circle profile-image" src="../static/img/logo.png" alt="" th:src="@{img/logo.png}"/>Literary League
+</div>
 <!--  NAVBAR-->
 <th:block th:fragment="navbar">
-    <nav  class=" navbar navbar-light change">
-        <div class="container-fluid change">
-            <a class="nav-brand logo" href="/">Literary League</a>
-            <a class="nav-brand" href="/aboutus">About Us</a>
-            <a class="nav-brand" href="/books">Books</a>
-            <a class="nav-brand" href="/clubs">Clubs</a>
-            <a sec:authorize="!isAuthenticated()" class="nav-brand" href="/register">Register</a>
-            <a sec:authorize="!isAuthenticated()" class="nav-brand" href="/login">Login</a>
-            <form sec:authorize="isAuthenticated()" th:action="@{/logout}" method="post">
-                <button class="logout-button" type="submit" id="logout">Logout</button>
-            </form>
-            <form sec:authorize="isAuthenticated()" th:action="@{/profile}" method="post">
-                <a sec:authorize="isAuthenticated()" class="nav-brand" href="/profile">Profile</a>
-            </form>
-        </div>
-    </nav>
+
+    <div class="top-nav-bg">
+        <nav class=" navbar navbar-light  container">
+            <div class="d-flex justify-content-center ">
+                <a class="nav-brand logo" href="/">Literary League</a>
+                <a class="nav-brand" href="/aboutus">About Us</a>
+                <img class="img-circle" src="../static/img/logo.png" alt="" th:src="@{img/logo.png}"/>
+                <a class="nav-brand" href="/books">Books</a>
+                <a class="nav-brand" href="/clubs">Clubs</a>
+                <a sec:authorize="!isAuthenticated()" class="nav-brand" href="/register">Register</a>
+                <a sec:authorize="!isAuthenticated()" class="nav-brand" href="/login">Login</a>
+                <form sec:authorize="isAuthenticated()" th:action="@{/logout}" method="post">
+                    <button class="logout-button" type="submit" id="logout">Logout</button>
+                </form>
+                <form sec:authorize="isAuthenticated()" th:action="@{/profile}" method="post">
+                    <a sec:authorize="isAuthenticated()" class="nav-brand" href="/profile">Profile</a>
+                </form>
+            </div>
+        </nav>
+    </div>
+
 </th:block>
 <!--FOOTER-->
 <th:block th:fragment="footer">
