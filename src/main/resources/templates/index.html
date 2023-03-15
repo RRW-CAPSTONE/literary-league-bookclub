@@ -12,13 +12,29 @@
     <!--    <link href="https://fonts.googleapis.com/css2?family=Rampart+One&display=swap" rel="stylesheet">-->
     <!--    <link rel="stylesheet" href="/css/style.css">-->
 </head>
-<body>
+<body class="index-img">
 <div th:replace="partials :: navbar"></div>
 <div class="container"> <!--    main container-->
-    <a href="/clubs/create"
-       style="display: block; text-align: center; background-color: blue; background-size: cover; background-position: center;">
+    <a href="/clubs/{id} " class="all-clubs-banner">
         <h1>Join a Book Club Today!!!</h1>
     </a>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mb-4 mt-3 individual-club-container">
+                <div class="card" style="width: 50rem; margin-right: auto">
+                    <div class="card-body">
+                        <h5 class="card-title">WELCOME TO LITERARY LEAGUE</h5>
+                        <!--                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>-->
+                        <p class="card-text">Thanks for visiting the Literary League book club finder! Here you will be
+                            able to find and connect with different book clubs based on your book preferences. Visit our
+                            book club page to see all active book clubs! Stumped on what book you want to read? Visit
+                            our book search to search for different books and read a short description about the
+                            book!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div style="margin-top: 10px">
         <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel"
              style="width: 550px; height: 700px; display: flex; margin-left: auto; margin-right: auto; margin-top: 25px; justify-content: center">
@@ -54,23 +70,23 @@
             </button>
         </div>
     </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 mb-4 mt-3">
-                <div class="card" style="width: 50rem; margin-right: auto">
-                    <div class="card-body">
-                        <h5 class="card-title">WELCOME TO LITERARY LEAGUE</h5>
-                        <!--                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>-->
-                        <p class="card-text">Thanks for visiting the Literary League book club finder! Here you will be
-                            able to find and connect with different book clubs based on your book preferences. Visit our
-                            book club page to see all active book clubs! Stumped on what book you want to read? Visit
-                            our book search to search for different books and read a short description about the
-                            book!</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+<!--    <div class="container">-->
+<!--        <div class="row">-->
+<!--            <div class="col-lg-8 mb-4 mt-3">-->
+<!--                <div class="card" style="width: 50rem; margin-right: auto">-->
+<!--                    <div class="card-body">-->
+<!--                        <h5 class="card-title">WELCOME TO LITERARY LEAGUE</h5>-->
+<!--                        &lt;!&ndash;                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>&ndash;&gt;-->
+<!--                        <p class="card-text">Thanks for visiting the Literary League book club finder! Here you will be-->
+<!--                            able to find and connect with different book clubs based on your book preferences. Visit our-->
+<!--                            book club page to see all active book clubs! Stumped on what book you want to read? Visit-->
+<!--                            our book search to search for different books and read a short description about the-->
+<!--                            book!</p>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
 </div>
 
 

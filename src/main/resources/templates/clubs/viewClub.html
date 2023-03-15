@@ -47,6 +47,10 @@
                     <div class="view-club-card card-body">
                         <h1>Current book:</h1>
                         <p>THE CLUBS BOOK</p>
+
+<!--                        <img th:src="${club.current_book.imgUrl}" alt="">-->
+<!--                        <p th:text="${club.current_book.title}"></p>-->
+<!--                        <p th:text="${club.current_book.author}"></p>-->
                     </div>
                 </div>
             </div>
@@ -64,7 +68,7 @@
                     <div class="view-club-card card-body w-75 col-md-6 mx-auto">
                         <h1>Club Meetings:</h1>
 
-                        <div th:each="discussion : ${discussions}">
+                        <div th:each="discussion : ${club.user.bookDiscussions}">
                             <p th:text="${discussion.title}"></p>
                         </div>
 
