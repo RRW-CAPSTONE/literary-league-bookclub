@@ -157,7 +157,15 @@
         visibility: visible;
 
     }
+    .index-all-clubs-banner{
+        color: white;
+        display: block;
+        text-align: center;
+        background-size: cover;
+        background-position: center;
+    }
     .all-clubs-banner{
+        color: black;
         display: block;
         text-align: center;
         background-size: cover;
@@ -286,6 +294,9 @@
         text-align: center;
         cursor: pointer;
         width: 100%;
+    }
+    .aboutUs-link{
+        color: black;
     }
     .aboutUs-link:hover {
         color: #71AACF;
