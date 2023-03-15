@@ -5,12 +5,12 @@
 <head  th:replace="partials :: head(Profile)">
 
 </head>
-<body>
+<body class="index-img">
 <div th:replace="partials :: navbar"></div>
 <div class="profile-container ">
     <div class="profile-info card">
         <div class="top-profile-body">
-        <img class="img-circle profile-image" src="https://randomuser.me/api/portraits/men/12.jpg" alt="user">
+        <img class="img-circle profile-image" th:src="@{/img/logo.png}"  alt="user">
         </div>
         <div class="card-body-profile">
 <!--            capitalized 1st letter of the username can go back to normal if we want...  th:text="|Howdy, ${user.username}!|" <<<<< add to h5 tag-->
