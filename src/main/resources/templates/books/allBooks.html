@@ -6,60 +6,59 @@
 </head>
 
 <body class="index-img">
-<div th:replace="~{partials :: navbar}"></div>
-<div class="container">
-    <div class="row mt-5">
-        <div class="test">
-            <div class="card-body-bookclub view-club-opacity w-75 align-center" >
-                <form id="search-form">
-                    <label for="search-input">Search for Books:</label>
-                    <div class="input-group mb-3 form-group">
-                        <input type="text" class="form-control" placeholder="Enter keywords..." id="search-input" name="search">
-                        <div class="input-group-append">
-                            <button class="btn" type="submit">Search <i class="fa fa-search"></i></button>
-                        </div>
-                    </div>
-                </form>
-                <div class="dropdown-divider " ></div>
-                <div class="row mt-5" id="search-results"></div>
-            </div>
-        </div>
-</div>
 
-<!-- Book modal -->
-<div class="modal fade" id="book-modal" tabindex="-1" aria-labelledby="book-modal-label" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="book-modal-label"></h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <!-- Book details will be displayed here -->
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col-6">
-                        <img id="book-modal-thumbnail" src="" class="card-img" alt="">
-                    </div>
-                    <div class="col-6">
-                        <h6 class="modal-author" id="book-author"></h6>
-                        <hr>
-<!--                        <p id="modal-description" class="card-text overflow-auto book-description-modal"></p>-->
-                    </div>
+<div th:replace="~{partials :: navbar}"></div>
+
+    <div class="container">
+        <div class="row mt-5">
+            <div class="test">
+                <div class="card-body-bookclub view-club-opacity w-75 align-center" >
+                    <form id="search-form">
+                        <label for="search-input">Search for Books:</label>
+                        <div class="input-group mb-3 form-group">
+                            <input type="text" class="form-control" placeholder="Enter keywords..." id="search-input" name="search">
+                            <div class="input-group-append">
+                                <button class="btn" type="submit">Search <i class="fa fa-search"></i></button>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="dropdown-divider " ></div>
+                    <div class="row mt-5" id="search-results"></div>
                 </div>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn" data-bs-dismiss="modal">Close</button>
-                <form th:action="@{/books/save}" id="book-form" th:method="POST" th:object="${book}">
-                    <input type="hidden" id="book-modal-title" name="title" th:field="*{title}">
-                    <input type="hidden" id="book-modal-author" name="author" th:field="*{author}">
-                    <input type="hidden" id="book-modal-thumbnail1" name="img" th:field="*{imgUrl}">
-                    <input type="hidden" th:field="*{id}">
-                    <button class="btn footer-bg w-100" type="submit">Submit Book</button>
-                </form>
+    </div>
+
+    <!-- Book modal -->
+    <div class="modal fade" id="book-modal" tabindex="-1" aria-labelledby="book-modal-label" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header" style="display:flex; flex-direction: column-reverse;">
+                    <h3 class="modal-title" id="book-modal-label"></h3>
+    <!--                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
+                </div>
+                <!-- Book details will be displayed here -->
+                <div class="modal-body">
+                    <div class="row" style="display: flex; justify-content: center;">
+                        <div class="col-8">
+                            <img id="book-modal-thumbnail" src="" class="card-img" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn" data-bs-dismiss="modal">Close</button>
+                    <form th:action="@{/books/save}" id="book-form" th:method="POST" th:object="${book}">
+                        <input type="hidden" id="book-modal-title" name="title" th:field="*{title}">
+                        <input type="hidden" id="book-modal-author" name="author" th:field="*{author}">
+                        <input type="hidden" id="book-modal-thumbnail1" name="img" th:field="*{imgUrl}">
+                        <input type="hidden" th:field="*{id}">
+                        <button class="btn footer-bg w-100" type="submit">Add Book</button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-</div>
+    </div>
+
 
 <div th:replace="~{partials :: footer}"></div>
 <div th:replace="~{partials :: scripts}"></div>
