@@ -7,19 +7,23 @@
 
 <body class="index-img">
 <div th:replace="~{partials :: navbar}"></div>
-
-<!--Search Bar for all Books-->
-<div class="container mt-5">
-    <form id="search-form">
-        <label for="search-input">Search for Books:</label>
-        <div class="input-group mb-3 form-group">
-            <input type="text" class="form-control" placeholder="Enter keywords..." id="search-input" name="search">
-            <div class="input-group-append">
-                <button class="btn" type="submit">Search <i class="fa fa-search"></i></button>
+<div class="container">
+    <div class="row mt-5">
+        <div class="test">
+            <div class="card-body-bookclub view-club-opacity w-75 align-center" >
+                <form id="search-form">
+                    <label for="search-input">Search for Books:</label>
+                    <div class="input-group mb-3 form-group">
+                        <input type="text" class="form-control" placeholder="Enter keywords..." id="search-input" name="search">
+                        <div class="input-group-append">
+                            <button class="btn" type="submit">Search <i class="fa fa-search"></i></button>
+                        </div>
+                    </div>
+                </form>
+                <div class="dropdown-divider " ></div>
+                <div class="row mt-5" id="search-results"></div>
             </div>
         </div>
-    </form>
-    <div class="row mt-5" id="search-results"></div>
 </div>
 
 <!-- Book modal -->
@@ -39,7 +43,7 @@
                     <div class="col-6">
                         <h6 class="modal-author" id="book-author"></h6>
                         <hr>
-                        <p id="modal-description" class="card-text overflow-auto book-description-modal"></p>
+<!--                        <p id="modal-description" class="card-text overflow-auto book-description-modal"></p>-->
                     </div>
                 </div>
             </div>

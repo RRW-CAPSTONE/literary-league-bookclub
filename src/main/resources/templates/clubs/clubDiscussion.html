@@ -3,26 +3,32 @@
 <head  th:replace="partials :: head('ClubDiscussion')">
 </head>
 
-<body>
+<body class="index-img">
 <div th:replace="partials :: navbar"></div>
-
-<form th:action="@{/clubs/discussion/save}" th:method="post" th:object="${discussion}">
-  <div class="mb-3">
-    <label for="title" class="form-label">Title:</label>
-    <input type="text" name="title" id="title" th:field="*{title}" class="form-control">
-    <label for="location" class="form-label">Location:</label>
-    <input type="text" name="location" id="location" th:field="*{location}" class="form-control">
-    <label for="date" class="form-label">date:</label>
-    <input type="text" name="date" id="date" th:field="*{date}" class="form-control">
-    <label for="time" class="form-label">Title:</label>
-    <input type="text" name="time" id="time" th:field="*{time}" class="form-control">
-<!--    this input pertains to discussion id-->
-<!--    <input type="hidden" th:field="*{id}" >-->
-<!--      this pertains to bookclub id-->
-    <input type="hidden" th:value="*{id}" name="bc_id" >
+<div class="container">
+  <div class="row mt-5">
+    <div class="test">
+      <div class="card-body-bookclub view-club-opacity w-75" >
+        <form th:action="@{/clubs/discussion/save}" th:method="post" th:object="${discussion}">
+          <div class="mb-3">
+            <label for="title" class="form-label">Name:</label>
+            <input type="text" name="title" id="title" placeholder="Meeting Name" th:field="*{title}" class="form-control">
+            <label for="location" class="form-label">Location:</label>
+            <input type="text" name="location" id="location" placeholder="Location" th:field="*{location}" class="form-control">
+            <label for="date" class="form-label">Date:</label>
+            <input type="text" name="date" id="date" placeholder="MM/DD/YYYY" th:field="*{date}" class="form-control">
+            <label for="time" class="form-label">Time:</label>
+            <input type="text" name="time" id="time" placeholder="HR:MIN AM/PM" th:field="*{time}" class="form-control">
+            <input type="hidden" th:value="*{id}" name="bc_id" >
+          </div>
+          <button class="btn footer-bg w-100" type="submit">Create Meeting!!!</button>
+        </form>
+      </div>
+    </div>
   </div>
-  <button class="btn footer-bg w-100" type="submit">Create BookClub!</button>
-</form>
+</div>
+
+
 <div th:replace="partials :: footer"></div>
 <div th:replace="partials :: scripts"></div>
 
