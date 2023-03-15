@@ -33,5 +33,5 @@ build/
 .vscode/
 
 
-src/main/resources/application.properties
+application.properties
 src/main/resources/static/JS/api_key.js
