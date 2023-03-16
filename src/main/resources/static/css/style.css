@@ -228,6 +228,15 @@ a:hover{
 }
 
 .profile-middle-card{
+    display: flex;
+    justify-content: center;
+    border-style: solid;
+    margin: 5px;
+    background-color: #e5e8ea;
+    font-size: 24px;
+    visibility: visible;
+}
+.profile-bottom-card{
     border-style: solid;
     margin: 5px;
     background-color: #e5e8ea;
