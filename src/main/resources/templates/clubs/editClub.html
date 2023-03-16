@@ -18,7 +18,7 @@
             <textarea name="body" id="body" class="form-control" cols="30" rows="10" th:field="*{description}"></textarea>
             <input type="hidden" name="id" th:field="*{id}">
             <select name="books" id="books">
-              <option>--Select a Book--</option>
+              <option>Select Current Book</option>
               <option th:each="book : ${books}"
                       th:value="${book.id}"
                       th:text="${book.title}">
