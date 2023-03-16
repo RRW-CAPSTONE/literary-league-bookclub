@@ -16,7 +16,7 @@
                 <p class="email-user-font-size" th:text="${club.description}"></p>
                 <form sec:authorize="isAuthenticated()" th:action="@{/clubs/join}" method="post">
                     <input type="hidden" th:value="*{club.id}" name="clubId">
-                    <button class="btn footer-bg w-100 my-2 individual-club-edit-join-btn" type="submit">Join club</button>
+                    <button class="btn footer-bg w-100 my-2 individual-club-edit-join-btn top-nav-bg" type="submit">Join club</button>
                 </form>
             </div>
         </div>

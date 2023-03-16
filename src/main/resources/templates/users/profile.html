@@ -18,7 +18,7 @@
                         <h5 class="card-title m-2 all-clubs-title">Howdy, [[${#strings.capitalize(user.username)}]]</h5>
                         <p class="email-user-font-size" th:text="|Email: ${user.email}|"></p>
 
-                        <button type="button" class="footer-bg btn edit-modal profile-top-card mb-2" data-bs-toggle="modal" data-bs-target="#editInfo">
+                        <button type="button" class="footer-bg btn edit-modal profile-top-card mb-2 top-nav-bg" data-bs-toggle="modal" data-bs-target="#editInfo">
                             Edit Profile
                         </button>
                     </div>
@@ -74,7 +74,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">Edit Info</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close top-nav-bg" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <form th:action="@{/profile}" th:method="post" th:object="${user}">
@@ -90,13 +90,13 @@
                         <label for="confirm_password" class="form-label">Confirm Password</label>
                         <input id="confirm_password" required type="password" class="form-control"/>
                         <input type="hidden" th:field="*{id}">
-                        <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editInfo">
+                        <button type="submit" class="btn btn-primary top-nav-bg" data-bs-toggle="modal" data-bs-target="#editInfo">
                             Save Changes
                         </button>
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary top-nav-bg" data-bs-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
