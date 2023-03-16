@@ -7,16 +7,16 @@ body {
 }
 /*// changes to navbar and all added navbar classes below*/
 .navbar1 {
-    background: url("../img/woodphone.jpeg");
-    background-size: cover;
-    display: flex;
-    justify-content: space-between;
-    text-decoration: underline;
-    color: white;
-    align-items: center;
+    /*background: url("../img/woodphone.jpeg");*/
+    /*background-size: cover;*/
+    /*display: flex;*/
+    /*justify-content: space-between;*/
+    /*text-decoration: underline;*/
+    /*color: white;*/
+    /*align-items: center;*/
     font-size: 22px;
-    padding: 20px;
-    height: 80px;
+    /*padding: 20px;*/
+    /*height: 80px;*/
 }
 
 .navbar-left,
