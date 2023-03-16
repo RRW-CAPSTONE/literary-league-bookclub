@@ -7,138 +7,100 @@
 </head>
 <body class="index-img">
 <div th:replace="partials :: navbar"></div>
-
 <div class="container">
-    <div class="profile-container">
-            <div class="profile-info card">
-                <div class="top-profile-body">
-                <img class="img-circle profile-image" src="../static/img/logo.png" th:src="@{img/logo.png}"/>
-                </div>
-                <div class="card-body-profile">
-        <!--            capitalized 1st letter of the username can go back to normal if we want...  th:text="|Howdy, ${user.username}!|" <<<<< add to h5 tag-->
-                    <h5 class="card-title">Howdy, [[${#strings.capitalize(user.username)}]]</h5>
-                    <p th:text="|Email: ${user.email}|"></p>
-        <!--            <p th:text="|User ID: ${user.id}|"></p>-->
-        <!--            <a href="/clubs/create"><button type="button" class="footer-bg btn edit-modal" >Create Club</button></a>-->
-                    <button type="button" class="footer-bg btn edit-modal" data-bs-toggle="modal" data-bs-target="#editInfo">
-                        Edit Profile
-                    </button>
-                </div>
+    <div class="main-club-container">
+        <div class="">
+            <!--                // Greeting, email, edit club button-->
+            <div class="view-club-card card-body w-50 col-md mx-auto view-club-opacity">
+                <div class="row justify-content-center">
+                    <div class="card col m-1 view-club-creator-card view-club-opacity">
+                        <h5 class="card-title m-2 all-clubs-title">Howdy, [[${#strings.capitalize(user.username)}]]</h5>
+                        <p class="email-user-font-size" th:text="|Email: ${user.email}|"></p>
 
-<div class="profile-container ">
-    <div class="profile-info card">
-        <div class="top-profile-body">
-        <img class="img-circle " src="../static/img/logo.png" th:src="@{img/logo.png}"/>
-        </div>
-        <div class="card-body-profile">
-<!--            capitalized 1st letter of the username can go back to normal if we want...  th:text="|Howdy, ${user.username}!|" <<<<< add to h5 tag-->
-            <h5 class="card-title">Howdy, [[${#strings.capitalize(user.username)}]]</h5>
-            <p th:text="|Email: ${user.email}|"></p>
-<!--            <p th:text="|User ID: ${user.id}|"></p>-->
-<!--            <a href="/clubs/create"><button type="button" class="footer-bg btn edit-modal" >Create Club</button></a>-->
-            <button type="button" class="footer-bg btn edit-modal" data-bs-toggle="modal" data-bs-target="#editInfo">
-                Edit Profile
-            </button>
-        </div>
-    </div>
-    <div class="profile-recent-info card"  >
-        <div class="row mt-5">
-<!--            <div class="">-->
-<!--                <div class="">-->
-<!--                    <img class="img-circle profile-image" src="../static/img/logo.png" th:src="@{img/logo.png}"/>-->
-<!--                </div>-->
-<!--                <div class="test">-->
-<!--                    <div class="card-body-bookclub view-club-opacity w-75" >-->
-<!--                        <div class="card-body-profile">-->
-<!--                            &lt;!&ndash;            capitalized 1st letter of the username can go back to normal if we want...  th:text="|Howdy, ${user.username}!|" <<<<< add to h5 tag&ndash;&gt;-->
-<!--                            <h5 class="card-title">Howdy, [[${#strings.capitalize(user.username)}]]</h5>-->
-<!--                            <p th:text="|Email: ${user.email}|"></p>-->
-<!--                            &lt;!&ndash;            <p th:text="|User ID: ${user.id}|"></p>&ndash;&gt;-->
-<!--                            &lt;!&ndash;            <a href="/clubs/create"><button type="button" class="footer-bg btn edit-modal" >Create Club</button></a>&ndash;&gt;-->
-<!--                            <button type="button" class="footer-bg btn edit-modal" data-bs-toggle="modal" data-bs-target="#editInfo">-->
-<!--                                Edit Profile-->
-<!--                            </button>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-            <!--            row and col-6 are both new divs-->
-            <div class="row">
-                <div class="col-6 d-flex align-items-stretch" >
-                    <div class="card-body-bookclub" style="width: 45vw;">
-                        <h5 class="card-title">Your Created Bookclubs:</h5>
-                        <p th:each="club:${user.clubs}"  th:text="${club.title}"></p>
-                        <a href="/clubs"><button type="button" class="footer-bg btn">Bookclubs</button></a>
-                        <a href="/clubs/create"><button type="button" class="footer-bg btn edit-modal" >Create Club</button></a>
+                        <button type="button" class="footer-bg btn edit-modal profile-top-card mb-2" data-bs-toggle="modal" data-bs-target="#editInfo">
+                            Edit Profile
+                        </button>
                     </div>
                 </div>
-                <!--                new code start-->
-                <div class="col-6 d-flex align-items-stretch">
-                    <div class="card-body-bookclub" >
-                        <h5 class="card-title">Book Club Memberships:</h5>
+            </div>
+        </div>
+
+        <!--        // created book clubs and book club memberships-->
+        <div class="individual-club-container">
+            <div class="card-body profile-middle-card w-100 col-md-6 mx-auto view-club-opacity">
+                <div class="row">
+                    <div class="card col-6 m-1 view-club-creator-card view-club-opacity">
+                        <!--                        data goes here-->
+                        <h5 class="card-title profile-mid-card-title">Created Book Clubs:</h5>
+                        <ul>
+                            <li th:each="club : ${user.clubs}" th:text="${club.title}"></li>
+                        </ul>
+                        <a href="/clubs/create"><button type="button" class="footer-bg btn edit-modal" >Create Club</button></a>
+                    </div>
+                    <div class="card col-6 m-1 view-club-creator-card view-club-opacity div-align-button-bottom">
+                        <!--                        data goes here-->
+                        <h5 class="card-title profile-mid-card-title">Book Club Memberships:</h5>
                         <ul>
                             <li th:each="bookClub : ${bookClubs}" th:text="${bookClub.title}"></li>
                         </ul>
-                        <a href="/clubs"><button type="button" class="footer-bg btn">Bookclubs</button></a>
-                        <!--                        <a href="/clubs/create"><button type="button" class="footer-bg btn edit-modal" >Create Club</button></a>-->
-                    </div>
-                </div>
-                <!--                new code stop-->
-            </div>
-
-            <div class="card-body-recent " >
-                <h5 class="card-title">Bookshelf</h5>
-                <div class="row">
-                    <div class="col-sm-3 bookshelfinfo" th:each="book : ${user.books}">
-                        <img th:src="${book.imgUrl}" alt="">
-                        <p class="card-text" th:text="${book.title}">/p>
-                        <p class="card-text" th:text="${book.author}">/p>
+                        <a href="/clubs"><button type="button" class="align-button-bottom edit-modal footer-bg btn">Bookclubs</button></a>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="modal" tabindex="-1" id="editInfo">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Edit Info</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <!--        // bookshelf-->
+        <div class="individual-club-container">
+            <div class="profile-middle-card card-body w-100 col-md-6 mx-auto view-club-opacity">
+                <div class="row justify-content-center">
+                    <div class="card col m-1 view-club-creator-card view-club-opacity">
+                        <h5 class="card-title profile-mid-card-title">Bookshelf</h5>
+                        <div class="row">
+                            <div class="col-sm-3 bookshelfinfo" th:each="book : ${user.books}">
+                                <img th:src="${book.imgUrl}" alt="">
+                                <p class="card-text" th:text="${book.title}">/p>
+                                <p class="card-text" th:text="${book.author}">/p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="modal-body">
-                        <form th:action="@{/profile}" th:method="post" th:object="${user}">
-                            <label for="username" class="form-label">Username</label>
-                            <input id="username" th:field="*{username}" class="form-control"/>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--            // edit profile info modal-->
+    <div class="modal" tabindex="-1" id="editInfo">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Edit Info</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form th:action="@{/profile}" th:method="post" th:object="${user}">
+                        <label for="username" class="form-label">Username</label>
+                        <input id="username" th:field="*{username}" class="form-control"/>
 
-                            <label for="email" class="form-label">Email</label>
-                            <input id="email" th:field="*{email}" class="form-control"/>
+                        <label for="email" class="form-label">Email</label>
+                        <input id="email" th:field="*{email}" class="form-control"/>
 
-                            <label for="password" class="form-label">Password</label>
-                            <input id="password" type="password" th:field="*{password}" class="form-control"/>
+                        <label for="password" class="form-label">Password</label>
+                        <input id="password" type="password" th:field="*{password}" class="form-control"/>
 
-                            <label for="confirm_password" class="form-label">Confirm Password</label>
-                            <input id="confirm_password" required type="password" class="form-control"/>
-                            <input type="hidden" th:field="*{id}">
-                            <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editInfo">
-                                Save Changes
-                            </button>
-                            <!--                        <button type="submit">Save</button>-->
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <!--                    <button type="button" class="btn btn-primary">Save changes</button>-->
-                        <!--                    <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editInfo">-->
-                        <!--                        Save Changes-->
-                        <!--                    </button>-->
-
-                    </div>
+                        <label for="confirm_password" class="form-label">Confirm Password</label>
+                        <input id="confirm_password" required type="password" class="form-control"/>
+                        <input type="hidden" th:field="*{id}">
+                        <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editInfo">
+                            Save Changes
+                        </button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
 
 <div th:replace="partials :: footer"></div>
 <div th:replace="partials :: scripts"></div>
