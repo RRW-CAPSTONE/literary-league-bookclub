@@ -17,23 +17,48 @@
 <!--  NAVBAR-->
 <th:block th:fragment="navbar">
 
-    <div class="top-nav-bg">
-        <nav class=" navbar navbar-light  container">
-            <div class="d-flex justify-content-center ">
-                <a class="nav-brand logo" href="/">Literary League</a>
-                <a class="nav-brand" href="/aboutus">About Us</a>
-                <img class="img-circle"   src="../static/img/logo.png" alt="LL" th:src="@{img/logo.png}"/>
-                <a class="nav-brand" href="/books">Books</a>
-                <a class="nav-brand" href="/clubs">Clubs</a>
-                <a sec:authorize="!isAuthenticated()" class="nav-brand" href="/register">Register</a>
-                <a sec:authorize="!isAuthenticated()" class="nav-brand" href="/login">Login</a>
-                <form sec:authorize="isAuthenticated()" th:action="@{/logout}" method="post">
-                    <button class="logout-button nav-brand" type="submit" id="logout">Logout</button>
-                </form>
-                <a sec:authorize="isAuthenticated()" class="nav-brand" th:action="@{/profile}" method="post" href="/profile">Profile</a>
-            </div>
-        </nav>
-    </div>
+
+    <nav class="navbar1">
+        <div class="navbar-left">
+            <a class="nav-brand logo" href="/">Literary League</a>
+            <a class="nav-brand" href="/aboutus">About Us</a>
+        </div>
+        <div class="navbar-logo">
+            <img class="img-circle"   src="../static/img/logo.png" alt="LL" th:src="@{/img/logo.png}"/>
+        </div>
+        <div class="navbar-right">
+            <a class="nav-brand" href="/books">Books</a>
+            <a class="nav-brand" href="/clubs">Clubs</a>
+            <a sec:authorize="!isAuthenticated()" class="nav-brand" href="/register">Register</a>
+            <a sec:authorize="!isAuthenticated()" class="nav-brand" href="/login">Login</a>
+            <form sec:authorize="isAuthenticated()" th:action="@{/logout}" method="post">
+                <button class="logout-button nav-brand" type="submit" id="logout">Logout</button>
+            </form>
+            <a sec:authorize="isAuthenticated()" class="nav-brand" th:action="@{/profile}" method="post" href="/profile">Profile</a>
+        </div>
+    </nav>
+
+
+
+
+
+<!--    <div class="top-nav-bg">-->
+<!--        <nav class=" navbar navbar-light  container">-->
+<!--            <div class="d-flex justify-content-center ">-->
+<!--                <a class="nav-brand logo" href="/">Literary League</a>-->
+<!--                <a class="nav-brand" href="/aboutus">About Us</a>-->
+<!--                <img class="img-circle"   src="../static/img/logo.png" alt="LL" th:src="@{img/logo.png}"/>-->
+<!--                <a class="nav-brand" href="/books">Books</a>-->
+<!--                <a class="nav-brand" href="/clubs">Clubs</a>-->
+<!--                <a sec:authorize="!isAuthenticated()" class="nav-brand" href="/register">Register</a>-->
+<!--                <a sec:authorize="!isAuthenticated()" class="nav-brand" href="/login">Login</a>-->
+<!--                <form sec:authorize="isAuthenticated()" th:action="@{/logout}" method="post">-->
+<!--                    <button class="logout-button nav-brand" type="submit" id="logout">Logout</button>-->
+<!--                </form>-->
+<!--                <a sec:authorize="isAuthenticated()" class="nav-brand" th:action="@{/profile}" method="post" href="/profile">Profile</a>-->
+<!--            </div>-->
+<!--        </nav>-->
+<!--    </div>-->
 
 </th:block>
 <!--FOOTER-->

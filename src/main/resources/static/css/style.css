@@ -5,15 +5,78 @@ body {
     font-family: 'Goudy Bookletter 1911', serif;
     font-size: 18px;
 }
+/*// changes to navbar and all added navbar classes below*/
+.navbar1 {
+    background: url("../img/woodphone.jpeg");
+    background-size: cover;
+    display: flex;
+    justify-content: space-between;
+    text-decoration: underline;
+    color: white;
+    align-items: center;
+    font-size: 22px;
+    padding: 20px;
+    height: 80px;
+}
 
-.navbar {
+.navbar-left,
+.navbar-right {
+    display: flex;
+    margin-left: 15px;
+    width: 50%;
+    /*justify-content: center;*/
+}
+
+.navbar-left {
+    justify-content: flex-end;
+}
+
+.navbar-left a,
+.navbar-right a {
+    margin-right: 20px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.navbar-logo {
     display: flex;
     justify-content: center;
-    text-decoration: none;
-    color: black;
-    font-size: 22px;
-    text-align: center;
+    align-items: center;
 }
+
+.navbar-logo img {
+    width: 80px;
+    height: 80px;
+}
+
+.navbar-right a:last-child {
+    margin-right: 0;
+    margin-left: 10px;
+}
+
+.navbar-right a {
+    /*margin-left: 20px;*/
+}
+
+.navbar-right a:first-child {
+    margin-left: 0;
+}
+
+.img-circle {
+    margin: 3px;
+    display: flex;
+    justify-content: start;
+    border-radius: 50%;
+    border-style: solid;
+    border-color: snow;
+    visibility: visible;
+    height: auto;
+    width: 65px;
+}
+
+/*//changes above*/
 .img-pad{
     margin:5px;
 }
@@ -29,21 +92,22 @@ body {
 .nav-brand{
     padding: 6px;
 }
+
 .top-nav-bg{
     background: url("../img/woodphone.jpeg") ;
     background-size: cover;
 }
-.img-circle {
-    margin: 3px;
-    display: flex;
-    justify-content: start;
-    border-radius: 50%;
-    border-style: solid;
-    border-color: snow;
-    visibility: visible;
-    height: auto;
-    width: 65px;
-}
+/*.img-circle {*/
+/*    margin: 3px;*/
+/*    display: flex;*/
+/*    justify-content: start;*/
+/*    border-radius: 50%;*/
+/*    border-style: solid;*/
+/*    border-color: snow;*/
+/*    visibility: visible;*/
+/*    height: auto;*/
+/*    width: 65px;*/
+/*}*/
 
 
 .logout-button {
