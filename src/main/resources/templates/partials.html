@@ -15,9 +15,6 @@
     <link rel="stylesheet" th:href="@{/css/narrow.css}">
 </head>
 <body class="index-img ">
-<div class="top-logo">
-    <img class="img-circle profile-image" src="../static/img/logo.png" alt="" th:src="@{img/logo.png}"/>Literary League
-</div>
 <!--  NAVBAR-->
 <th:block th:fragment="navbar">
 
@@ -26,7 +23,7 @@
             <div class="d-flex justify-content-center ">
                 <a class="nav-brand logo" href="/">Literary League</a>
                 <a class="nav-brand" href="/aboutus">About Us</a>
-                <img class="img-circle" src="../static/img/logo.png" alt="" th:src="@{img/logo.png}"/>
+                <img class="img-circle"   src="../static/img/logo.png" alt="" th:src="@{img/logo.png}"/>
                 <a class="nav-brand" href="/books">Books</a>
                 <a class="nav-brand" href="/clubs">Clubs</a>
                 <a sec:authorize="!isAuthenticated()" class="nav-brand" href="/register">Register</a>

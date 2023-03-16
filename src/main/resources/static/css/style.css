@@ -34,6 +34,7 @@ body {
     background-size: cover;
 }
 .img-circle {
+    margin: 3px;
     display: flex;
     justify-content: start;
     border-radius: 50%;
@@ -73,15 +74,15 @@ footer {
 }
 
 .btn {
-    background-color: #71AACF;
+
     border: black;
     cursor: pointer;
 }
 .view-club-btn{
-    background-color: #71AACF;
+
     border: black;
     cursor: pointer;
-    opacity: 1;
+
 }
 .edit-modal{
     padding: 5px;
@@ -97,7 +98,7 @@ a:hover {
 }
 
 .btn:hover {
-    color: #F3F4F4;
+    color: black;
 }
 
 .profile-container {
@@ -213,7 +214,7 @@ a:hover {
 
 .individual-club-card {
     flex-direction: row;
-    opacity:0.9;
+
     background-color: transparent;
     width: 18rem;
     font-size: 18px;
@@ -287,7 +288,7 @@ a:hover {
     margin: 8px;
     height: 100%;
     background: white;
-    opacity: 0.9;
+
 }
 .headshot{
     width:100%;
@@ -313,7 +314,7 @@ a:hover {
     outline: 0;
     display: inline-block;
     padding: 8px;
-    color: black;
+    color: white;
     background-color: #71AACF;
     text-align: center;
     cursor: pointer;
@@ -323,7 +324,7 @@ a:hover {
     color: black;
 }
 .aboutUs-link:hover {
-    color: #71AACF;
+    color: dodgerblue;
 }
 
 .aboutUs-button:hover {
@@ -346,7 +347,7 @@ a:hover {
 }
 .index-welcome-container{
     margin: auto;
-    opacity:0.9;
+
 }
 .individual-club-edit-join-btn{
     margin: auto;
@@ -356,9 +357,7 @@ a:hover {
     width: 32vw;
 }
 
-.view-club-opacity{
-    opacity: 0.9;
-}
+
 
 .all-clubs-title{
     font-size: 35px;
