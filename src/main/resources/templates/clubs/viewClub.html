@@ -9,7 +9,7 @@
 <div th:replace="partials :: navbar"></div>
 <div class=" container">
     <div class="row">
-        <div class=" col-md-6 ">
+        <div class=" col-sm-6 col-12 test">
             <div class="view-club-card card-body w-100 view-club-opacity">
                 <h1 th:text="${club.title}"></h1>
                 <p class="email-user-font-size" th:text="${club.description}"></p>
@@ -19,7 +19,7 @@
                 </form>
             </div>
         </div>
-        <div class=" col-6 m-1 mx-auto">
+        <div class="col-sm-6 col-12 test">
             <div class="view-club-card card-body w-100 view-club-opacity">
                 <h1 th:text="|${club.title} Creator|"></h1>
                 <h3 th:text="|Username: ${club.user.username}|"></h3>
