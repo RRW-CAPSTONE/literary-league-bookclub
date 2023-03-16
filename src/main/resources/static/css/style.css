@@ -74,12 +74,12 @@ footer {
 }
 
 .btn {
-    background-color: #71AACF;
+
     border: black;
     cursor: pointer;
 }
 .view-club-btn{
-    background-color: #71AACF;
+
     border: black;
     cursor: pointer;
 
@@ -98,7 +98,7 @@ a:hover {
 }
 
 .btn:hover {
-    color: #F3F4F4;
+    color: black;
 }
 
 .profile-container {
