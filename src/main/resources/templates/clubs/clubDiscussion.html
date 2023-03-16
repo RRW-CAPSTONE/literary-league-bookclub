@@ -11,7 +11,7 @@
     <div class="test">
       <div class="card-body-bookclub view-club-opacity w-75" >
         <form th:action="@{/clubs/discussion/save}" th:method="post" th:object="${discussion}">
-          <div class="mb-3">
+          <div class="mb-3 p-3">
             <label for="title" class="form-label">Name:</label>
             <input type="text" name="title" id="title" placeholder="Meeting Name" th:field="*{title}" class="form-control">
             <label for="location" class="form-label">Location:</label>
@@ -22,7 +22,11 @@
             <input type="text" name="time" id="time" placeholder="HR:MIN AM/PM" th:field="*{time}" class="form-control">
             <input type="hidden" th:value="*{id}" name="bc_id" >
           </div>
-          <button class="btn footer-bg w-100 top-nav-bg" type="submit">Create Meeting!!!</button>
+          
+          <div class="ps-3 pe-3 pb-3">
+            <button class="btn footer-bg w-100 top-nav-bg" type="submit">Create Meeting!!!</button>
+          </div>
+
         </form>
       </div>
     </div>
