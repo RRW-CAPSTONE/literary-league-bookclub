@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:sec="http://www.w3.org/1999/xhtml">
-<head th:fragment="head (title)" xmlns:th="http://www.thymeleaf.org"  xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security"><head th:fragment="head (title)" xmlns:th="http://www.thymeleaf.org"  xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title th:text="|Literary-League - ${title}|"></title>
@@ -12,7 +11,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" th:href="@{/css/style.css}">
-    <link rel="stylesheet" th:href="@{/css/narrow.css}">
+<!--    <link rel="stylesheet" th:href="@{/css/narrow.css}">-->
 </head>
 <body class="index-img ">
 <!--  NAVBAR-->
@@ -23,7 +22,7 @@
             <div class="d-flex justify-content-center ">
                 <a class="nav-brand logo" href="/">Literary League</a>
                 <a class="nav-brand" href="/aboutus">About Us</a>
-                <img class="img-circle"   src="../static/img/logo.png" alt="" th:src="@{img/logo.png}"/>
+                <img class="img-circle"   src="../static/img/logo.png" alt="LL" th:src="@{img/logo.png}"/>
                 <a class="nav-brand" href="/books">Books</a>
                 <a class="nav-brand" href="/clubs">Clubs</a>
                 <a sec:authorize="!isAuthenticated()" class="nav-brand" href="/register">Register</a>
