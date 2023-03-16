@@ -23,19 +23,17 @@ public class HomeController {
 
     @GetMapping("/")
     public String homePage(Model model) {
-//        List<BookClub> bookClubs = bcDao.findAll();
-//        model.addAttribute("bookClubs", bookClubs);
-
         List<Book> books = bookDao.findAll();
         model.addAttribute("books", books);
 
         List<BookClub> last4Clubs = bcDao.findTop4ByOrderByCreatedAtDesc();
         model.addAttribute("last4", last4Clubs);
 
-        return "index"; }
+        return "index";
+    }
 
     @GetMapping("/aboutus")
-    public String aboutUsPage(){
+    public String aboutUsPage() {
         return "aboutUs";
     }
 }
