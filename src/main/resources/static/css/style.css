@@ -382,6 +382,9 @@ a:hover {
 .div-align-button-bottom{
     position: relative;
 }
+.main-container{
+    min-height: 100vh;
+}
     /*.recent-card-index{*/
     /*    width: 100%;*/
     /*}*/
