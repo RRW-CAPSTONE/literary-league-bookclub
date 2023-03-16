@@ -20,37 +20,29 @@ public class UserController {
     private final BookClubRepository bcDao;
     private final PasswordEncoder passwordEncoder;
 
-    public UserController(UserRepository userDao, BookClubRepository bcDao, PasswordEncoder passwordEncoder){
+    public UserController(UserRepository userDao, BookClubRepository bcDao, PasswordEncoder passwordEncoder) {
         this.userDao = userDao;
         this.bcDao = bcDao;
         this.passwordEncoder = passwordEncoder;
     }
 
     @GetMapping("/register")
-    public String registrationForm(Model model){
+    public String registrationForm(Model model) {
         model.addAttribute("user", new User());
         return "users/register";
     }
 
     @PostMapping("/register")
-    public String saveUser(@ModelAttribute User user){
+    public String saveUser(@ModelAttribute User user) {
         String hash = passwordEncoder.encode(user.getPassword());
         user.setPassword(hash);
         userDao.save(user);
         return "redirect:/login";
     }
-    // use this if we go with no book club memberships
-//    @GetMapping("/profile")
-//    public String showProfile(Model model){
-//        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-//        user = userDao.findById(user.getId());
-//        model.addAttribute("user", user);
-//        return "users/profile";
-//    }
 
     // use this is we go with book club memberships
     @GetMapping("/profile")
-    public String showProfile(Model model){
+    public String showProfile(Model model) {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         user = userDao.findById(user.getId());
         List<BookClub> bookClubs = user.getBookClubs();
@@ -59,9 +51,8 @@ public class UserController {
         return "users/profile";
     }
 
-
     @PostMapping("/profile")
-    public String editProfile(@ModelAttribute("user") User user, Principal principal){
+    public String editProfile(@ModelAttribute("user") User user, Principal principal) {
         String hash = passwordEncoder.encode(user.getPassword());
         user.setPassword(hash);
         userDao.save(user);
