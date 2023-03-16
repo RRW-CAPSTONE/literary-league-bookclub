@@ -16,13 +16,13 @@ public class BookController {
     private final UserRepository userDao;
     private final BookRepository bookDao;
 
-    public BookController(UserRepository userDao, BookRepository bookDao){
+    public BookController(UserRepository userDao, BookRepository bookDao) {
         this.userDao = userDao;
         this.bookDao = bookDao;
     }
 
     @GetMapping("/books")
-    public String createBookForm(Model model){
+    public String createBookForm(Model model) {
         List<Book> books = bookDao.findAllByOrderByTitleAsc();
         model.addAttribute("book", new Book());
         model.addAttribute("books", books);
@@ -30,10 +30,10 @@ public class BookController {
     }
 
     @PostMapping("/books/save")
-    public String saveBook(@ModelAttribute Book book){
+    public String saveBook(@ModelAttribute Book book) {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         Book origBook = bookDao.findBookById(book.getId());
-        if(origBook == null || user.getId() == origBook.getUser().getId()){
+        if (origBook == null || user.getId() == origBook.getUser().getId()) {
             book.setUser(user);
             bookDao.save(book);
         }

@@ -2,6 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 
+
 <head  th:replace="partials :: head('Books')">
 </head>
 
@@ -9,12 +10,12 @@
 
 <div th:replace="~{partials :: navbar}"></div>
 
-    <div class="container">
+    <div class="container" id="page-container">
         <div class="row mt-5">
             <div class="test">
                 <div class="card-body-bookclub view-club-opacity w-75 align-center" >
                     <form id="search-form">
-                        <label for="search-input">Search for Books:</label>
+                        <label for="search-input" class="email-user-font-size">Search for Books:</label>
                         <div class="input-group mb-3 form-group">
                             <input type="text" class="form-control" placeholder="Enter keywords..." id="search-input" name="search">
                             <div class="input-group-append">
@@ -60,7 +61,7 @@
     </div>
 
 
-<div th:replace="~{partials :: footer}"></div>
+<div th:replace="~{partials :: footer}"  id="footer"></div>
 <div th:replace="~{partials :: scripts}"></div>
 
 </body>
