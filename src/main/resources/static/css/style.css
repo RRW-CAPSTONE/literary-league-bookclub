@@ -51,7 +51,7 @@
 
     .logout-button {
         color: white;
-        background-color: #71AACF;
+        background-color: transparent;
         border: transparent;
         cursor: pointer;
         text-decoration: underline;

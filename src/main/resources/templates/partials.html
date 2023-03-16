@@ -3,7 +3,7 @@
 <head th:fragment="head (title)" xmlns:th="http://www.thymeleaf.org"  xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title th:text="|LiteraryLeague - ${title}|"></title>
+    <title th:text="|Literary-League - ${title}|"></title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,10 +31,11 @@
                 <a sec:authorize="!isAuthenticated()" class="nav-brand" href="/register">Register</a>
                 <a sec:authorize="!isAuthenticated()" class="nav-brand" href="/login">Login</a>
                 <form sec:authorize="isAuthenticated()" th:action="@{/logout}" method="post">
-                    <button class="logout-button" type="submit" id="logout">Logout</button>
+                    <button class="logout-button nav-brand" type="submit" id="logout">Logout</button>
                 </form>
                 <form sec:authorize="isAuthenticated()" th:action="@{/profile}" method="post">
-                    <a sec:authorize="isAuthenticated()" class="nav-brand" href="/profile">Profile</a>
+                    <button class="logout-button nav-brand" type="submit" id="profile">Profile</button>
+<!--                    <a sec:authorize="isAuthenticated()" class="nav-brand" href="/profile">Profile</a>-->
                 </form>
             </div>
         </nav>
