@@ -173,6 +173,9 @@ a:hover {
     background-size: cover;
     background-position: center;
 }
+.club-text{
+    font-size: 48px;
+}
 .all-clubs-banner{
     color: white;
     display: block;
