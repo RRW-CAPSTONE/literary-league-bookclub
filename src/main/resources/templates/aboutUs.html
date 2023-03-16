@@ -6,6 +6,11 @@
     <meta charset="UTF-8">
     <title>Home Page</title>
 </head>
+<style>
+    .img-padding{
+        padding-right: 0;
+    }
+</style>
 <body class="index-img">
 <div th:replace="partials :: navbar"></div>
 
@@ -17,22 +22,25 @@
         <div class="col-4 aboutUs-column">
             <div class="aboutUs-card w-100">
                 <div class="row">
-                    <div class="col-6">
-                        <img class="headshot" src="/static/img/Pauls-Image.jpg" th:src="@{img/Pauls-image.jpg}" alt="Paul" >
+                    <div class="col-6 img-padding">
+                        <img class="headshot" style="object-fit: contain;" src="/static/img/Pauls-Image.jpg" th:src="@{img/Pauls-image.jpg}" alt="Paul" >
                     </div>
                     <div class="col-6 aboutUs-container">
                         <h2 class="mt-1">Paul Wagner</h2>
                         <hr>
                         <p class="aboutUs-title">Full Stack Web Developer</p>
-                        <p>Paul's quote of the day: “The secret of getting ahead is getting started.” — Mark Twain          </p>
+                        <p>Paul's quote of the day: “The secret of getting ahead is getting started.” — Mark Twain</p>
                     </div>
                 </div>
-                <div class="card-footer mt-auto">
-
-                    <p><a href="https://www.linkedin.com/in/paulwagner1120/" class="aboutUs-link"><i class="fa fa-linkedin-square" style="font-size:24px"> Linkedin</i></a></p>
-                    <p><a href="https://github.com/paul-wagner1120" class="aboutUs-link"><i class="fa fa-github" style="font-size:24px"> Github</i></a></p>
-                    <p><a href="mailto:paul.wagner1120@gmail.com" class="aboutUs-link"><i class="fa fa-envelope" style="font-size:24px"> paul.wagner1120@gmail.com</i></a></p>
-                    <p><a href="https://alumni.codeup.com/students/1773"><button class="aboutUs-button top-nav-bg">Codeup Alumni Portal</button></a></p>
+                <div class="container">
+                    <div class="row mt-auto">
+                        <div class="card-footer">
+                            <p><a href="https://www.linkedin.com/in/paulwagner1120/" class="aboutUs-link"><i class="fa fa-linkedin-square" style="font-size:24px"> Linkedin</i></a></p>
+                            <p><a href="https://github.com/paul-wagner1120" class="aboutUs-link"><i class="fa fa-github" style="font-size:24px"> Github</i></a></p>
+                            <p><a href="mailto:paul.wagner1120@gmail.com" class="aboutUs-link"><i class="fa fa-envelope" style="font-size:24px"> paul.wagner1120@gmail.com</i></a></p>
+                            <p><a href="https://alumni.codeup.com/students/1773"><button class="aboutUs-button top-nav-bg">Codeup Alumni Portal</button></a></p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -40,9 +48,8 @@
     <div class="col-4 aboutUs-column ">
         <div class="aboutUs-card w-100">
             <div class="row">
-                <div class="col-6">
+                <div class="col-6 img-padding">
                     <img class="headshot" src="/static/img/isaac_img.jpg" th:src="@{img/isaac_img.jpg}"alt="Isaac">
-
                 </div>
                 <div class="col-6 aboutUs-container">
                     <h2 class="mt-1">Isaac Ramirez</h2>
@@ -51,11 +58,15 @@
                     <p>Isaac's quote of the day: "Rejoice in hope, be patient in tribulation, be constant in prayer" — Romans 12:12 </p>
                 </div>
             </div>
-            <div class="card-footer mt-auto">
-                <p><a href="https://www.linkedin.com/in/IsaacRamirez08" class="aboutUs-link"><i class="fa fa-linkedin-square" style="font-size:24px"> Linkedin</i></a></p>
-                <p><a href="http://www.GitHub.com/IsaacRamirez108" class="aboutUs-link"><i class="fa fa-github" style="font-size:24px"> Github</i></a></p>
-                <p><a href="mailto:isaac.ramirez7365@gmail.com" class="aboutUs-link"><i class="fa fa-envelope" style="font-size:24px"> Isaac.Ramirez7365@gmail.com</i></a></p>
-                <p><a href="https://alumni.codeup.com/students/1778"><button class="aboutUs-button top-nav-bg">Codeup Alumni Portal</button></a></p>
+            <div class="container">
+                <div class="row mt-auto">
+                    <div class="card-footer">
+                        <p><a href="https://www.linkedin.com/in/IsaacRamirez08" class="aboutUs-link"><i class="fa fa-linkedin-square" style="font-size:24px"> Linkedin</i></a></p>
+                        <p><a href="http://www.GitHub.com/IsaacRamirez108" class="aboutUs-link"><i class="fa fa-github" style="font-size:24px"> Github</i></a></p>
+                        <p><a href="mailto:isaac.ramirez7365@gmail.com" class="aboutUs-link"><i class="fa fa-envelope" style="font-size:24px"> Isaac.Ramirez7365@gmail.com</i></a></p>
+                        <p><a href="https://alumni.codeup.com/students/1778"><button class="aboutUs-button top-nav-bg">Codeup Alumni Portal</button></a></p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -65,9 +76,8 @@
     <div class="col-4 aboutUs-column ">
         <div class="aboutUs-card w-100">
             <div class="row">
-                <div class="col-6">
+                <div class="col-6 img-padding">
                     <img class="headshot" src="/static/img/Joshua-image.jpeg" th:src="@{img/Joshua-image.jpeg} "alt="Joshua">
-
                 </div>
                 <div class="col-6 aboutUs-container">
                     <h2 class="mt-1">Joshua Ramos</h2>
@@ -76,12 +86,17 @@
                     <p>Joshua's quote of the day: "Just because something doesn't do what you planned it to do doesn't mean it's useless."</p>
                 </div>
             </div>
-            <div class="card-footer mt-auto">
-                <p><a href="https://www.linkedin.com/in/josh-m-ramos/" class="aboutUs-link"><i class="fa fa-linkedin-square" style="font-size:24px"> Linkedin</i></a></p>
-                <p><a href="https://github.com/joshuamramos32" class="aboutUs-link"><i class="fa fa-github" style="font-size:24px"> Github</i></a></p>
-                <p><a href="mailto:joshua.m.ramos32@gmail.com" class="aboutUs-link"><i class="fa fa-envelope" style="font-size:24px"> joshua.m.ramos32@gmail.com</i></a></p>
-                <p><a href="https://alumni.codeup.com/students/1786"><button class="aboutUs-button top-nav-bg" >Codeup Alumni Portal</button></a></p>
+            <div class="container">
+                <div class="row mt-auto">
+                    <div class="card-footer">
+                        <p><a href="https://www.linkedin.com/in/josh-m-ramos/" class="aboutUs-link"><i class="fa fa-linkedin-square" style="font-size:24px"> Linkedin</i></a></p>
+                        <p><a href="https://github.com/joshuamramos32" class="aboutUs-link"><i class="fa fa-github" style="font-size:24px"> Github</i></a></p>
+                        <p><a href="mailto:joshua.m.ramos32@gmail.com" class="aboutUs-link"><i class="fa fa-envelope" style="font-size:24px"> joshua.m.ramos32@gmail.com</i></a></p>
+                        <p><a href="https://alumni.codeup.com/students/1786"><button class="aboutUs-button top-nav-bg" >Codeup Alumni Portal</button></a></p>
+                    </div>
+                </div>
             </div>
+
         </div>
     </div>
 </div>
