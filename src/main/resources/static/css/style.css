@@ -54,9 +54,7 @@ body {
     text-decoration: underline;
 }
 
-.logout-button:hover {
-    color: #F3F4F4;
-}
+
 
 footer {
 
@@ -74,9 +72,12 @@ footer {
 }
 
 .btn {
-
+    color: white;
     border: black;
     cursor: pointer;
+}
+.btn:hover{
+    color: white;
 }
 .view-club-btn{
 
@@ -92,14 +93,11 @@ footer {
 a {
     color: white;
 }
-
-a:hover {
-    color: #F3F4F4;
+a:hover{
+    color: white;
 }
 
-.btn:hover {
-    color: black;
-}
+
 
 .profile-container {
     display: flex;
@@ -201,9 +199,7 @@ a:hover {
 .bookclub-card-link{
     color: blue;
 }
-.bookclub-card-link:hover{
-    color: black;
-}
+
 
 .card-link:hover {
     color: blue
@@ -327,9 +323,7 @@ a:hover {
     color: dodgerblue;
 }
 
-.aboutUs-button:hover {
-    color: white;
-}
+
 .aboutUs-header{
     color: white;
     text-shadow: 2px 2px 4px black;

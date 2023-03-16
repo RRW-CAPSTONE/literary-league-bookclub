@@ -36,7 +36,7 @@
                         <ul>
                             <li th:each="club : ${user.clubs}" th:text="${club.title}"></li>
                         </ul>
-                        <a href="/clubs/create"><button type="button" class="footer-bg btn edit-modal" >Create Club</button></a>
+                        <a href="/clubs/create"><button type="button" class="footer-bg btn edit-modal top-nav-bg" >Create Club</button></a>
                     </div>
                     <div class="card col-6 m-1 view-club-creator-card view-club-opacity div-align-button-bottom">
                         <!--                        data goes here-->
@@ -44,7 +44,7 @@
                         <ul>
                             <li th:each="bookClub : ${bookClubs}" th:text="${bookClub.title}"></li>
                         </ul>
-                        <a href="/clubs"><button type="button" class="align-button-bottom edit-modal footer-bg btn">Bookclubs</button></a>
+                        <a href="/clubs"><button type="button" class="align-button-bottom edit-modal footer-bg btn top-nav-bg">Bookclubs</button></a>
                     </div>
                 </div>
             </div>

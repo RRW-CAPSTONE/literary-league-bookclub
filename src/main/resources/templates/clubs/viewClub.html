@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
 
 <head  th:replace="partials :: head('Individual Club')">
 </head>
 <!--style tag - add to css-->
 <body class="index-img">
-<div th:replace="~{partials :: navbar}"></div>
-
-<div class="main-container container">
+<div th:replace="partials :: navbar"></div>
+<div class=" container">
     <div class="row">
         <div class=" col-md-6 ">
             <div class="view-club-card card-body w-100 view-club-opacity">
@@ -28,7 +27,7 @@
                 <a sec:authorize="isAuthenticated()"
                    th:href="@{'/clubs/' + ${club.id} + '/edit'}"
                    th:if="${#authentication.principal.id == club.user.id}"
-                   class="footer-bg btn w-100 my-2 individual-club-edit-join-btn">Edit Club</a>
+                   class="footer-bg btn w-100 my-2 individual-club-edit-join-btn top-nav-bg">Edit Club</a>
             </div>
         </div>
     </div>
@@ -68,7 +67,7 @@
                     </div>
                 </div>
                 <form sec:authorize="isAuthenticated()" th:action="@{/clubDiscussion}" th:method="post">
-                    <a sec:authorize="isAuthenticated()" class="nav-brand footer-bg btn w-100 my-2" th:href="@{'/clubs/discussion/create' + '/' + ${club.id}}">Create Club Meeting!</a>
+                    <a sec:authorize="isAuthenticated()" class="nav-brand footer-bg btn top-nav-bg w-100 my-2" th:href="@{'/clubs/discussion/create' + '/' + ${club.id}}">Create Club Meeting!</a>
                             <input type="hidden" name="id" th:field="*{club.id}">
                         </form>
                     </div>
@@ -76,9 +75,10 @@
             </div>
         </div>
     </div>
+
     <div th:replace="~{partials :: footer}"></div>
     <div th:replace="~{partials :: scripts}"></div>
-</div>
+
 </body>
 </html>
 
