@@ -10,24 +10,24 @@
 <div class=" container">
     <div class="row">
         <div class=" col-sm-6 col-12 test">
-            <div class="view-club-card card-body w-100 view-club-opacity">
+            <div class="view-club-card card-body w-100 view-club-opacity d-flex flex-column">
                 <h1 th:text="${club.title}"></h1>
                 <p class="email-user-font-size" th:text="${club.description}"></p>
-                <form sec:authorize="isAuthenticated()" th:action="@{/clubs/join}" method="post">
+                <form class="mt-auto" sec:authorize="isAuthenticated()" th:action="@{/clubs/join}" method="post">
                     <input type="hidden" th:value="*{club.id}" name="clubId">
                     <button class="btn footer-bg w-100 my-2 individual-club-edit-join-btn top-nav-bg" type="submit">Join club</button>
                 </form>
             </div>
         </div>
         <div class="col-sm-6 col-12 test">
-            <div class="view-club-card card-body w-100 view-club-opacity">
+            <div class="view-club-card card-body w-100 view-club-opacity d-flex flex-column">
                 <h1 th:text="|${club.title} Creator|"></h1>
                 <h3 th:text="|Username: ${club.user.username}|"></h3>
                 <h3 th:text="|Email: ${club.user.email}|"></h3>
                 <a sec:authorize="isAuthenticated()"
                    th:href="@{'/clubs/' + ${club.id} + '/edit'}"
                    th:if="${#authentication.principal.id == club.user.id}"
-                   class="footer-bg btn w-100 my-2 individual-club-edit-join-btn top-nav-bg">Edit Club</a>
+                   class="mt-auto footer-bg btn w-100 my-2 individual-club-edit-join-btn top-nav-bg">Edit Club</a>
             </div>
         </div>
     </div>
