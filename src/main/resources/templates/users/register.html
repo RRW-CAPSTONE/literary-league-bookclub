@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 
-<head  th:replace="partials :: head('register')">
+<head  th:replace="partials :: head('Register')">
 </head>
 
 <body class="index-img">
@@ -10,8 +10,8 @@
 <div class="container">
     <div class="row mt-5">
         <div class="test">
-            <div class="card-body-bookclub view-club-opacity w-75" >
-                <form class="px-4 py-3"  th:action="@{/register}" th:method="POST" th:object="${user}">
+            <div class="card-body-bookclub view-club-opacity w-100">
+                <form class="px-4 py-3" th:action="@{/register}" th:method="POST" th:object="${user}">
                     <div class="mb-3">
                         <label for="email" class="form-label">Email address</label>
                         <input id="email" name="email" type="text" class="form-control" placeholder="email@example.com">
@@ -25,10 +25,10 @@
                         <input id="password" name="password" type="password" class="form-control" placeholder="Password">
                     </div>
                     <div class="mb-3">
-                        <label for="confirm_password" class="form-label">Password</label>
+                        <label for="confirm_password" class="form-label">Confirm Password</label>
                         <input id="confirm_password" name="confirm_password" type="password" class="form-control" placeholder="Confirm Password">
                     </div>
-                    <button type="submit" class="btn btn-primary">Sign up!</button>
+                    <button type="submit" class="btn btn-primary w-100">Sign up!</button>
                 </form>
             </div>
         </div>

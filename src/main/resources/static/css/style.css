@@ -1,352 +1,393 @@
-@media (min-width: 576px) {
-    body {
-        background-color: darkgrey;
-        color: black;
-        margin-bottom: 50px;
-        font-family: 'Goudy Bookletter 1911', serif;
-        font-size: 18px;
-
-
-
-    }
-
-    .navbar {
-        display: flex;
-        justify-content: center;
-        text-decoration: none;
-        color: black;
-        font-size: 22px;
-        text-align: center;
-    }
-    .img-pad{
-        margin:5px;
-    }
-    .top-logo{
-        display: flex;
-        justify-items: center;
-        padding: 10px;
-        text-align: center;
-        color: white;
-        font-size: 40px;
-
-    }
-    .nav-brand{
-        padding: 6px;
-    }
-    .top-nav-bg{
-        background: url("../img/woodphone.jpeg") ;
-        background-size: cover;
-    }
-    .img-circle {
-        display: flex;
-        justify-content: start;
-        border-radius: 50%;
-        border-style: solid;
-        border-color: snow;
-        visibility: visible;
-        height: auto;
-        width: 65px;
-    }
-
-
-    .logout-button {
-        color: white;
-        background-color: #71AACF;
-        border: transparent;
-        cursor: pointer;
-        text-decoration: underline;
-    }
-
-    .logout-button:hover {
-        color: #F3F4F4;
-    }
-
-    footer {
-
-        font-weight: bold;
-        color: #F3F4F4;
-        text-decoration: black;
-        text-shadow: 1px 1px 2px black;
-        font-size: 15px;
-    }
-
-
-
-    .book-description-modal{
-        height: 15em;
-    }
-
-    .btn {
-        background-color: #71AACF;
-        border: black;
-        cursor: pointer;
-    }
-    .view-club-btn{
-        background-color: #71AACF;
-        border: black;
-        cursor: pointer;
-        opacity: 1;
-    }
-    .edit-modal{
-        padding: 5px;
-        margin: 5px;
-    }
-
-    a {
-        color: white;
-    }
-
-    a:hover {
-        color: #F3F4F4;
-    }
-
-    .btn:hover {
-        color: #F3F4F4;
-    }
-
-    .profile-container {
-        display: flex;
-        justify-content: space-between;
-        margin: 20px;
-        height: auto;
-        background-color: transparent;
-    }
-    .profile-info {
-        margin-right: 20px;
-        padding: 5px;
-        width: 10rem;
-        height: calc(100vh - 170px);
-        border-style: solid;
-        border-color: black;
-        visibility: hidden;
-
-    }
-    .top-profile-body{
-        background-color: #e5e8ea;
-        border-style: solid;
-        visibility: visible;
-    }
-
-
-
-    .profile-club {
-        margin: 20px;
-        padding: 5px;
-        width: 75%;
-        height: 40%;
-
-    }
-
-    .profile-recent-info {
-        padding: 5px;
-        display: flex;
-        flex-direction: column;
-        width: calc(100% - 10rem - 40px);
-        height: calc(100vh - 170px);
-       visibility: hidden;
-    }
-    .card-body-profile{
-        border-top: black;
-        height: 428px;
-        background-color: #e5e8ea;
-        visibility: visible;
-        border-style: solid;
-        padding: 5px;
-        margin: 5px;
-    }
-    .card-body-bookclub{
-        background-color: #e5e8ea;
-        height: auto;
-        margin: 5px;
-        padding: 5px;
-        border-style: solid;
-        visibility: visible;
-
-    }
-    .card-body-recent{
-        background-color: #e5e8ea;
-        margin: 5px;
-        padding: 5px;
-        border-style: solid;
-        visibility: visible;
-    }
-    .index-all-clubs-banner{
-        color: white;
-        display: block;
-        text-align: center;
-        background-size: cover;
-        background-position: center;
-    }
-    .all-clubs-banner{
-        color: white;
-        display: block;
-        text-align: center;
-        background-size: cover;
-        background-position: center;
-    }
-    .bookClubImg-container{
-        background: url("https://i.ibb.co/QYjDn9d/openbook.png") no-repeat center center fixed;
-        background-size: cover;
-    }
-    .index-img{
-        background: url("../img/bookclub-index2.png") no-repeat center center fixed;
-        background-size: cover;
-    }
-
-    .aboutUs-img{
-        background-image: url("/static/img/isaac_img.jpg");
-    }
-
-    .bookclub-card-link{
-        color: blue;
-    }
-    .bookclub-card-link:hover{
-        color: black;
-    }
-
-    .card-link:hover {
-        color: blue
-    }
-    .individual-club-container{
-        margin: auto;
-    }
-
-    .individual-club-card {
-        flex-direction: row;
-        opacity:0.9;
-        background-color: transparent;
-        width: 18rem;
-        font-size: 18px;
-    }
-
-    .view-club-card {
-        flex-direction: row;
-        border-style: solid;
-        margin: 5px;
-        background-color: #e5e8ea;
-        width: 18rem;
-        font-size: 18px;
-        text-align: center;
-        visibility: visible;
-    }
-
-    .club-link:hover {
-        color: blue;
-    }
-
-    .signup{
-        color: blue;
-    }
-
-    .book-club {
-        width: 18rem;
-    }
-    .test{
-        display: flex;
-        justify-content: center;
-    }
-    .current-members-container{
-        padding: 5px;
-        justify-content: center;
-        justify-items: center;
-        height: 100%;
-    }
-    .current-members {
-        border-style: solid;
-        margin: 5px;
-        background-color: #e5e8ea;
-        width: 18rem;
-        font-size: 18px;
-        visibility: visible;
-    }
-    .view-club-container{
-        visibility: hidden;
-    }
-    .aboutUs-column {
-        float: left;
-        width: 33.3%;
-        margin-bottom: 2em;
-        padding: 0 8px;
-    }
-
-    .aboutUs-card {
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-        margin: 8px;
-        height: 100%;
-        background: white;
-        opacity: 0.9;
-    }
-    .headshot{
-        width: 50%;
-        height: 40%;
-    }
-
-    .aboutUs-container {
-        padding: 0 16px;
-    }
-
-    .aboutUs-container::after, .row::after {
-        content: "";
-        clear: both;
-        display: table;
-    }
-
-    .aboutUs-title {
-        color: grey;
-    }
-
-    .aboutUs-button {
-        border: none;
-        outline: 0;
-        display: inline-block;
-        padding: 8px;
-        color: black;
-        background-color: #71AACF;
-        text-align: center;
-        cursor: pointer;
-        width: 100%;
-    }
-    .aboutUs-link{
-        color: black;
-    }
-    .aboutUs-link:hover {
-        color: #71AACF;
-    }
-
-    .aboutUs-button:hover {
-        color: white;
-    }
-    .aboutUs-header{
-        color: white;
-        text-align:center;
-        margin: 1em;
-    }
-
-    .bookshelfinfo{
-        /*display: flex;*/
-        justify-content: center;
-        text-align: center;
-    }
-    .recently-created-clubs{
-        color: white;
-    }
-    .index-welcome-container{
-        margin: auto;
-        opacity:0.9;
-    }
-    .individual-club-edit-join-btn{
-        margin: auto;
-    }
-
-    .view-club-creator-card{
-        width: 35vw;
-    }
-
-    .view-club-opacity{
-        opacity: 0.9;
-    }
-
-    .all-clubs-title{
-        font-size: 35px;
-    }
+body {
+    background-color: darkgrey;
+    color: black;
+    margin-bottom: 50px;
+    font-family: 'Goudy Bookletter 1911', serif;
+    font-size: 18px;
 }
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    color: black;
+    font-size: 22px;
+    text-align: center;
+}
+.img-pad{
+    margin:5px;
+}
+.top-logo{
+    display: flex;
+    justify-items: center;
+    padding: 10px;
+    text-align: center;
+    color: white;
+    font-size: 40px;
+
+}
+.nav-brand{
+    padding: 6px;
+}
+.top-nav-bg{
+    background: url("../img/woodphone.jpeg") ;
+    background-size: cover;
+}
+.img-circle {
+    display: flex;
+    justify-content: start;
+    border-radius: 50%;
+    border-style: solid;
+    border-color: snow;
+    visibility: visible;
+    height: auto;
+    width: 65px;
+}
+
+
+.logout-button {
+    color: white;
+    background-color: transparent;
+    border: transparent;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.logout-button:hover {
+    color: #F3F4F4;
+}
+
+footer {
+
+    font-weight: bold;
+    color: #F3F4F4;
+    text-decoration: black;
+    text-shadow: 1px 1px 2px black;
+    font-size: 15px;
+}
+
+
+
+.book-description-modal{
+    height: 15em;
+}
+
+.btn {
+    background-color: #71AACF;
+    border: black;
+    cursor: pointer;
+}
+.view-club-btn{
+    background-color: #71AACF;
+    border: black;
+    cursor: pointer;
+    opacity: 1;
+}
+.edit-modal{
+    padding: 5px;
+    margin: 5px;
+}
+
+a {
+    color: white;
+}
+
+a:hover {
+    color: #F3F4F4;
+}
+
+.btn:hover {
+    color: #F3F4F4;
+}
+
+.profile-container {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+    height: auto;
+    background-color: transparent;
+}
+.profile-info {
+    margin-right: 20px;
+    padding: 5px;
+    width: 10rem;
+    height: calc(100vh - 170px);
+    border-style: solid;
+    border-color: black;
+    visibility: hidden;
+
+}
+.top-profile-body{
+    background-color: #e5e8ea;
+    border-style: solid;
+    visibility: visible;
+}
+
+
+
+.profile-club {
+    margin: 20px;
+    padding: 5px;
+    width: 75%;
+    height: 40%;
+
+}
+
+.profile-recent-info {
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    width: calc(100% - 10rem - 40px);
+    height: calc(100vh - 170px);
+    visibility: hidden;
+}
+.card-body-profile{
+    border-top: black;
+    height: 428px;
+    background-color: #e5e8ea;
+    visibility: visible;
+    border-style: solid;
+    padding: 5px;
+    margin: 5px;
+}
+.card-body-bookclub{
+    background-color: #e5e8ea;
+    height: auto;
+    margin: 5px;
+    padding: 5px;
+    border-style: solid;
+    visibility: visible;
+
+}
+.card-body-recent{
+    background-color: #e5e8ea;
+    margin: 5px;
+    padding: 5px;
+    border-style: solid;
+    visibility: visible;
+}
+.index-all-clubs-banner{
+    color: white;
+    display: block;
+    text-align: center;
+    background-size: cover;
+    background-position: center;
+}
+.club-text{
+    font-size: 48px;
+}
+.all-clubs-banner{
+    color: white;
+    display: block;
+    text-align: center;
+    text-shadow: 2px 2px 4px black;
+    background-size: cover;
+    background-position: center;
+}
+.bookClubImg-container{
+    background: url("https://i.ibb.co/QYjDn9d/openbook.png") no-repeat center center fixed;
+    background-size: cover;
+}
+.index-img{
+    background: url("../img/bookclub-index2.png") no-repeat center center fixed;
+    background-size: cover;
+}
+
+.aboutUs-img{
+    background-image: url("/static/img/isaac_img.jpg");
+}
+
+.bookclub-card-link{
+    color: blue;
+}
+.bookclub-card-link:hover{
+    color: black;
+}
+
+.card-link:hover {
+    color: blue
+}
+.individual-club-container{
+    margin: auto;
+}
+
+.individual-club-card {
+    flex-direction: row;
+    opacity:0.9;
+    background-color: transparent;
+    width: 18rem;
+    font-size: 18px;
+}
+
+.view-club-card {
+    flex-direction: row;
+    border-style: solid;
+    margin: 5px;
+    background-color: #e5e8ea;
+    width: 18rem;
+    font-size: 18px;
+    text-align: center;
+    visibility: visible;
+}
+
+.profile-middle-card{
+    border-style: solid;
+    margin: 5px;
+    background-color: #e5e8ea;
+    font-size: 24px;
+    visibility: visible;
+}
+
+.profile-mid-card-title{
+    text-align: center;
+    font-size: 36px;
+}
+
+.club-link:hover {
+    color: blue;
+}
+
+.signup{
+    color: blue;
+}
+
+.book-club {
+    width: 18rem;
+}
+.test{
+    display: flex;
+    justify-content: center;
+}
+.current-members-container{
+    padding: 5px;
+    justify-content: center;
+    justify-items: center;
+    height: 100%;
+}
+.current-members {
+    border-style: solid;
+    margin: 5px;
+    background-color: #e5e8ea;
+    width: 18rem;
+    font-size: 18px;
+    visibility: visible;
+}
+.view-club-container{
+    visibility: hidden;
+}
+.aboutUs-column {
+    float: left;
+    width: 33.3%;
+    margin-bottom: 2em;
+    padding: 0 8px;
+}
+
+.aboutUs-card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    margin: 8px;
+    height: 100%;
+    background: white;
+    opacity: 0.9;
+}
+.headshot{
+    width: 50%;
+    height: 40%;
+}
+
+.aboutUs-container {
+    padding: 0 16px;
+}
+
+.aboutUs-container::after, .row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.aboutUs-title {
+    color: grey;
+}
+
+.aboutUs-button {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 8px;
+    color: black;
+    background-color: #71AACF;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+}
+.aboutUs-link{
+    color: black;
+}
+.aboutUs-link:hover {
+    color: #71AACF;
+}
+
+.aboutUs-button:hover {
+    color: white;
+}
+.aboutUs-header{
+    color: white;
+    text-shadow: 2px 2px 4px black;
+    text-align:center;
+    margin: 1em;
+}
+
+.bookshelfinfo{
+    /*display: flex;*/
+    justify-content: center;
+    text-align: center;
+}
+.recently-created-clubs{
+    color: white;
+}
+.index-welcome-container{
+    margin: auto;
+    opacity:0.9;
+}
+.individual-club-edit-join-btn{
+    margin: auto;
+}
+
+.view-club-creator-card{
+    width: 32vw;
+}
+
+.view-club-opacity{
+    opacity: 0.9;
+}
+
+.all-clubs-title{
+    font-size: 35px;
+}
+
+.profile-top-card{
+    width: 20vw;
+    margin: auto;
+}
+
+.email-user-font-size{
+    font-size: 24px;
+}
+
+.align-button-bottom{
+    position: absolute;
+    bottom: 0;
+    left: 15px;
+}
+
+.div-align-button-bottom{
+    position: relative;
+}
+    /*.recent-card-index{*/
+    /*    width: 100%;*/
+    /*}*/
+    /*.index-joinclub-card{*/
+    /*    width: 70%;*/
+    /*}*/
+
+
+

@@ -2,17 +2,17 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 
-<head div th:replace="partials :: head('Literary_League')">
+<head div th:replace="partials :: head('Home')">
     <meta charset="UTF-8">
     <title>Literary League</title>
 </head>
 <body class="index-img">
 <div th:replace="partials :: navbar"></div>
 
-    <!--Welcome Description Box Container-->
-    <center><div class="container">
-        <div class="col-lg-8 mb-4 mt-3 index-welcome-container">
-           <div class="card" style="width: 70%;">
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-md-12 mb-4 mt-3 index-welcome-container">
+            <div class="card" style="width: 100%;">
                 <div class="card-body">
                     <a href="/clubs/{id} " class="index-all-clubs-banner">
                         <h1 style="color: black;">Join a Book Club Today!!!</h1>
@@ -20,39 +20,36 @@
                 </div>
             </div>
         </div>
+    </div>
 
-        <div class="row">
-            <div class="col-lg-8 mb-4 mt-3 index-welcome-container">
-                <div class="card" style="width: 100%;">
-                    <div class="card-body">
-                        <h5 class="card-title">WELCOME TO LITERARY LEAGUE</h5>
-                        <p class="card-text">Thanks for visiting the Literary League book club finder! Here you will be
-                            able to find and connect with different book clubs based on your book preferences. Visit our
-                            book club page to see all active book clubs! Stumped on what book you want to read? Visit
-                            our book search to search for different books and read a short description about the
-                            book!
-                        </p>
-                    </div>
+    <div class="row">
+        <div class="col-lg-8 col-md-12 mb-4 mt-3 index-welcome-container">
+            <div class="card" style="width: 100%;">
+                <div class="card-body">
+                    <h5 class="card-title">WELCOME TO LITERARY LEAGUE</h5>
+                    <p class="card-text">Thanks for visiting the Literary League book club finder! Here you will be
+                        able to find and connect with different book clubs based on your book preferences. Visit our
+                        book club page to see all active book clubs! Stumped on what book you want to read? Visit
+                        our book search to search for different books and read a short description about the
+                        book!
+                    </p>
                 </div>
             </div>
         </div>
+    </div>
 
-        <!--Book Club Cards-->
-        <div class="container">
-            <div class="col-lg-12 mb-8 mt-6 index-welcome-container">
-                <div class="card" style="width: 100%;">
-                    <div class="card-body">
-                        <div class="row">
-                            <h2 class="recently-created-clubs" style="color: black">Recently Created Clubs:</h2>
-                            <div class="col-3" th:each="club : ${last4}">
-                                <div class="card h-100">
-                                    <div class="card-body">
-                                        <div class="row">
-<!--                                            <h4><strong>Club Name:</strong></h4>-->
-                                            <center><h4 class="card-title" th:text="${club.title}"></h4></center>
-                                            <center><img th:src="${club.current_book.imgUrl}" alt=""></center>
-                                        </div>
-                                    </div>
+    <!--Book Club Cards-->
+    <div class="row">
+        <div class="col-lg-12 col-md-12 mb-8 mt-6 index-welcome-container">
+            <div class="card " style="width: 100%;">
+                <div class="card-body">
+                    <h2 class="recently-created-clubs" style="color: black">Recently Created Clubs:</h2>
+                    <div class="row">
+                        <div class="col-md-3 col-sm-6" th:each="club : ${last4}">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <h4 class="card-title" th:text="${club.title}"></h4>
+                                    <center><img class="img-fluid" th:src="${club.current_book.imgUrl}" alt=""></center>
                                 </div>
                             </div>
                         </div>
@@ -60,9 +57,10 @@
                 </div>
             </div>
         </div>
-    </div>  </center>
+    </div>
 
-<br>
+</div>
+
 <div th:replace="partials :: footer"></div>
 
 </body>
