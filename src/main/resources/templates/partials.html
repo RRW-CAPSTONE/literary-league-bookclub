@@ -18,11 +18,11 @@
 <th:block th:fragment="navbar">
 
     <div class="top-nav-bg">
-        <nav class=" navbar navbar-light navbar-expand-lg  container">
+        <nav class=" navbar navbar1 navbar-light navbar-expand-lg  container">
             <div class="d-flex justify-content-center container-fluid navbar-nav me-auto mb-2 mb-lg-0">
                 <a class="nav-brand logo" href="/">Literary League</a>
                 <a class="nav-brand" href="/aboutus">About Us</a>
-                <img class="img-circle"   src="../static/img/logo.png" alt="LL" th:src="@{img/logo.png}"/>
+                <img class="img-circle"   src="../static/img/logo.png" alt="LL" th:src="@{/img/logo.png}"/>
                 <a class="nav-brand" href="/books">Books</a>
                 <a class="nav-brand" href="/clubs">Clubs</a>
                 <a sec:authorize="!isAuthenticated()" class="nav-brand" href="/register">Register</a>
